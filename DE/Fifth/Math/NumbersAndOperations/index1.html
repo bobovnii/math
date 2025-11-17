@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>DE — Number Line Quiz (TriggerUE4EventWithTag)</title>
+
+<!-- =========================
+     UE EVENT HELPER (TriggerUE4EventWithTag)
+     ========================= -->
+<script>
+  // Minimal bridge identical in spirit to your working test file
+  var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent));
+  var websocket = null, websocketConnected = false, isConnectingPort = false, mobileActionsStack = [];
+
+  function sendAndClearStack(){
+    try { while (mobileActionsStack.length) websocket.send(mobileActionsStack.shift()); } catch(e){}
+  }
+  function openWebsocket(port){
+    if (!port || isConnectingPort === port) return;
+    isConnectingPort = port;
+    if (websocket && websocketConnected && websocket.readyState === WebSocket.OPEN) return;
+    var ws = 'ws://127.0.0.1:' + port + '/ue4?';
+    try { websocket = new WebSocket(ws); } catch(e){ isConnectingPort = false; return; }
+    websocket.onopen = function(){ websocketConnected = true; isConnectingPort = false; setTimeout(sendAndClearStack, 1000); };
+    websocket.onerror = websocket.onclose = function(){ websocketConnected = false; isConnectingPort = false; };
+  }
+  function getParameter(a){
+    var o={functionsName:'',id:'',className:'',value:'',args:''},t=[];
+    if(a.length>0){
+      for(var i=1;i<=a.length;i++){
+        var p=a[i];
+        if(typeof p==='object'&&p){
+          o.id=p.id||'';
+          o.className=typeof p.className==='string'?p.className:(p.className&&p.className.baseVal)||'';
+          o.value=(p.value!=null)?String(p.value):'';
+        }else{t.push(p);}
+      }
+    }
+    o.functionsName=a[0];o.args=t.join('.;_|');return o;
+  }
+  function triggerUE4EventWithTag(){ /* right / wrong / back */
+    var o=getParameter(Array.prototype.slice.call(arguments,0));
+    if(isMobile){
+      var data64="UE4HTMLMenuUE4ConnectorOnUrlChangeue4EventName'();:triggerue4eventwithtag'();:"+o.functionsName+"'();:"+o.id+"'();:"+o.className+"'();:"+o.value+"'();:"+o.args;
+      if(websocketConnected && websocket && websocket.readyState===WebSocket.OPEN) websocket.send("#js"+data64);
+      else mobileActionsStack.push("#js"+data64);
+    } else if (window.ue && window.ue.uecom && typeof window.ue.uecom.triggerue4eventwithtag==="function"){
+      window.ue.uecom.triggerue4eventwithtag(o.functionsName,o.id,o.className,o.value,o.args);
+    }
+  }
+
+  // Optional: prevent user zoom (keeps fixed scale under UE)
+  window.addEventListener('wheel', e => { if (e.ctrlKey || e.metaKey) e.preventDefault(); }, { passive:false });
+  window.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key==='+'||e.key==='-'||e.key==='='||e.key==='0')) e.preventDefault();
+  }, { passive:false });
+
+  document.addEventListener('DOMContentLoaded',function(){
+    if(isMobile){
+      var p=(window.location && window.location.port) ? parseInt(window.location.port,10) : 0;
+      if (p) openWebsocket(p);
+    }
+  });
+</script>
+
+<!-- =========================
+     THEME & LAYOUT (unchanged)
+     ========================= -->
+<style>
+  :root {
+    --scene-w: 1440px;     /* base design size (edited in JS) */
+    --scene-h: 820px;
+    --gap: 18px;
+    --radius: 22px;
+
+    --c-text: #f2f3f7;
+    --c-header-bg: rgba(181,174,123,.35);
+    --c-panel-bg: rgba(102,142,196,.35);
+    --c-panel-border: rgba(255,255,255,.12);
+    --c-card-bg: #1e4f8d;
+    --c-card-border: rgba(255,255,255,.18);
+    --c-accent1: #ffa726;
+    --c-accent2: #ff7043;
+    --c-back: #2f6fb9;
+    --c-ok: #14a44d;
+    --c-bad: #e53935;
+
+    --fs-title: 34px;
+    --fs-if: 36px;
+    --fs-card: 28px;
+    --fs-back: 34px;
+    --font: "Trebuchet MS", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: transparent;      /* keep Unreal background visible */
+    color: var(--c-text);
+    font-family: var(--font);
+    overflow: hidden;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Centered, scaled scene (keeps exact layout at any window size) */
+  #scene {
+    position: fixed; left: 0; top: 0;
+    width: var(--scene-w); height: var(--scene-h);
+    transform-origin: 0 0;
+    will-change: transform;
+    pointer-events: auto;
+  }
+
+  .app {
+    position: relative; width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;                 /* two fixed columns */
+    grid-template-rows: auto 1fr auto;              /* header, content, footer */
+    column-gap: var(--gap);
+    row-gap: var(--gap);
+    padding: var(--gap);
+  }
+
+  .header {
+    grid-column: 1;
+    background: var(--c-header-bg);
+    border: 2px solid var(--c-panel-border);
+    border-radius: var(--radius);
+    padding: 14px 22px;
+    box-shadow: inset 0 6px 20px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.25);
+  }
+  .title { margin: 0 0 4px 0; font-weight: 900; font-size: var(--fs-title); line-height: 1.1; text-shadow: 1px 2px 0 #182233; }
+  .subtitle { color: #ffb74d; font-weight: 800; }
+
+  .panel {
+    grid-column: 2 / span 1; grid-row: 1 / span 2;
+    display: grid; grid-template-rows: auto 1fr auto;
+    background: var(--c-panel-bg);
+    border-radius: var(--radius);
+    border: 2px solid var(--c-panel-border);
+    box-shadow: inset 0 10px 18px rgba(0,0,0,.35);
+    padding: 16px; min-height: 0;
+  }
+  .if-row { text-align: center; font-size: var(--fs-if); font-weight: 900; color: var(--c-accent1); text-shadow: 1px 2px 0 #2c2c2c; }
+  .if-row b { color: var(--c-accent2); }
+  .canvas-wrap { display: grid; place-items: center; min-height: 0; }
+  svg { width: 640px; max-width: 100%; height: auto; }
+  .panel-footer { text-align: center; text-transform: uppercase; font-weight: 900; letter-spacing: .7px; padding: 12px 8px; margin: 6px; background: rgba(0,0,20,.35); border-radius: 12px; font-size: 20px; }
+
+  .answers {
+    grid-column: 1; grid-row: 2;
+    display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);
+    gap: var(--gap); min-height: 0;
+  }
+  .card {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--c-card-bg); color: #fff;
+    border-radius: 26px; border: 3px solid var(--c-card-border);
+    text-align: center;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,.06), 0 10px 18px rgba(0,0,0,.30);
+    cursor: pointer;
+    transition: transform .09s, box-shadow .12s, filter .12s, border-color .12s;
+    padding: 10px;
+  }
+  .card span { display: block; font-size: var(--fs-card); font-weight: 900; letter-spacing: .3px; text-shadow: 0 1px 0 rgba(0,0,0,.25); line-height: 1.15; }
+  .card:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .card.selected { border-color: #ffd54f; box-shadow: 0 14px 24px rgba(255,213,79,.28); }
+
+  .flash { position: fixed; inset: 0; pointer-events: none; opacity: 0; transition: opacity 140ms ease-out; }
+  .flash.show { opacity: .35; }
+  .flash.ok { background: var(--c-ok); }
+  .flash.bad { background: var(--c-bad); }
+</style>
+</head>
+<body>
+  <!-- =========================
+       SCENE (unchanged)
+       ========================= -->
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <!-- EDIT #1 – TOPIC TEXT -->
+        <h1 id="title" class="title">Representing numbers on a number line</h1>
+        <div id="subtitle" class="subtitle">Education \ DE \ Fifth \ Math \ Numbers & Operations — Number line</div>
+      </header>
+
+      <section id="answers" class="answers"></section>
+
+      <aside class="panel">
+        <div id="ifRow" class="if-row">IF <b id="ifA">{A}</b> IS <b id="ifB">{B}</b></div>
+        <div class="canvas-wrap"><div id="iconContainer" aria-hidden="true"></div></div>
+        <div id="panelFoot" class="panel-footer">Tap an answer. Correct = next task.</div>
+      </aside>
+    </div>
+  </div>
+
+<script>
+/* ============================================================
+   EDIT #2 – SETTINGS (fixed scene + behavior)
+   ============================================================ */
+const DESIGN_W = 1440, DESIGN_H = 820;
+const SCALE_TWEAK = 0.90;
+const RANDOMIZE_QUESTIONS = true;
+const RANDOMIZE_OPTIONS = true;
+
+/* ============================================================
+   EDIT #3 – QUESTION BANK (10 tasks, 6 options, 1 correct)
+   Topic: Representing numbers on a number line
+   - type "integer"/"natural" => number line (−5..5 or 0..10)
+   - type "decimal"           => bar (0..1)
+   - type "fraction"          => pie (0..1)
+   ============================================================ */
+const QUESTIONS = [
+  { type:"integer", ifA:"-3", ifB:"which number is to its right?", instruction:"Pick the number located to the right of −3 on the number line.",
+    prompt:"Which number is to the right of −3?",
+    options:["−5","−4","−3.5","−2","−6","−7"], correctIndex:3 },
+
+  { type:"integer", ifA:"1.25", ifB:"which number lies between 1.2 and 1.3?", instruction:"Choose a number that lies between 1.2 and 1.3.",
+    prompt:"Which number lies between 1.2 and 1.3?",
+    options:["1.19","1.25","1.31","1.4","1.1","1.35"], correctIndex:1 },
+
+  { type:"integer", ifA:"-1", ifB:"which is greatest?", instruction:"Select the greatest (rightmost) value on the number line.",
+    prompt:"Which is the greatest?",
+    options:["−4","−1","−2","−3","−5","−6"], correctIndex:1 },
+
+  { type:"fraction", ifA:"3/4", ifB:"which decimal matches the point?", instruction:"Pick the decimal equal to the shown fraction/position.",
+    prompt:"Which decimal equals 3/4?",
+    options:["0.34","0.7","0.5","0.75","0.66","0.8"], correctIndex:3 },
+
+  { type:"integer", ifA:"-5", ifB:"what is its distance from 0?", instruction:"Choose the absolute value |−5| as distance from 0 on the number line.",
+    prompt:"What is |−5|?",
+    options:["−5","5","0","−1","10","4"], correctIndex:1 },
+
+  { type:"integer", ifA:"-0.1", ifB:"which number is left of 0?", instruction:"Pick a number strictly to the left of 0.",
+    prompt:"Which number is to the left of 0?",
+    options:["0.2","−0.1","0.05","0.1","2","3"], correctIndex:1 },
+
+  { type:"decimal", ifA:"-0.5", ifB:"which fraction equals it?", instruction:"Pick the fraction equal to −0.5.",
+    prompt:"Which fraction equals −0.5?",
+    options:["−1/2","−2/3","−3/5","1/2","1/5","−1/4"], correctIndex:0 },
+
+  { type:"integer", ifA:"-1.5", ifB:"which number is between −2 and −1?", instruction:"Choose a number between −2 and −1.",
+    prompt:"Which number is between −2 and −1?",
+    options:["−2.1","−1.5","−0.9","−3","0","−1.9"], correctIndex:1 },
+
+  { type:"integer", ifA:"3", ifB:"which inequality is true?", instruction:"Decide which inequality is true on the number line.",
+    prompt:"Which inequality is true?",
+    options:["2 > 4","4 < 2","2 = 4","2 < 4","4 = 2","−2 > 4"], correctIndex:3 },
+
+  { type:"decimal", ifA:"-0.05", ifB:"which is closest to 0?", instruction:"Pick the number with the smallest distance from 0.",
+    prompt:"Which number is closest to 0?",
+    options:["−0.2","0.3","−0.05","0.1","−0.9","0.25"], correctIndex:2 }
+];
+
+/* =========================
+   (NO EDITS BELOW THIS LINE)
+   ========================= */
+
+// Fit & center the fixed scene
+(function fitInit(){
+  document.documentElement.style.setProperty('--scene-w', DESIGN_W + 'px');
+  document.documentElement.style.setProperty('--scene-h', DESIGN_H + 'px');
+  const scene = document.getElementById('scene');
+  function fit(){
+    const vw = document.documentElement.clientWidth;
+    const vh = document.documentElement.clientHeight;
+    const scale = Math.min(vw / DESIGN_W, vh / DESIGN_H) * SCALE_TWEAK;
+    const x = Math.max(0, (vw - DESIGN_W * scale) / 2);
+    const y = Math.max(0, (vh - DESIGN_H * scale) / 2);
+    scene.style.transform = 'translate(' + Math.floor(x) + 'px,' + Math.floor(y) + 'px) scale(' + scale + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+
+// Shuffle helper (Fisher–Yates)
+function shuffle(arr){
+  for (let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Build question set (randomization based on flags)
+const BANK = (RANDOMIZE_QUESTIONS ? shuffle(QUESTIONS.slice()) : QUESTIONS.slice()).map(q => {
+  if (!RANDOMIZE_OPTIONS) return { ...q };
+  const order = q.options.map((_, i) => i);
+  shuffle(order);
+  const options = order.map(i => q.options[i]);
+  const correctIndex = order.indexOf(q.correctIndex);
+  return { ...q, options, correctIndex };
+});
+
+// Visualization helpers
+function parseFraction(str){ const m=String(str).trim().match(/^(-?\d+)\s*\/\s*(-?\d+)$/); if(!m) return null; const a=parseFloat(m[1]), b=parseFloat(m[2]); if(!isFinite(a)||!isFinite(b)||b===0) return null; return {a,b,value:a/b}; }
+function parseDecimal(str){ const n=Number(String(str).replace(',', '.')); return Number.isFinite(n)?n:null; }
+function parseNumberStrict(str){ const n=Number(String(str).replace(',', '.')); return Number.isFinite(n)?n:null; }
+
+function svgNumberLine(value,{min=-5,max=10,emphasizeZero=false}={}) {
+  const v=Math.max(min,Math.min(max,value)); const map=x=>20+(x-min)*(200/(max-min)); const px=map(v), zx=map(0);
+  let ticks=""; for(let i=0;i<=max-min;i++){ const x=min+i, X=map(x), h=(x%5===0)?18:10; ticks+=`<line x1="${X}" y1="${100-h}" x2="${X}" y2="${100+h}" stroke="#cfe2ff" stroke-width="2"/>`; if(x%5===0) ticks+=`<text x="${X}" y="130" text-anchor="middle" font-size="14" fill="#cfe2ff">${x}</text>`; }
+  return `<svg viewBox="0 0 240 160" role="img" aria-label="Number line">
+    <line x1="20" y1="100" x2="220" y2="100" stroke="#e1edff" stroke-width="4"/>${ticks}
+    ${emphasizeZero?`<circle cx="${zx}" cy="100" r="8" fill="#ffecb3" stroke="#ffc107" stroke-width="3"/>`:''}
+    <circle cx="${px}" cy="100" r="10" fill="#cfe9ff" stroke="#e3f2fd" stroke-width="4"/></svg>`;
+}
+function svgPie(value){
+  const v=Math.max(0,Math.min(1,value)); const cx=120, cy=120, r=84; const a=2*Math.PI*v-Math.PI/2; const x=cx+r*Math.cos(a), y=cy+r*Math.sin(a); const large=v>0.5?1:0;
+  return `<svg viewBox="0 0 240 240" role="img" aria-label="Fraction pie">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#f0f4ff" stroke-width="8"/>
+    <path d="M ${cx} ${cy - r} A ${r} ${r} 0 ${large} 1 ${x} ${y} L ${cx} ${cy} Z" fill="#90caf9" stroke="#e3f2fd" stroke-width="2"/></svg>`;
+}
+function svgBar(value){
+  const v=Math.max(0,Math.min(1,value)); const w=200,h=28,x=20,y=100,fill=2+v*(w-4);
+  let grid=""; for(let i=0;i<10;i++){ const gx=x+(i+1)*(w/10); grid+=`<line x1="${gx}" y1="${y}" x2="${gx}" y2="${y+h}" stroke="#cfe2ff" stroke-width="1"/>`; }
+  return `<svg viewBox="0 0 240 160" role="img" aria-label="Decimal bar">
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" ry="8" fill="none" stroke="#f0f4ff" stroke-width="4"/>
+    <rect x="${x+2}" y="${y+2}" width="${fill}" height="${h-4}" rx="6" ry="6" fill="#90caf9" stroke="#e3f2fd" stroke-width="2"/>${grid}</svg>`;
+}
+function iconByType(q){
+  const frac=parseFraction(q.ifA)||parseFraction(q.prompt), dec=parseDecimal(q.ifA), num=parseNumberStrict(q.ifA);
+  if(q.type==="natural"){ const v=num??7; return svgNumberLine(v,{min:0,max:10}); }
+  if(q.type==="integer"){ const v=(num!=null)?num:0; return svgNumberLine(v,{min:-5,max:5}); }
+  if(q.type==="decimal"){ let v=0.5; if(frac) v=Math.max(0,Math.min(1,Math.abs(frac.value))); else if(dec!==null) v=Math.max(0,Math.min(1,Math.abs(dec))); return svgBar(v); }
+  if(q.type==="fraction"){ let v=.6; if(frac) v=Math.max(0,Math.min(1,Math.abs(frac.value))); else if(dec!==null) v=Math.max(0,Math.min(1,Math.abs(dec))); return svgPie(v); }
+  if(q.type==="mixed"){ return svgNumberLine(0,{min:-5,max:5,emphasizeZero:true}); }
+  return svgNumberLine(0,{min:-5,max:5});
+}
+
+// Render & events
+let index = 0;
+const answersEl = document.getElementById('answers');
+const ifA = document.getElementById('ifA');
+const ifB = document.getElementById('ifB');
+const iconContainer = document.getElementById('iconContainer');
+const panelFoot = document.getElementById('panelFoot');
+const flash = document.getElementById('flash');
+
+function renderQuestion(){
+  const q = BANK[index];
+  ifA.textContent = q.ifA; ifB.textContent = q.ifB;
+  iconContainer.innerHTML = iconByType(q);
+  panelFoot.textContent = q.instruction;
+
+  answersEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const card = document.createElement('button');
+    card.className = 'card';
+    card.innerHTML = `<span>${opt}</span>`;
+    card.onclick = () => {
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+
+      const correct = (i === q.correctIndex);
+      // strict UE events via your bridge:
+      triggerUE4EventWithTag(correct ? 'right' : 'wrong', card, 'param');
+
+      flash.className = 'flash ' + (correct ? 'ok' : 'bad') + ' show';
+      setTimeout(() => { flash.classList.remove('show'); }, 240);
+      if (correct){
+        setTimeout(() => { index = (index + 1) % BANK.length; renderQuestion(); }, 340);
+      }
+    };
+    answersEl.appendChild(card);
+  });
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
