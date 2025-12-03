@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Multiple-choice quiz using shared template_6buttons assets. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>DE — Multi-Step Arithmetic Quiz (TriggerUE4EventWithTag)</title>
+<link rel="stylesheet" href="../../templates/template_6buttons.css" />
+<script>
+  window.QUIZ_CONFIG = {
+    title: 'Mastering multi-step operations',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: [
+      { prompt:"What is 356 + 287?", instruction:"Add the two numbers.", options:["543","633","643","651","437","734"], correctIndex:2 },
+      { prompt:"What is 940 - 275?", instruction:"Subtract carefully to find the difference.", options:["655","665","675","595","775","645"], correctIndex:1 },
+      { prompt:"What is 24 × 15?", instruction:"Multiply the factors to get the product.", options:["340","360","260","365","300","420"], correctIndex:1 },
+      { prompt:"What is 540 ÷ 6?", instruction:"Divide evenly to find the quotient.", options:["60","90","80","70","100","95"], correctIndex:1 },
+      { prompt:"What is 3,450 rounded to the nearest hundred?", instruction:"Round 3,450 to the nearest hundred.", options:["3,400","3,500","3,600","3,550","3,050","3,350"], correctIndex:1 },
+      { prompt:"What is 4 + 5 × 3?", instruction:"Apply order of operations (multiplication before addition).", options:["27","19","45","29","34","17"], correctIndex:1 },
+      { prompt:"Which decimal equals 3/4?", instruction:"Convert the fraction to a decimal.", options:["0.6","0.75","0.45","0.8","0.7","0.5"], correctIndex:1 },
+      { prompt:"Which fraction equals 0.4?", instruction:"Write the decimal as a simplified fraction.", options:["2/3","2/5","1/5","4/5","3/8","5/6"], correctIndex:1 },
+      { prompt:"What is the value of the digit 6 in 6,482?", instruction:"Identify the place value of the highlighted digit.", options:["6,000","600","60","60,000","6","6,600"], correctIndex:0 },
+      { prompt:"What is 2,5 + 1,2?", instruction:"Align decimal places before adding.", options:["3,2","3,5","3,7","3,9","4,2","3,4"], correctIndex:2 }
+    ]
+  };
+</script>
+<script src="../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Mastering multi-step operations</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap an answer. Correct = next task.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

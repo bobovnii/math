@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Column addition practice using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Column Add & Check</title>
+<link rel="stylesheet" href="../../templates/template_12buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('de-DE'); }
+  function buildQuestions(count = 10){
+    return Array.from({ length: count }, () => {
+      const a = Math.floor(Math.random() * 9000) + 1000;
+      const b = Math.floor(Math.random() * 9000) + 1000;
+      return {
+        prompt: `What is ${formatNumber(a)} + ${formatNumber(b)}?`,
+        instruction: 'Add the numbers and type the sum.',
+        answer: String(a + b)
+      };
+    });
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Column Add & Check',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",",","Clear"],
+    maxInputLength: 10,
+    buildQuestions
+  };
+</script>
+<script src="../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Column Add & Check</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer using the keypad</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Keep typing or tap Check.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

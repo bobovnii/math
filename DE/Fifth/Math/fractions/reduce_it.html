@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Fraction simplification using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Reduce It</title>
+<link rel="stylesheet" href="../../templates/template_6buttons.css" />
+<script>
+  function gcd(a,b){ return b === 0 ? a : gcd(b, a % b); }
+  function buildQuestions(count = 8){
+    const qs = [];
+    for (let i = 0; i < count; i++){
+      const baseNum = Math.floor(Math.random() * 7) + 2; // 2..8
+      const baseDen = Math.floor(Math.random() * 7) + 3; // 3..9
+      const factor = Math.floor(Math.random() * 4) + 2; // 2..5
+      const num = baseNum * factor;
+      const den = baseDen * factor;
+      const divisor = gcd(num, den);
+      const simplified = `${num / divisor}/${den / divisor}`;
+      const options = new Set([simplified]);
+      options.add(`${num}/${den}`);
+      options.add(`${(num / factor)}/${(den / factor)}`);
+      options.add(`${(num / factor)}/${den}`);
+      options.add(`${num}/${(den / factor)}`);
+      options.add(`${(num / divisor) + 1}/${den / divisor}`);
+      while (options.size < 6){
+        options.add(`${(num / divisor)}/${(den / divisor) + Math.floor(Math.random()*3)}`);
+      }
+      const list = Array.from(options).slice(0,6);
+      const correctIndex = list.indexOf(simplified);
+      qs.push({
+        prompt: `Simplify ${num}/${den}.`,
+        instruction: 'Pick the fraction in lowest terms.',
+        options: list,
+        correctIndex
+      });
+    }
+    return qs;
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Reduce It',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: buildQuestions()
+  };
+</script>
+<script src="../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Reduce It</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap an answer. Correct = next task.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

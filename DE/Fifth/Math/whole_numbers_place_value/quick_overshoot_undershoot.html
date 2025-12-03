@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Estimation practice using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Quick Overshoot or Undershoot</title>
+<link rel="stylesheet" href="../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('de-DE'); }
+  function roundHundreds(n){ return Math.round(n / 100) * 100; }
+  function buildQuestions(count = 8){
+    const qs = [];
+    for (let i = 0; i < count; i++){
+      const a = Math.floor(Math.random() * 900) + 100;
+      const b = Math.floor(Math.random() * 900) + 100;
+      const estimate = roundHundreds(a) + roundHundreds(b);
+      const exact = a + b;
+      const nearLow = estimate - 100;
+      const nearHigh = estimate + 100;
+      const opts = new Set([estimate, exact, nearLow, nearHigh, exact - 50, exact + 50]);
+      while (opts.size < 6){ opts.add(estimate + (Math.floor(Math.random() * 5) - 2) * 50); }
+      const options = Array.from(opts).slice(0,6).map(formatNumber);
+      const correctIndex = options.indexOf(formatNumber(estimate));
+      qs.push({
+        prompt: `Estimate ${formatNumber(a)} + ${formatNumber(b)} by rounding to hundreds.`,
+        instruction: 'Choose the best estimate (rounded).',
+        options,
+        correctIndex
+      });
+    }
+    return qs;
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Quick Overshoot/Undershoot',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: buildQuestions()
+  };
+</script>
+<script src="../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Quick Overshoot/Undershoot</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap an answer. Correct = next task.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

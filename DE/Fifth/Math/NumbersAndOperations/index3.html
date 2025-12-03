@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Formula builder using shared template_9buttons assets. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>DE — Geometry Formula Builder (TriggerUE4EventWithTag)</title>
+<link rel="stylesheet" href="../../templates/template_9buttons.css" />
+<script>
+  window.QUIZ_CONFIG = {
+    title: 'Building basic geometric formulas',
+    name: 'Perimeter of a rectangle',
+    description: 'Hint: U is perimeter, a and b are the rectangle sides.',
+    placeholder: 'Tap symbols to build the formula',
+    tokens: ["U","=","2","×","(","a","+","b",")"],
+    normalize: (str) => str.replace(/\s+/g,'')
+  };
+</script>
+<script src="../../templates/template_9buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Building basic geometric formulas</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="panel-heading">
+          <div id="formulaName" class="panel-topic"></div>
+          <p id="panelDescription" class="panel-description"></p>
+        </div>
+        <div class="panel-body">
+          <div id="formulaDisplay" class="formula-display empty" aria-live="polite"></div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Add every symbol once.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="symbols">
+        <div class="symbols-header">Tap the symbols to assemble the formula.</div>
+        <div id="symbolGrid" class="symbols-grid" aria-label="Symbol choices"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Mixed number and improper fraction conversion using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Mixed or Improper</title>
+<link rel="stylesheet" href="../../templates/template_12buttons.css" />
+<script>
+  function toImproper(whole, num, den){ return `${whole * den + num}/${den}`; }
+  function toMixed(num, den){
+    const whole = Math.floor(num / den);
+    const rem = num % den;
+    return `${whole}+${rem}/${den}`;
+  }
+  function buildQuestions(count = 10){
+    const qs = [];
+    for (let i = 0; i < count; i++){
+      const mode = Math.random() < 0.5 ? 'toImproper' : 'toMixed';
+      const den = Math.floor(Math.random() * 7) + 2; // 2..8
+      const whole = Math.floor(Math.random() * 4) + 1; // 1..4
+      const num = Math.floor(Math.random() * (den - 1)) + 1; // 1..den-1
+      if (mode === 'toImproper'){
+        qs.push({
+          prompt: `Convert ${whole} ${num}/${den} to an improper fraction.`,
+          instruction: 'Use the format a/b with a slash.',
+          answer: toImproper(whole, num, den)
+        });
+      } else {
+        const improperNum = whole * den + num;
+        qs.push({
+          prompt: `Convert ${improperNum}/${den} to a mixed number.`,
+          instruction: 'Use format whole+remainder/denominator (no spaces).',
+          answer: toMixed(improperNum, den)
+        });
+      }
+    }
+    return qs;
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Mixed or Improper',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","+","Clear"],
+    maxInputLength: 12,
+    buildQuestions
+  };
+</script>
+<script src="../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Mixed or Improper</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer using the keypad</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Keep typing or tap Check.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

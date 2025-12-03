@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Interactive keypad quiz powered by shared template_12buttons assets. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>DE — Multi-Step Arithmetic Typing Quiz (TriggerUE4EventWithTag)</title>
+<link rel="stylesheet" href="../../templates/template_12buttons.css" />
+<script>
+  window.QUIZ_CONFIG = {
+    title: 'Adding one-decimal numbers',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",",","Clear"],
+    maxInputLength: 12,
+    buildQuestions(count = 10){
+      return Array.from({ length: count }, () => {
+        const a = randomDecimal();
+        const b = randomDecimal();
+        return {
+          prompt: `What is ${formatDecimal(a)} + ${formatDecimal(b)}?`,
+          instruction: 'Add the decimals using the comma.',
+          answer: formatDecimal(a + b)
+        };
+      });
+      function randomDecimal(){ const n=Math.floor(Math.random()*90)+10; return n/10; }
+      function formatDecimal(n){ return n.toFixed(1).replace('.', ','); }
+    },
+    normalizeAnswer: (str) => str.replace(/\s+/g,'').replace(/,/g,'.')
+  };
+</script>
+<script src="../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Adding one-decimal numbers</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer using the keypad</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Keep typing or tap Check.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad">
+          <!-- buttons injected via template -->
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

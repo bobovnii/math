@@ -1,0 +1,212 @@
+Note: Topics align with typical Jahrgang 5 math in Germany; compiled from general knowledge (offline environment, no live web lookup possible).
+
+### Whole Numbers & Place Value
+- Number sense
+  - Place Value Spotlight (6-button multiple choice)
+    - Hint: Identify the value of a digit by its place.
+    - Example 1: Value of 8 in 48 516 -> 80
+    - Example 2: Which digit is in the thousands place of 275 309? -> 5
+  - Expanded Form Builder (12-button keypad)
+    - Hint: Break the number into thousands, hundreds, tens, and ones.
+    - Example 1: Write 32 405 in expanded form -> 30 000 + 2 000 + 400 + 5
+    - Example 2: Which number matches 60 000 + 3 000 + 90 + 4? -> 63 094
+- Comparing and ordering
+  - Comparison Sprint (6-button multiple choice)
+    - Hint: Line up numbers by place value before deciding.
+    - Example 1: Use >, <, = between 48 902 and 49 082 -> <
+    - Example 2: Arrange 7 503, 7 350, 7 530 ascending -> 7 350, 7 503, 7 530
+- Rounding and estimation
+  - Round to Target (6-button multiple choice)
+    - Hint: Look at the neighbor digit to round up or down.
+    - Example 1: Round 58 349 to the nearest hundred -> 58 300
+    - Example 2: Find a number that rounds to 42 000 to the nearest thousand -> 41 600
+  - Quick Overshoot/Undershoot (6-button multiple choice)
+    - Hint: Round first, then add or subtract to estimate.
+    - Example 1: Estimate 4 982 + 5 021 by rounding to thousands -> about 10 000
+    - Example 2: Choose a better estimate for 398 + 612: 900 or 1 000? -> 1 000
+
+### Operations with Whole Numbers
+- Addition and subtraction
+  - Column Add & Check (12-button keypad)
+    - Hint: Align digits by place and carry carefully.
+    - Example 1: 3 587 + 2 946 = ? -> 6 533
+    - Example 2: 7 420 + ___ = 9 005 -> 1 585
+  - Column Subtract & Check (12-button keypad)
+    - Hint: Borrow across columns when the top digit is smaller.
+    - Example 1: 8 040 - 3 275 = ? -> 4 765
+    - Example 2: ___ - 4 608 = 2 190 -> 6 798
+- Multiplication
+  - Multiply by 1-Digit (12-button keypad)
+    - Hint: Multiply each place and regroup if needed.
+    - Example 1: 426 × 7 = ? -> 2 982
+    - Example 2: __ × 6 = 1 254 -> 209
+  - Multiply by 2-Digit (6-button multiple choice)
+    - Hint: Use rounding or partial products to reason quickly.
+    - Example 1: 124 × 23 ≈ ? (use rounding) -> about 2 800
+    - Example 2: 54 × 12 = ? -> 648
+- Division
+  - Divide by 1-Digit (12-button keypad)
+    - Hint: Share place by place and note remainders.
+    - Example 1: 945 ÷ 5 = ? -> 189
+    - Example 2: __ ÷ 7 = 138 -> 966
+  - Remainder Sense (6-button multiple choice)
+    - Hint: Think how many groups fit and what is left over.
+    - Example 1: 518 ÷ 6 = ? -> 86 R2
+    - Example 2: 432 ÷ __ = 48 -> 9
+- Order of operations
+  - Parentheses First (6-button multiple choice)
+    - Hint: Do parentheses, then multiplication/division, then addition/subtraction.
+    - Example 1: 4 + 6 × 3 = ? -> 22
+    - Example 2: (4 + 6) × 3 = ? -> 30
+
+### Fractions
+- Understanding parts of a whole
+  - Fraction Match (6-button multiple choice)
+    - Hint: Count shaded parts over total equal parts.
+    - Example 1: Shade for 3/5 of a strip -> 3 of 5 equal parts
+    - Example 2: Which fraction shows 2 shaded parts out of 8? -> 2/8
+- Equivalent and simplifying
+  - Twin Fractions (6-button multiple choice)
+    - Hint: Multiply or divide top and bottom by the same number.
+    - Example 1: Which fraction equals 3/4? -> 6/8
+    - Example 2: 5/6 = 25/__ -> 30
+  - Reduce It (6-button multiple choice)
+    - Hint: Divide numerator and denominator by a common factor.
+    - Example 1: Simplify 12/18 -> 2/3
+    - Example 2: Which unsimplified fraction equals 4/5? -> 12/15
+- Comparing
+  - Fraction Compare (6-button multiple choice)
+    - Hint: Make denominators the same or cross-multiply to compare.
+    - Example 1: Which is larger: 2/3 or 3/5? -> 2/3
+    - Example 2: Place >, <, = between 7/10 and 14/20 -> =
+- Adding and subtracting like denominators
+  - Same Denominator Add (12-button keypad)
+    - Hint: Add numerators, keep the denominator.
+    - Example 1: 3/8 + 2/8 = ? -> 5/8
+    - Example 2: ___ + 1/5 = 4/5 -> 3/5
+  - Same Denominator Subtract (12-button keypad)
+    - Hint: Subtract numerators, keep the denominator.
+    - Example 1: 9/10 - 3/10 = ? -> 6/10 (or 3/5)
+    - Example 2: 5/7 - ___ = 2/7 -> 3/7
+- Mixed numbers
+  - Mixed or Improper (12-button keypad)
+    - Hint: Whole part times denominator plus numerator converts to improper.
+    - Example 1: Convert 2 3/5 to an improper fraction -> 13/5
+    - Example 2: Turn 17/4 into a mixed number -> 4 1/4
+
+### Decimals & Percent Links
+- Fractions to decimals
+  - Tenths and Hundredths (6-button multiple choice)
+    - Hint: Divide numerator by denominator or think of tenths/hundredths.
+    - Example 1: 3/10 as a decimal -> 0,3
+    - Example 2: Which fraction equals 0,45? -> 45/100 or 9/20
+- Rounding decimals
+  - Round the Decimal (6-button multiple choice)
+    - Hint: Check the next decimal place to round up or down.
+    - Example 1: Round 7,48 to one decimal place -> 7,5
+    - Example 2: A number rounds to 5,2 with one decimal place. Give one -> 5,24
+- Decimal operations
+  - Decimal Add (12-button keypad)
+    - Hint: Line up the commas before adding.
+    - Example 1: 4,7 + 3,25 = ? -> 7,95
+    - Example 2: ___ + 2,6 = 8,1 -> 5,5
+  - Decimal Subtract (12-button keypad)
+    - Hint: Align commas and borrow like whole numbers.
+    - Example 1: 9,3 - 4,85 = ? -> 4,45
+    - Example 2: 12,0 - ___ = 7,8 -> 4,2
+- Powers of ten
+  - Shift the Point (6-button multiple choice)
+    - Hint: Moving by 10 shifts the decimal one place; by 100 shifts two.
+    - Example 1: 4,56 × 10 = ? -> 45,6
+    - Example 2: 730 ÷ 100 = ? -> 7,3
+
+### Measurement & Units
+- Length, mass, volume
+  - Unit Switch (12-button keypad)
+    - Hint: Multiply or divide by 10/100/1000 to change metric units.
+    - Example 1: Convert 3,5 m to cm -> 350 cm
+    - Example 2: Convert 1 250 g to kg -> 1,25 kg
+- Time
+  - Clock Math (12-button keypad)
+    - Hint: Add minutes first, then adjust hours if needed.
+    - Example 1: Add 45 minutes to 13:25 -> 14:10
+    - Example 2: Start 09:50, end 12:05. Duration? -> 2 h 15 min
+- Money & unit price (proportional feel)
+  - Price per Piece (12-button keypad)
+    - Hint: Find the price for one, then scale up or down.
+    - Example 1: 6 rolls cost 3,00 €. What do 10 rolls cost? -> 5,00 €
+    - Example 2: 4 notebooks cost 7,20 €. Price for 1? -> 1,80 €
+- Temperature
+  - Temperature Difference (12-button keypad)
+    - Hint: Subtract final minus initial, mind negative values.
+    - Example 1: Morning 6°C, afternoon 17°C. Difference? -> 11°C
+    - Example 2: It drops from 3°C to -4°C. Change? -> -7°C
+
+### Geometry
+- Angles
+  - Angle Types (6-button multiple choice)
+    - Hint: Compare the angle size to 90° and 180°.
+    - Example 1: Is 38° acute, right, or obtuse? -> acute
+    - Example 2: Which measure makes a right angle? -> 90°
+- Triangles and quadrilaterals
+  - Triangle Sorter (6-button multiple choice)
+    - Hint: Check side lengths and look for right angles.
+    - Example 1: Sides 5 cm, 5 cm, 8 cm -> isosceles
+    - Example 2: Which triangle has a right angle? (3, 4, 5) -> right triangle
+  - Quad Finder (6-button multiple choice)
+    - Hint: Look for equal sides and parallel or right angles.
+    - Example 1: Which quadrilateral has opposite sides parallel and equal? -> parallelogram
+    - Example 2: Shape with four equal sides and right angles -> square
+- Perimeter and area
+  - Rectangle Perimeter Formula Builder (9-button formula builder)
+    - Hint: Perimeter doubles the sum of the two side lengths.
+    - Example 1: Build U = 2 × (a + b) for rectangle sides a and b
+    - Example 2: Build a variant using p for perimeter: p = 2 × (a + b)
+  - Rectangle Area Formula Builder (9-button formula builder)
+    - Hint: Area is side times side for rectangles.
+    - Example 1: Assemble A = a × b for rectangle area
+    - Example 2: Assemble A = b × h with different symbol order
+  - Triangle Area Formula Builder (9-button formula builder)
+    - Hint: Triangle area is half of base times height.
+    - Example 1: Build A = (g × h) ÷ 2
+    - Example 2: Build A = (b × h) ÷ 2 with parentheses if offered
+  - Rectangle Perimeter (12-button keypad)
+    - Hint: Add all sides or double length plus width.
+    - Example 1: Sides 7 cm and 4 cm. Perimeter? -> 22 cm
+    - Example 2: One side is 9 cm, perimeter is 30 cm. Find the other side -> 6 cm
+  - Rectangle Area (12-button keypad)
+    - Hint: Multiply length by width.
+    - Example 1: Area of 8 cm by 5 cm rectangle -> 40 cm²
+    - Example 2: Area is 63 cm², one side 7 cm. Other side? -> 9 cm
+- Symmetry
+  - Mirror Line (6-button multiple choice)
+    - Hint: Count how many folds make both halves match.
+    - Example 1: How many symmetry axes has a square? -> 4
+    - Example 2: Name a line of symmetry for an isosceles triangle -> through apex and base midpoint
+
+### Data, Patterns, Probability
+- Tables and charts
+  - Read the Bars (6-button multiple choice)
+    - Hint: Compare bar heights and add values shown.
+    - Example 1: Bar chart shows 12 apples and 9 pears sold. Which fruit sold more? -> apples
+    - Example 2: Total pieces if bananas bar shows 7 and oranges bar shows 5 -> 12
+- Averages (intuitive)
+  - Fair Share (12-button keypad)
+    - Hint: Sum the values and divide by how many there are.
+    - Example 1: Numbers 4, 6, 10. Equal share if balanced? -> 6,67
+    - Example 2: Add one number to 5, 7, 9 to make the average 8 -> add 11
+- Sequences and rules
+  - Pattern Next (6-button multiple choice)
+    - Hint: Find the rule (add/multiply) between terms.
+    - Example 1: 2, 5, 8, 11, ... next? -> 14
+    - Example 2: 1, 2, 4, __, 16 -> 8
+- Coordinates and grids
+  - Grid Points (6-button multiple choice)
+    - Hint: First x steps horizontally, then y steps vertically.
+    - Example 1: Plot (3,2) on the first quadrant grid -> x=3, y=2
+    - Example 2: Which point has x=0 and y=5? -> (0,5)
+- Probability language
+  - Chance Words (6-button multiple choice)
+    - Hint: Decide if an outcome is impossible, possible, or certain.
+    - Example 1: Drawing a red ball from a bag with 5 red, 5 blue — certain, likely, or unlikely? -> likely
+    - Example 2: Getting a 7 on a standard die — classify -> impossible

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Fraction meaning practice using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Fraction Match</title>
+<link rel="stylesheet" href="../../templates/template_6buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    const qs = [];
+    for (let i = 0; i < count; i++){
+      const total = Math.floor(Math.random() * 7) + 4; // 4..10
+      const shaded = Math.floor(Math.random() * (total - 1)) + 1;
+      const correct = `${shaded}/${total}`;
+      const options = new Set([correct]);
+      options.add(`${shaded + 1}/${total}`);
+      options.add(`${Math.max(1, shaded - 1)}/${total}`);
+      options.add(`${shaded}/${total + 1}`);
+      options.add(`${shaded}/${Math.max(total - 1, shaded + 1)}`);
+      options.add(`${total}/${shaded}`);
+      while (options.size < 6){
+        const n = Math.floor(Math.random() * total) + 1;
+        const d = Math.floor(Math.random() * 6) + total - 2;
+        options.add(`${n}/${Math.max(d, n + 1)}`);
+      }
+      const list = Array.from(options).slice(0,6);
+      const correctIndex = list.indexOf(correct);
+      qs.push({
+        prompt: `Which fraction shows ${shaded} shaded parts out of ${total}?`,
+        instruction: 'Pick the matching fraction.',
+        options: list,
+        correctIndex
+      });
+    }
+    return qs;
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Fraction Match',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: buildQuestions()
+  };
+</script>
+<script src="../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Fraction Match</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap an answer. Correct = next task.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>
