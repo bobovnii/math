@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Rounding large numbers using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Round to the Target</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  const MAGNITUDES = [10, 100, 1_000, 10_000];
+
+  function roundTo(n, magnitude){
+    return Math.round(n / magnitude) * magnitude;
+  }
+
+  function buildQuestion(){
+    const magnitude = MAGNITUDES[Math.floor(Math.random()*MAGNITUDES.length)];
+    const number = Math.floor(Math.random()*900_000) + 10_000;
+    const correct = roundTo(number, magnitude);
+    const options = new Set([correct, correct + magnitude, correct - magnitude, roundTo(number, magnitude*10), roundTo(number, magnitude/10)]);
+    options.add(number);
+    const final = Array.from(options).slice(0,6).map(formatNumber);
+    const correctIndex = final.indexOf(formatNumber(correct));
+    return {
+      prompt: `Round ${formatNumber(number)} to the nearest ${formatNumber(magnitude)}.`,
+      instruction: 'Choose the rounded value.',
+      options: final,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Round to the Target',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 12 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Round to the Target</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the rounded number.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

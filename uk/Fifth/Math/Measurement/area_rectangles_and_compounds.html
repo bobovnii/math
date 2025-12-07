@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Area of rectangles and simple compound shapes using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Area of Rectangles and Simple Compounds</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 10){
+    return Array.from({ length: count }, () => {
+      if(Math.random() < 0.6){
+        const length = Math.floor(Math.random()*20)+5;
+        const width = Math.floor(Math.random()*20)+4;
+        return {
+          prompt: `Find the area of a ${length} m by ${width} m rectangle.`,
+          instruction: 'Multiply length by width.',
+          answer: String(length * width)
+        };
+      }
+      // L-shape made of two rectangles
+      const a = Math.floor(Math.random()*10)+4;
+      const b = Math.floor(Math.random()*10)+3;
+      const c = Math.floor(Math.random()*10)+3;
+      const d = Math.floor(Math.random()*10)+3;
+      const area = a*b + c*d;
+      return {
+        prompt: `An L-shape is split into a ${a} m by ${b} m rectangle and a ${c} m by ${d} m rectangle. What is its total area?`,
+        instruction: 'Find each rectangle area then add.',
+        answer: String(area)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Area of Rectangles and Simple Compounds',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Clear"],
+    maxInputLength: 10,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Area of Rectangles and Simple Compounds</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the area</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Units provided in the prompt.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

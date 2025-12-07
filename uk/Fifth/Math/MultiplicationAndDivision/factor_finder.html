@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Factor identification using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Factor Finder</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function getFactors(n){
+    const factors = [];
+    for(let i=2;i<=Math.sqrt(n);i++){
+      if(n % i === 0){
+        factors.push(i, n/i);
+      }
+    }
+    return factors.filter((v,idx,arr)=>arr.indexOf(v)===idx && v !== n).sort((a,b)=>a-b);
+  }
+
+  function buildQuestion(){
+    let number = Math.floor(Math.random()*120) + 30; // 30-149
+    let factors = getFactors(number);
+    while(factors.length === 0){ // avoid primes
+      number = Math.floor(Math.random()*120) + 30;
+      factors = getFactors(number);
+    }
+    const correct = factors[Math.floor(Math.random()*factors.length)];
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const candidate = Math.floor(Math.random()*12) + 2;
+      options.add(candidate * (Math.random()<0.5?1:2));
+    }
+    const final = Array.from(options).sort(() => Math.random()-0.5).map(String);
+    return {
+      prompt: `Which number is a factor of ${number}?`,
+      instruction: 'A factor divides exactly with no remainder.',
+      options: final,
+      correctIndex: final.indexOf(String(correct))
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Factor Finder',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Factor Finder</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the factor.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

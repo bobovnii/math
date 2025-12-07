@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Estimation for sums and differences using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Reasonable Estimate</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  const MAGNITUDES = [100, 1_000, 10_000];
+  const OPERATIONS = ['+', '-'];
+
+  function buildQuestion(){
+    const op = OPERATIONS[Math.floor(Math.random()*OPERATIONS.length)];
+    const a = Math.floor(Math.random()*900_000) + 50_000;
+    const b = Math.floor(Math.random()*900_000) + 50_000;
+    const magnitude = MAGNITUDES[Math.floor(Math.random()*MAGNITUDES.length)];
+    const roundedA = Math.round(a / magnitude) * magnitude;
+    const roundedB = Math.round(b / magnitude) * magnitude;
+    const estimate = op === '+' ? roundedA + roundedB : roundedA - roundedB;
+    const exact = op === '+' ? a + b : a - b;
+    const options = new Set([
+      estimate,
+      exact,
+      estimate + magnitude,
+      estimate - magnitude,
+      Math.round(exact / magnitude) * magnitude,
+      estimate + magnitude * 2
+    ]);
+    const final = Array.from(options).slice(0,6).map(formatNumber).sort(() => Math.random()-0.5);
+    return {
+      prompt: `Choose the best estimate for ${formatNumber(a)} ${op} ${formatNumber(b)} (round to the nearest ${formatNumber(magnitude)} first).`,
+      instruction: 'Pick the estimate, not the exact answer.',
+      options: final,
+      correctIndex: final.indexOf(formatNumber(estimate))
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Reasonable Estimate',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Reasonable Estimate</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the best estimate.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

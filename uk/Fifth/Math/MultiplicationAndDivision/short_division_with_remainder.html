@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<!-- Fraction subtraction with like denominators using 12-button keypad template. -->
+<!-- Short division with remainders using 12-button keypad template. -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-<title>Same Denominator Subtract</title>
+<title>Short Division with Remainder</title>
 <link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
 <script>
-  function gcd(a,b){ return b === 0 ? a : gcd(b, a % b); }
-  function simplify(n,d){ const g = gcd(n,d); return `${n/g}/${d/g}`; }
   function buildQuestions(count = 10){
     return Array.from({ length: count }, () => {
-      const den = Math.floor(Math.random() * 8) + 4; // 4..11
-      const n1 = Math.floor(Math.random() * (den - 1)) + 2;
-      const n2 = Math.floor(Math.random() * (n1 - 1)) + 1; // ensure n1 > n2
-      const answer = simplify(n1 - n2, den);
+      const divisor = Math.floor(Math.random()*7) + 3; // 3-9
+      const quotient = Math.floor(Math.random()*900) + 20;
+      const remainder = Math.floor(Math.random()*divisor);
+      const dividend = divisor * quotient + remainder;
       return {
-        prompt: `Compute ${n1}/${den} - ${n2}/${den}.`,
-        instruction: 'Subtract numerators, keep denominator. Use / in your answer.',
-        answer
+        prompt: `Work out ${dividend} ÷ ${divisor}. Give remainder if needed.`,
+        instruction: 'Write answers like 123R4 for 123 remainder 4.',
+        answer: `${quotient}R${remainder}`
       };
     });
   }
+
   window.QUIZ_CONFIG = {
-    title: 'Same Denominator Subtract',
-    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Clear"],
+    title: 'Short Division with Remainder',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","R","Clear"],
     maxInputLength: 12,
     buildQuestions
   };
@@ -36,7 +35,7 @@
     <div id="flash" class="flash"></div>
     <div class="app">
       <header class="header">
-        <h1 id="title" class="title">Same Denominator Subtract</h1>
+        <h1 id="title" class="title">Short Division with Remainder</h1>
       </header>
 
       <aside class="panel">
@@ -45,10 +44,10 @@
           <p id="questionInstruction" class="question-instruction"></p>
         </div>
         <div class="answer-body">
-          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer using the keypad</div>
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type quotient and remainder</div>
         </div>
         <div class="panel-footer">
-          <div id="panelFoot" class="panel-foot-text">Keep typing or tap Check.</div>
+          <div id="panelFoot" class="panel-foot-text">Format: 123R4</div>
           <button id="checkBtn" type="button" class="check-btn">Check</button>
         </div>
       </aside>

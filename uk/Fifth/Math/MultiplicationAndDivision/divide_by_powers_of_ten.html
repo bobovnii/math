@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<!-- Fraction subtraction with like denominators using 12-button keypad template. -->
+<!-- Divide or multiply by 10/100/1000 using 12-button keypad template. -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-<title>Same Denominator Subtract</title>
+<title>Divide by 10/100/1000</title>
 <link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
 <script>
-  function gcd(a,b){ return b === 0 ? a : gcd(b, a % b); }
-  function simplify(n,d){ const g = gcd(n,d); return `${n/g}/${d/g}`; }
+  function cleanNumberString(value){
+    return parseFloat(value.toString()).toString();
+  }
+
   function buildQuestions(count = 10){
+    const factors = [10, 100, 1000];
+    const operations = ['÷','×'];
     return Array.from({ length: count }, () => {
-      const den = Math.floor(Math.random() * 8) + 4; // 4..11
-      const n1 = Math.floor(Math.random() * (den - 1)) + 2;
-      const n2 = Math.floor(Math.random() * (n1 - 1)) + 1; // ensure n1 > n2
-      const answer = simplify(n1 - n2, den);
+      const num = Math.round((Math.random()*9000 + 100)) / (Math.random() < 0.4 ? 10 : 1);
+      const factor = factors[Math.floor(Math.random()*factors.length)];
+      const op = operations[Math.floor(Math.random()*operations.length)];
+      const answer = op === '÷' ? num / factor : num * factor;
       return {
-        prompt: `Compute ${n1}/${den} - ${n2}/${den}.`,
-        instruction: 'Subtract numerators, keep denominator. Use / in your answer.',
-        answer
+        prompt: `Calculate ${num} ${op} ${factor}.`,
+        instruction: 'Use place value shifts to solve.',
+        answer: cleanNumberString(answer)
       };
     });
   }
+
   window.QUIZ_CONFIG = {
-    title: 'Same Denominator Subtract',
-    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Clear"],
+    title: 'Divide by 10/100/1000',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Clear"],
     maxInputLength: 12,
     buildQuestions
   };
@@ -36,7 +41,7 @@
     <div id="flash" class="flash"></div>
     <div class="app">
       <header class="header">
-        <h1 id="title" class="title">Same Denominator Subtract</h1>
+        <h1 id="title" class="title">Divide by 10/100/1000</h1>
       </header>
 
       <aside class="panel">
@@ -48,7 +53,7 @@
           <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer using the keypad</div>
         </div>
         <div class="panel-footer">
-          <div id="panelFoot" class="panel-foot-text">Keep typing or tap Check.</div>
+          <div id="panelFoot" class="panel-foot-text">Enter the result and check.</div>
           <button id="checkBtn" type="button" class="check-btn">Check</button>
         </div>
       </aside>

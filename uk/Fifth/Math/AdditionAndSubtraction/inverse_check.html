@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Checking with inverse operations using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Inverse Check</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*400_000) + 50_000;
+    const b = Math.floor(Math.random()*400_000) + 50_000;
+    const sum = a + b;
+    const correct = `${formatNumber(sum)} - ${formatNumber(b)} = ${formatNumber(a)}`;
+    const option1 = `${formatNumber(sum)} - ${formatNumber(a)} = ${formatNumber(b)}`;
+    const option2 = `${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(sum)}`;
+    const option3 = `${formatNumber(b)} + ${formatNumber(sum)} = ${formatNumber(a)}`;
+    const option4 = `${formatNumber(sum)} + ${formatNumber(a)} = ${formatNumber(b)}`;
+    const option5 = `${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(sum)}`;
+    const options = [correct, option1, option2, option3, option4, option5].sort(() => Math.random() - 0.5);
+    return {
+      prompt: `Which calculation checks ${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(sum)}?`,
+      instruction: 'Use subtraction to check addition.',
+      options,
+      correctIndex: options.indexOf(correct)
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Inverse Check',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Inverse Check</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Pick the correct inverse calculation.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

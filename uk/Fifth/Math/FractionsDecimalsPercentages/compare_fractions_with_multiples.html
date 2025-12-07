@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Compare and order fractions using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Compare Fractions with Multiples</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function simplify(num, den){
+    const gcd = (a,b)=> b===0 ? a : gcd(b, a%b);
+    const g = gcd(num, den);
+    return [num/g, den/g];
+  }
+
+  function randomFraction(){
+    let num = Math.floor(Math.random()*8)+1;
+    let den = Math.floor(Math.random()*8)+2;
+    if(num >= den){ den += num; }
+    return simplify(num, den);
+  }
+
+  function fractionString([n,d]){ return `${n}/${d}`; }
+
+  function buildQuestion(){
+    const fracs = [];
+    while(fracs.length < 3){
+      const f = randomFraction();
+      if(!fracs.some(([n,d]) => n===f[0] && d===f[1])) fracs.push(f);
+    }
+    const values = fracs.map(([n,d]) => n/d);
+    const order = [0,1,2].sort((a,b) => values[a]-values[b]);
+    const correct = order.map(i => fractionString(fracs[i])).join(' < ');
+    const permuts = [];
+    const [a,b,c] = fracs.map(fractionString);
+    permuts.push(`${a} < ${b} < ${c}`);
+    permuts.push(`${a} < ${c} < ${b}`);
+    permuts.push(`${b} < ${a} < ${c}`);
+    permuts.push(`${b} < ${c} < ${a}`);
+    permuts.push(`${c} < ${a} < ${b}`);
+    permuts.push(`${c} < ${b} < ${a}`);
+    const options = permuts.sort(() => Math.random()-0.5);
+    return {
+      prompt: 'Order the fractions from least to greatest.',
+      instruction: 'Use common denominators or cross-multiply to compare.',
+      options,
+      correctIndex: options.indexOf(correct)
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Compare Fractions with Multiples',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Compare Fractions with Multiples</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the correct order.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Timetable calculations using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Timetable Solver</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function toTimeString(totalMinutes){
+    const hours = Math.floor(totalMinutes / 60) % 24;
+    const minutes = totalMinutes % 60;
+    return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`;
+  }
+
+  function buildQuestions(count = 10){
+    return Array.from({ length: count }, () => {
+      const startHour = Math.floor(Math.random()*10) + 6; // 06-15
+      const startMin = Math.floor(Math.random()*60);
+      const start = startHour*60 + startMin;
+      if(Math.random() < 0.5){
+        const journey = Math.floor(Math.random()*90) + 20;
+        const arrival = start + journey;
+        return {
+          prompt: `Train departs at ${toTimeString(start)} and takes ${journey} minutes. What time does it arrive?`,
+          instruction: 'Add the minutes, adjusting the hour if needed.',
+          answer: toTimeString(arrival)
+        };
+      }
+      const end = start + Math.floor(Math.random()*140) + 40;
+      const duration = end - start;
+      return {
+        prompt: `A film starts at ${toTimeString(start)} and ends at ${toTimeString(end)}. How long is it?`,
+        instruction: 'Find the difference between the times. Answer in hh:mm.',
+        answer: toTimeString(duration)
+      };
+    });
+  }
+
+  function normalizeAnswer(input){
+    return input.replace(/\s+/g,'');
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Timetable Solver',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",":","Clear"],
+    maxInputLength: 8,
+    normalizeAnswer,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Timetable Solver</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Enter time as hh:mm</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Use colon between hours and minutes.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

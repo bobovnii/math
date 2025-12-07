@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- Matching between percentages, fractions, and decimals using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Percent-Fraction-Decimal Match</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const QUESTIONS = [
+    {
+      prompt: 'Which option equals 0.2?',
+      instruction: 'Match the decimal to a fraction or percentage.',
+      correct: '1/5 (20%)',
+      options: ['2/5','1/4','1/5 (20%)','30%','0.25','2/10']
+    },
+    {
+      prompt: 'What is 45% as a fraction in simplest form?',
+      instruction: 'Think per hundred, then simplify.',
+      correct: '9/20',
+      options: ['45/100','9/20','4/5','5/9','18/40','3/4']
+    },
+    {
+      prompt: 'Which is equivalent to 3/4?',
+      instruction: 'Convert to percentage or decimal.',
+      correct: '0.75',
+      options: ['0.35','0.7','0.75','65%','2/3','1.5']
+    },
+    {
+      prompt: 'Which decimal equals 25%?',
+      instruction: 'Divide by 100 to move from percent to decimal.',
+      correct: '0.25',
+      options: ['2.5','0.025','0.25','2/5','0.4','0.5']
+    },
+    {
+      prompt: 'Which percentage equals 2/5?',
+      instruction: 'Make denominator 100 to find the percent.',
+      correct: '40%',
+      options: ['25%','45%','20%','50%','40%','35%']
+    },
+    {
+      prompt: 'Which fraction equals 0.6?',
+      instruction: 'Write as digits over 10 or 100.',
+      correct: '3/5',
+      options: ['6/10','3/5','2/3','5/6','4/7','7/10']
+    }
+  ];
+
+  function buildQuestions(){
+    return QUESTIONS.map(q => {
+      const opts = q.options.slice().sort(() => Math.random()-0.5);
+      return {
+        prompt: q.prompt,
+        instruction: q.instruction,
+        options: opts,
+        correctIndex: opts.indexOf(q.correct)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Percent-Fraction-Decimal Match',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: buildQuestions()
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Percent-Fraction-Decimal Match</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the equivalent form.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

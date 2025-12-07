@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Match number words to numerals using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Words and Numerals</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const ONES = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+  const TENS = ['', '', 'twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+
+  function chunkToWords(n){
+    const parts = [];
+    const hundreds = Math.floor(n/100);
+    const rest = n % 100;
+    if(hundreds){
+      parts.push(`${ONES[hundreds]} hundred`);
+      if(rest){ parts.push('and'); }
+    }
+    if(rest){
+      if(rest < 20){
+        parts.push(ONES[rest]);
+      } else {
+        const tens = Math.floor(rest/10);
+        const ones = rest % 10;
+        parts.push(ones ? `${TENS[tens]}-${ONES[ones]}` : TENS[tens]);
+      }
+    }
+    return parts.join(' ').trim();
+  }
+
+  function toWords(n){
+    if(n === 0) return 'zero';
+    const thousands = Math.floor(n/1000);
+    const remainder = n % 1000;
+    const parts = [];
+    if(thousands){
+      parts.push(chunkToWords(thousands));
+      parts.push('thousand');
+      if(remainder && remainder < 100){
+        parts.push('and');
+      }
+    }
+    if(remainder){
+      parts.push(chunkToWords(remainder));
+    }
+    return parts.join(' ').replace(/\s+/g,' ').trim();
+  }
+
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+
+  function buildQuestion(){
+    const number = Math.floor(Math.random() * 900_000) + 100_000;
+    const word = toWords(number);
+    const options = new Set([formatNumber(number)]);
+    while(options.size < 6){
+      const delta = (Math.floor(Math.random()*9)+1) * (Math.random() < 0.5 ? -1 : 1) * 1_000;
+      const candidate = Math.max(10_000, Math.min(999_999, number + delta));
+      options.add(formatNumber(candidate));
+    }
+    const shuffled = Array.from(options).sort(() => Math.random() - 0.5);
+    return {
+      prompt: `Which numeral matches: "${word}"?`,
+      instruction: 'Match the written number to its digits.',
+      options: shuffled,
+      correctIndex: shuffled.indexOf(formatNumber(number))
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Words and Numerals',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 12 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Words and Numerals</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the matching numeral.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Common multiples practice using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Common Multiple Match</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function lcm(a,b){
+    const gcd = (x,y) => y === 0 ? x : gcd(y, x % y);
+    return (a * b) / gcd(a,b);
+  }
+
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*8) + 3; // 3-10
+    const b = Math.floor(Math.random()*8) + 3;
+    const least = lcm(a,b);
+    const options = new Set([least, least + a, least + b, a*b, least/2, least + a + b].map(Math.round));
+    const final = Array.from(options).slice(0,6).map(String).sort(() => Math.random()-0.5);
+    return {
+      prompt: `What is the smallest common multiple of ${a} and ${b}?`,
+      instruction: 'Pick the first number that appears in both times tables.',
+      options: final,
+      correctIndex: final.indexOf(String(least))
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Common Multiple Match',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Common Multiple Match</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Choose the least common multiple.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

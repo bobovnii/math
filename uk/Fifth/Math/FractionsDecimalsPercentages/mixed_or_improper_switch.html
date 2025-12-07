@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Switching between mixed and improper fractions using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Mixed or Improper Switch</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function simplify(num, den){
+    const gcd = (a,b)=> b===0 ? a : gcd(b, a%b);
+    const g = gcd(num, den);
+    return [num/g, den/g];
+  }
+
+  function buildQuestions(count = 10){
+    return Array.from({ length: count }, () => {
+      if(Math.random() < 0.5){
+        const whole = Math.floor(Math.random()*5)+1; //1-5
+        const den = Math.floor(Math.random()*7)+3; //3-9
+        const num = Math.floor(Math.random()*(den-1))+1;
+        const improper = simplify(whole*den + num, den);
+        return {
+          prompt: `Convert ${whole} ${num}/${den} to an improper fraction.`,
+          instruction: 'Type as numerator/denominator.',
+          answer: `${improper[0]}/${improper[1]}`
+        };
+      }
+      const den = Math.floor(Math.random()*7)+3; //3-9
+      const num = Math.floor(Math.random()*40) + den + 1; //ensure improper
+      const whole = Math.floor(num / den);
+      const remainder = num % den;
+      const simplified = simplify(remainder, den);
+      const answer = `${whole}_${simplified[0]}/${simplified[1]}`; // use underscore as separator
+      return {
+        prompt: `Write ${num}/${den} as a mixed number.`,
+        instruction: 'Use an underscore between whole and fraction, e.g., 4_1/3.',
+        answer
+      };
+    });
+  }
+
+  function normalizeAnswer(input){
+    return input.trim().replace(/\s+/g,'_');
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Mixed or Improper Switch',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","/","_","Clear"],
+    maxInputLength: 12,
+    normalizeAnswer,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Mixed or Improper Switch</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the fraction</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Use underscore for mixed numbers.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

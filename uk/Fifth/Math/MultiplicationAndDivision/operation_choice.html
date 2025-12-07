@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- Multi-step word problems choosing correct operations using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Operation Choice</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function makeScenario(){
+    const scenarios = [
+      () => {
+        const coaches = Math.floor(Math.random()*3)+2; // 2-4
+        const seats = Math.floor(Math.random()*20)+40; // 40-59 per coach
+        const pupils = Math.floor(Math.random()*(coaches*seats - 30)) + (coaches*seats - 60);
+        const totalSeats = coaches * seats;
+        const left = totalSeats - pupils;
+        return {
+          prompt: `${coaches} coaches with ${seats} seats each carry ${pupils} pupils. How many seats are free?`,
+          answer: left,
+          plausible: [left + 4, left - 2, totalSeats, seats, coaches]
+        };
+      },
+      () => {
+        const packs = Math.floor(Math.random()*5)+4; // 4-8
+        const perPack = Math.floor(Math.random()*20)+15; // 15-34
+        const targetPacks = Math.floor(Math.random()*6)+6; // 6-11
+        const costPerPack = Math.floor(Math.random()*3)+2; // 2-4 £
+        const totalItems = packs * perPack;
+        const targetItems = targetPacks * perPack;
+        const extra = targetItems - totalItems;
+        return {
+          prompt: `${packs} packs of ${perPack} stickers each. You need ${targetPacks} packs. How many more stickers are needed?`,
+          answer: extra,
+          plausible: [extra + perPack, extra - perPack, targetItems, totalItems, perPack]
+        };
+      },
+      () => {
+        const boxes = Math.floor(Math.random()*5)+3; // 3-7
+        const applesPerBox = Math.floor(Math.random()*10)+8; // 8-17
+        const friends = Math.floor(Math.random()*5)+4; // 4-8
+        const totalApples = boxes * applesPerBox;
+        const each = Math.floor(totalApples / friends);
+        const leftover = totalApples - each * friends;
+        return {
+          prompt: `${boxes} boxes with ${applesPerBox} apples each are shared equally among ${friends} friends. How many apples does each friend get?`,
+          answer: each,
+          plausible: [leftover, applesPerBox, totalApples, each + 1, friends]
+        };
+      }
+    ];
+    return scenarios[Math.floor(Math.random()*scenarios.length)]();
+  }
+
+  function buildQuestion(){
+    const { prompt, answer, plausible } = makeScenario();
+    const options = new Set([answer, ...plausible]);
+    while(options.size < 6){
+      options.add(answer + (Math.floor(Math.random()*10) - 5));
+    }
+    const final = Array.from(options).slice(0,6).map(String).sort(() => Math.random()-0.5);
+    return {
+      prompt,
+      instruction: 'Decide the operations, then choose the correct answer.',
+      options: final,
+      correctIndex: final.indexOf(String(answer))
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Operation Choice',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Operation Choice</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Solve then tap the answer.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

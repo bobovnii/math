@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Decimal place value to thousandths using 6-button multiple choice template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Decimal Place Value to Thousandths</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const PLACES = [
+    { name: 'tenths', factor: 0.1 },
+    { name: 'hundredths', factor: 0.01 },
+    { name: 'thousandths', factor: 0.001 },
+  ];
+
+  function buildQuestion(){
+    const place = PLACES[Math.floor(Math.random()*PLACES.length)];
+    const base = Math.round((Math.random()*9000 + 100)) / 1000; // up to 3 dp
+    const str = base.toFixed(3);
+    const digitIndex = place.name === 'tenths' ? 2 : place.name === 'hundredths' ? 3 : 4;
+    const digit = Number(str[digitIndex]);
+    const correct = (digit * place.factor).toString();
+    const options = new Set([correct, (digit+1)*place.factor, Math.max(0, digit-1)*place.factor, place.factor, place.factor*10, place.factor/10]);
+    const final = Array.from(options).slice(0,6).map(n => n.toString()).sort(() => Math.random()-0.5);
+    return {
+      prompt: `What is the value of the digit in the ${place.name} place of ${str}?`,
+      instruction: 'Place value decreases by ten each step to the right.',
+      options: final,
+      correctIndex: final.indexOf(correct)
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Decimal Place Value to Thousandths',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Decimal Place Value to Thousandths</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the place value.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

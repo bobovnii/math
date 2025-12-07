@@ -1,0 +1,171 @@
+Note: Topics align with typical Year 5 maths in England (National Curriculum); offline environment, compiled from general knowledge.
+
+### Number & Place Value
+- Reading and writing up to 1 000 000
+  - Place Value Detective (6-button multiple choice)
+    - Hint: Value of a digit depends on its place to the left or right of the point.
+    - Example 1: Value of 7 in 471 583 -> 70 000
+    - Example 2: What digit is in the ten thousands place of 385 290? -> 8
+  - Words and Numerals (6-button multiple choice)
+    - Hint: Match written forms to numerals up to one million.
+    - Example 1: "three hundred six thousand four hundred twelve" -> 306 412
+    - Example 2: Which words match 540 020? -> five hundred forty thousand twenty
+- Comparing, ordering, rounding
+  - Order the Millions (6-button multiple choice)
+    - Hint: Compare from the highest place then move right.
+    - Example 1: Which is greatest: 509 120, 495 210, 505 902? -> 509 120
+    - Example 2: Arrange ascending: 809 500, 805 900, 809 050 -> 805 900, 809 050, 809 500
+  - Round to the Target (6-button multiple choice)
+    - Hint: Look at the neighbor digit to round to the nearest 10, 100, 1 000, or 10 000.
+    - Example 1: Round 468 291 to the nearest thousand -> 468 000
+    - Example 2: A number rounds to 720 000 to the nearest ten thousand. Give one -> 716 500
+- Roman numerals and powers of ten
+  - Roman Numeral Match (6-button multiple choice)
+    - Hint: M=1000, D=500, C=100, L=50, X=10, V=5, I=1; watch subtractive pairs like IV and IX.
+    - Example 1: What is DCCXL? -> 740
+    - Example 2: Write 1 206 in Roman numerals -> MCCVI
+  - Shift by 10/100/1000 (12-button keypad)
+    - Hint: Multiplying by 10 moves digits left; dividing moves right; use zeros as placeholders.
+    - Example 1: 482.6 × 100 = ? -> 48 260
+    - Example 2: 37 500 ÷ 1 000 = ? -> 37.5
+
+### Addition & Subtraction
+- Formal written methods and checking
+  - Column Add to a Million (12-button keypad)
+    - Hint: Align place value columns and carry if the sum is 10 or more.
+    - Example 1: 456 789 + 98 765 = ? -> 555 554
+    - Example 2: 320 450 + ___ = 489 999 -> 169 549
+  - Column Subtract to a Million (12-button keypad)
+    - Hint: Borrow from the next column when the top digit is smaller.
+    - Example 1: 900 002 - 58 739 = ? -> 841 263
+    - Example 2: ___ - 74 185 = 502 610 -> 576 795
+- Estimation and inverse checks
+  - Reasonable Estimate (6-button multiple choice)
+    - Hint: Round both numbers then add or subtract to judge if an answer is reasonable.
+    - Example 1: Best estimate for 39 678 + 21 241? -> about 61 000
+    - Example 2: Does 504 000 seem reasonable for 251 399 + 249 702? -> yes
+  - Inverse Check (6-button multiple choice)
+    - Hint: Use subtraction to check addition answers and vice versa.
+    - Example 1: If 458 120 - 129 995 = 328 125, what addition checks it? -> 328 125 + 129 995 = 458 120
+    - Example 2: Choose the subtraction to check 230 450 + 18 975 = 249 425 -> 249 425 - 18 975
+
+### Multiplication & Division
+- Factors, multiples, primes
+  - Factor Finder (6-button multiple choice)
+    - Hint: A factor divides the number with no remainder.
+    - Example 1: Which is a factor of 96? -> 12
+    - Example 2: Which number is prime? 91, 97, 99 -> 97
+  - Common Multiple Match (6-button multiple choice)
+    - Hint: Use times tables to find the first common multiples.
+    - Example 1: Smallest common multiple of 6 and 8? -> 24
+    - Example 2: A number is a multiple of 9 and 5 under 100. Choose one -> 45
+- Written multiplication and division
+  - Long Multiplication 4-digit × 1- or 2-digit (12-button keypad)
+    - Hint: Multiply ones first, carry, then tens row; add partial products.
+    - Example 1: 3 748 × 6 = ? -> 22 488
+    - Example 2: 1 205 × 14 = ? -> 16 870
+  - Short Division with Remainder (12-button keypad)
+    - Hint: Divide each place, bring down the next digit, record any remainder.
+    - Example 1: 8 436 ÷ 7 = ? -> 1 205 R1
+    - Example 2: __ ÷ 9 = 732 R4 -> 6 592
+  - Divide by 10/100/1000 (12-button keypad)
+    - Hint: Move digits right for division and left for multiplication by powers of ten.
+    - Example 1: 5 720 ÷ 100 = ? -> 57.2
+    - Example 2: 0.963 × 1000 = ? -> 963
+- Multi-step word problems
+  - Operation Choice (6-button multiple choice)
+    - Hint: Decide the correct order of operations before calculating.
+    - Example 1: 3 coaches with 48 seats, 128 pupils. How many seats left? -> 16
+    - Example 2: 250 stickers shared equally in 8 packs; how many extra stickers? -> 2
+
+### Fractions, Decimals, Percentages
+- Comparing and converting
+  - Compare Fractions with Multiples (6-button multiple choice)
+    - Hint: Make denominators the same or use cross-multiplication.
+    - Example 1: Which is greater: 3/5 or 5/9? -> 3/5
+    - Example 2: Order ascending: 2/3, 3/4, 5/8 -> 5/8, 2/3, 3/4
+  - Mixed or Improper Switch (12-button keypad)
+    - Hint: Whole × denominator + numerator = improper; divide to go back.
+    - Example 1: Convert 4 2/7 to an improper fraction -> 30/7
+    - Example 2: 37/6 as a mixed number -> 6 1/6
+  - Add/Subtract with Linked Denominators (12-button keypad)
+    - Hint: If one denominator is a multiple of the other, scale the numerator to match.
+    - Example 1: 3/10 + 2/5 = ? -> 7/10
+    - Example 2: 7/12 - 1/4 = ? -> 4/12 (or 1/3)
+  - Multiply Fraction by Whole Number (12-button keypad)
+    - Hint: Multiply the numerator by the whole number; simplify if possible.
+    - Example 1: 3/7 × 6 = ? -> 18/7 or 2 4/7
+    - Example 2: 5 × 4/9 = ? -> 20/9 or 2 2/9
+  - Fraction of an Amount (12-button keypad)
+    - Hint: Divide by the denominator, then multiply by the numerator.
+    - Example 1: Find 3/8 of 640 -> 240
+    - Example 2: 2/5 of 350 = ? -> 140
+- Decimals and percentages
+  - Decimal Place Value to Thousandths (6-button multiple choice)
+    - Hint: Tenths, hundredths, and thousandths sit to the right of the point.
+    - Example 1: What is the value of 6 in 0.064? -> 0.06
+    - Example 2: Which decimal is larger: 3.08 or 3.8? -> 3.8
+  - Round Decimals (6-button multiple choice)
+    - Hint: Look at the next place to round to the nearest tenth or hundredth.
+    - Example 1: Round 7.546 to one decimal place -> 7.5
+    - Example 2: A number rounds to 5.30 to the nearest hundredth. Give one -> 5.304
+  - Percent-Fraction-Decimal Match (6-button multiple choice)
+    - Hint: 1/2 = 0.5 = 50%; 1/4 = 0.25 = 25%; think "per hundred."
+    - Example 1: Which equals 0.2? -> 1/5 or 20%
+    - Example 2: 45% as a fraction in simplest form -> 9/20
+
+### Measurement
+- Converting units and scaling
+  - Metric Conversion Sprint (12-button keypad)
+    - Hint: Multiply or divide by 10, 100, or 1000 to convert km–m–cm–mm and kg–g.
+    - Example 1: Convert 2.75 km to m -> 2 750 m
+    - Example 2: Convert 6 400 g to kg -> 6.4 kg
+- Perimeter, area, volume
+  - Perimeter of Rectangles (12-button keypad)
+    - Hint: Add all sides or double length plus width.
+    - Example 1: Length 12 m, width 7 m. Perimeter? -> 38 m
+    - Example 2: Perimeter 54 cm, width 9 cm. Length? -> 18 cm
+  - Area of Rectangles and Simple Compounds (12-button keypad)
+    - Hint: Multiply length by width; split L-shapes into rectangles.
+    - Example 1: 8 m by 6 m rectangle area -> 48 m^2
+    - Example 2: L-shape made of 5 m by 3 m plus 2 m by 3 m rectangles. Total area? -> 21 m^2
+  - Estimate Volume and Capacity (6-button multiple choice)
+    - Hint: Count cubes for volume or use length × width × height.
+    - Example 1: Cuboid 4 cm by 3 cm by 5 cm volume -> 60 cm^3
+    - Example 2: Which is closer to a litre: 750 ml or 1 500 ml? -> 1 500 ml
+- Time and timetables
+  - Timetable Solver (12-button keypad)
+    - Hint: Convert all times to minutes past midnight to add or subtract.
+    - Example 1: Train departs 09:18, journey 47 minutes. Arrival? -> 10:05
+    - Example 2: Film starts 18:40, ends 20:15. Duration? -> 1 h 35 min
+
+### Geometry
+- Properties of shapes and angles
+  - Angle Type and Measure (6-button multiple choice)
+    - Hint: Acute <90°, right =90°, obtuse between 90° and 180°, reflex >180°.
+    - Example 1: Classify 118° -> obtuse
+    - Example 2: Missing angle on a straight line if one angle is 137° -> 43°
+  - Triangle and Quadrilateral Sorter (6-button multiple choice)
+    - Hint: Use side lengths and angle facts (e.g., parallelogram opposite sides equal).
+    - Example 1: Sides 9 cm, 9 cm, 4 cm -> isosceles triangle
+    - Example 2: Which quadrilateral has one pair of parallel sides? -> trapezium
+- Position and direction
+  - Coordinates and Translation (6-button multiple choice)
+    - Hint: In the first quadrant, move right for x, up for y; translation shifts all points equally.
+    - Example 1: Point A(2,5) translated 3 right and 2 down -> (5,3)
+    - Example 2: Which point has coordinates (0,7)? -> lies on the y-axis 7 up
+  - Reflection Across Axes (6-button multiple choice)
+    - Hint: Reflect across the y-axis changes the sign of x; across the x-axis changes y.
+    - Example 1: Reflect (4,3) across the y-axis -> (-4,3)
+    - Example 2: Reflect (6,3) across the line x=4 -> (2,3)
+
+### Statistics
+- Line graphs and tables
+  - Line Graph Reader (6-button multiple choice)
+    - Hint: Use the scale carefully and note time intervals between points.
+    - Example 1: A line graph shows temperature rising from 12°C at 9am to 18°C at noon. Increase? -> 6°C
+    - Example 2: Rainfall was 8 mm on Monday and 12 mm on Tuesday. Total? -> 20 mm
+  - Two-Way Table Check (6-button multiple choice)
+    - Hint: Add rows and columns to find missing totals.
+    - Example 1: If 18 pupils travel by car, 12 by bus, and 6 walk, how many in class? -> 36
+    - Example 2: A table shows 25 boys and 23 girls. Total pupils? -> 48
