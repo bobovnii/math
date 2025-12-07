@@ -69,6 +69,7 @@ def mirror_tree_with_inline_html(
     template_dir: Path,
     rel_base: Path,
     copy_non_html: bool,
+    copy_json: bool,
 ) -> None:
     assets = load_template_assets(template_dir)
     missing_refs: Set[str] = set()
@@ -91,7 +92,7 @@ def mirror_tree_with_inline_html(
             new_html = inline_assets(html, assets, missing_refs)
             dest.write_text(new_html, encoding="utf-8")
             processed += 1
-        elif copy_non_html:
+        elif copy_non_html or (copy_json and src.suffix.lower() == ".json"):
             shutil.copy2(src, dest)
 
     print(f"[INFO] HTML files processed: {processed}; skipped (no templates): {skipped}")
@@ -138,6 +139,18 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Also copy non-HTML files to the output (default: do not copy extras).",
     )
+    parser.add_argument(
+        "--copy-json",
+        action="store_true",
+        default=True,
+        help=argparse.SUPPRESS,  # default is True
+    )
+    parser.add_argument(
+        "--no-copy-json",
+        dest="copy_json",
+        action="store_false",
+        help="Do not copy .json files (default is to copy them).",
+    )
     return parser.parse_args(argv)
 
 
@@ -160,6 +173,7 @@ def main(argv: Iterable[str] | None = None) -> None:
         template_dir=template_dir,
         rel_base=rel_base,
         copy_non_html=args.copy_non_html,
+        copy_json=args.copy_json,
     )
     print(f"[DONE] Created flattened HTML tree under: {output_root}")
 

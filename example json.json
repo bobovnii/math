@@ -1,0 +1,83 @@
+[
+	{
+		"TaskName": "Illuhaasd",
+		"TaskHTML": "Index",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.ArithmeticLaws"
+		},
+		"ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+	},
+	{
+		"TaskName": "vse",
+		"TaskHTML": "Index1",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.ArithmeticOperations"
+		},
+		"ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+	},
+	{
+		"TaskName": "zaebis",
+		"TaskHTML": "Index2",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.ComparisonAndPowers"
+		},
+		"ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+	},
+	{
+		"TaskName": "rabotaet",
+		"TaskHTML": "Index3",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.DivisibilityAndPrimes"
+		},
+		"ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+	},
+	{
+		"TaskName": "olololo",
+		"TaskHTML": "Index4",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.Expressions"
+		},
+		"ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+	},
+	{
+		"TaskName": "Numerical Expressions",
+		"TaskHTML": "Index5",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.InverseOperations"
+		},
+		"ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+	},
+	{
+		"TaskName": "Arithmetic Laws",
+		"TaskHTML": "Index6",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.NumberConcepts"
+		},
+		"ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+	},
+	{
+		"TaskName": "Prime & Factors",
+		"TaskHTML": "Index7",
+		"TaskTag":
+		{
+			"TagName": "Education.de.Fifth.Math.NumbersAndOperations.NumberLine"
+		},
+		"ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+	},
+	{
+		"TaskName": "theme",
+		"TaskHTML": "5Klasse.Mathematik.Brüche.Einstieg",
+		"TaskTag":
+		{
+			"TagName": ""
+		},
+		"ChargesStatData": ""
+	}
+]

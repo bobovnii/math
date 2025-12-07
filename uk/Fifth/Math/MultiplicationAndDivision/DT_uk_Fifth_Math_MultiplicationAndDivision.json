@@ -1,0 +1,50 @@
+[
+  {
+    "TaskName": "Factor Finder",
+    "TaskHTML": "factor_finder",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.FactorFinder"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Common Multiple Match",
+    "TaskHTML": "common_multiple_match",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.CommonMultipleMatch"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Long Multiplication 4-digit",
+    "TaskHTML": "long_multiplication_4digit",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.LongMultiplication4Digit"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Short Division with Remainder",
+    "TaskHTML": "short_division_with_remainder",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.ShortDivisionWithRemainder"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "Divide by 10/100/1000",
+    "TaskHTML": "divide_by_powers_of_ten",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.DivideByPowersOfTen"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Operation Choice",
+    "TaskHTML": "operation_choice",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.MultiplicationAndDivision.OperationChoice"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  }
+]

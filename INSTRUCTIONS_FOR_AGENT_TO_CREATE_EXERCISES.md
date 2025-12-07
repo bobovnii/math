@@ -42,3 +42,20 @@ Create and store all new exercise folders and files directly in the math repo at
 - Updated `README.md` with new topics/exercises/hints/examples/templates.
 - New HTML files per exercise under the appropriate topic folder, using the shared templates and randomized question builders.
 - Brief note if online sources weren’t reachable and curriculum was inferred.
+
+## 8) Add DT JSON per final folder (from `example json.json`)
+- For every “final” topic folder that directly contains the exercise HTMLs, add one JSON file named `DT_<lang>_<grade>_<subject>_<topic>.json` (e.g., `DT_uk_Fifth_Math_NumberAndPlaceValue.json`).
+- Structure (array of entries) mirrors `example json.json`:
+  - `TaskName`: the exercise name shown in README/HTML.
+  - `TaskHTML`: the exercise filename without `.html`.
+  - `TaskTag.TagName`: fully qualified tag starting at `Education.<lang>.<grade>.<subject>.<topic>.<ExerciseCamelCase>` with a unique CamelCase tail per exercise.
+  - `ChargesStatData`: choose one spell path from the known set and vary usage across exercises:
+    - `/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C`
+    - `/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C`
+    - `/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C`
+    - `/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C`
+    - `/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C`
+    - `/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C`
+    - `/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C`
+    - `/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C`
+- Include one JSON entry per exercise HTML in that folder.
