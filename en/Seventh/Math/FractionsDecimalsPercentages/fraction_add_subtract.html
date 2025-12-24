@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Fraction add/subtract using 12-button keypad; answers kept non-negative. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Fraction Add/Subtract</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function gcd(a,b){ return b===0 ? a : gcd(b, a%b); }
+  function simplify(n,d){ const g=gcd(Math.abs(n),d); return [n/g,d/g]; }
+  function buildQuestions(count=8){
+    return Array.from({ length: count }, () => {
+      let den1 = Math.floor(Math.random()*6)+2;
+      let den2 = Math.floor(Math.random()*6)+2;
+      let num1 = Math.floor(Math.random()*(den1-1))+1;
+      let num2 = Math.floor(Math.random()*(den2-1))+1;
+      const op = Math.random()<0.5 ? '+' : '-';
+      if(op==='-' && (num1/den1) < (num2/den2)){
+        [num1,num2] = [num2,num1];
+        [den1,den2] = [den2,den1];
+      }
+      const lcm = den1*den2/gcd(den1,den2);
+      const a = num1*(lcm/den1);
+      const b = num2*(lcm/den2);
+      const raw = op==='+' ? a+b : a-b;
+      const [n,d] = simplify(raw,lcm);
+      return {
+        prompt: `Calculate ${num1}/${den1} ${op} ${num2}/${den2}.`,
+        instruction: 'Make denominators match, then simplify.',
+        answer: `${n}/${d}`
+      };
+    });
+  }
+  function normalizeAnswer(input){ return input.replace(/\s+/g,'').trim(); }
+  window.QUIZ_CONFIG = { title:'Fraction Add/Subtract', keySymbols:["1","2","3","4","5","6","7","8","9","0","/","Clear"], maxInputLength:12, normalizeAnswer, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Fraction Add/Subtract</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the fraction</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Simplify your answer.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

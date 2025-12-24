@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Place value to 10 million using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Place Value to 10 Million</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  const PLACES = [
+    { name: 'ones', value: 1 },
+    { name: 'tens', value: 10 },
+    { name: 'hundreds', value: 100 },
+    { name: 'thousands', value: 1_000 },
+    { name: 'ten thousands', value: 10_000 },
+    { name: 'hundred thousands', value: 100_000 },
+    { name: 'millions', value: 1_000_000 }
+  ];
+  function buildQuestion(){
+    const number = Math.floor(Math.random()*9_000_000) + 1_000_000;
+    const place = PLACES[Math.floor(Math.random()*PLACES.length)];
+    const digit = Math.floor(number / place.value) % 10;
+    const correct = digit * place.value;
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const delta = (Math.floor(Math.random()*3)+1) * place.value;
+      options.add(Math.max(0, correct + (Math.random()<0.5?-delta:delta)));
+      options.add(digit);
+    }
+    const arr = Array.from(options).slice(0,6).map(formatNumber);
+    const correctIndex = arr.indexOf(formatNumber(correct));
+    return {
+      prompt: `What is the value of the highlighted digit in ${formatNumber(number)} at the ${place.name} place?`,
+      instruction: 'Select the place value of the digit.',
+      options: arr,
+      correctIndex
+    };
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Place Value to 10 Million',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Place Value to 10 Million</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the correct place value.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

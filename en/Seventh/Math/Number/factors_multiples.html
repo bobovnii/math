@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Factors and multiples using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Factors & Multiples</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const mode = Math.random()<0.5 ? 'lcm' : 'factor';
+    if(mode==='lcm'){
+      const a = Math.floor(Math.random()*5)+3; //3-7
+      const b = Math.floor(Math.random()*5)+4; //4-8
+      const lcm = (a*b)/gcd(a,b);
+      const options = new Set([lcm, lcm+a, lcm+b, a*b, lcm/2, lcm + a + b]);
+      const opts = Array.from(options).slice(0,6).map(String).sort(() => Math.random()-0.5);
+      return { prompt:`LCM of ${a} and ${b}?`, instruction:'Find first common multiple.', options:opts, correctIndex: opts.indexOf(String(lcm)) };
+    }
+    const n = Math.floor(Math.random()*50)+30; //30-79
+    const factor = (()=>{ for(let i=2;i<=Math.sqrt(n);i++){ if(n%i===0) return i; } return 1; })();
+    const correct = factor===1 ? n : factor;
+    const options = new Set([correct, correct+1, correct+2, correct*2, n, correct+3]);
+    const opts = Array.from(options).slice(0,6).map(String).sort(() => Math.random()-0.5);
+    return { prompt:`Which is a factor of ${n}?`, instruction:'A factor divides with no remainder.', options:opts, correctIndex: opts.indexOf(String(correct)) };
+  }
+  function gcd(a,b){ return b===0 ? a : gcd(b,a%b); }
+  window.QUIZ_CONFIG = { title:'Factors & Multiples', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Factors & Multiples</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the correct choice.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

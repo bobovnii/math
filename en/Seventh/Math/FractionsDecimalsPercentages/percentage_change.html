@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Percentage change using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Percentage Change</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function format(n){return n.toFixed(2);}  
+  function buildQuestion(){
+    const base = Math.floor(Math.random()*150)+50; //50-199
+    const rate = [5,8,10,12,15][Math.floor(Math.random()*5)];
+    const increase = Math.random()<0.5;
+    const change = base * rate / 100;
+    const newVal = increase ? base + change : base - change;
+    const correct = format(newVal);
+    const options = [correct, format(newVal+5), format(newVal-5), format(base), format(change+base/10), format(newVal+10)];
+    const shuffled = options.sort(() => Math.random()-0.5);
+    return {
+      prompt: `${increase?'Increase':'Decrease'} ${base} by ${rate}%.`,
+      instruction: 'Find the percent of the original, then add or subtract.',
+      options: shuffled,
+      correctIndex: shuffled.indexOf(correct)
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Percentage Change', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Percentage Change</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the new value.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Percent-decimal-fraction equivalence using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Percent-Decimal-Fraction</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const QUESTIONS = [
+    { prompt:'Which equals 0.2?', correct:'20% (1/5)', options:['25%','1/4','0.25','20% (1/5)','2/5','0.4'] },
+    { prompt:'45% as a fraction in simplest form?', correct:'9/20', options:['45/100','9/20','4/9','1/5','18/40','0.45'] },
+    { prompt:'Which decimal equals 1/4?', correct:'0.25', options:['0.2','0.5','0.4','0.25','2.5','25%'] },
+    { prompt:'Which percentage equals 3/5?', correct:'60%', options:['30%','40%','50%','60%','0.6','3/10'] },
+    { prompt:'Which fraction equals 0.75?', correct:'3/4', options:['1/2','3/4','2/5','4/5','0.7','7/10'] }
+  ];
+  function buildQuestions(){
+    return QUESTIONS.map(q=>{
+      const opts = q.options.slice().sort(() => Math.random()-0.5);
+      return { prompt:q.prompt, instruction:'Match the equivalent value.', options:opts, correctIndex: opts.indexOf(q.correct) };
+    });
+  }
+  window.QUIZ_CONFIG = { title:'Percent-Decimal-Fraction', randomizeQuestions:true, randomizeOptions:false, questions: buildQuestions() };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Percent-Decimal-Fraction</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the equivalent form.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

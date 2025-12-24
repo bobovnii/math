@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Parallel line angle relationships using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Parallel Line Angles</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const known = [50,55,60,65,70,75][Math.floor(Math.random()*6)];
+    const type = ['alternate','corresponding','cointerior'][Math.floor(Math.random()*3)];
+    let correct;
+    if(type==='cointerior'){
+      correct = 180 - known;
+    } else {
+      correct = known;
+    }
+    const options = [correct, correct+5, correct-5, 180-known, 90, 120].map(String).sort(() => Math.random()-0.5);
+    const prompt = type==='alternate' ? `Alternate angle to ${known}°` : type==='corresponding' ? `Corresponding angle to ${known}°` : `Co-interior partner to ${known}°`;
+    const instruction = type==='cointerior' ? 'Co-interior angles on parallel lines sum to 180°.' : 'Alternate/corresponding angles on parallel lines are equal.';
+    return { prompt, instruction, options, correctIndex: options.indexOf(String(correct)) };
+  }
+  window.QUIZ_CONFIG = { title:'Parallel Line Angles', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Parallel Line Angles</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the angle value.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

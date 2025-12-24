@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Short multiplication using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Short Multiplication</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const multiplicand = Math.floor(Math.random()*900) + 100;
+      const multiplier = Math.floor(Math.random()*8) + 2;
+      return {
+        prompt: `Calculate ${formatNumber(multiplicand)} × ${multiplier}.`,
+        instruction: 'Multiply by the single digit and regroup.',
+        answer: String(multiplicand * multiplier)
+      };
+    });
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Short Multiplication',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Clear"],
+    maxInputLength: 12,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Short Multiplication</h1>
+      </header>
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the product</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Enter the product and check.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

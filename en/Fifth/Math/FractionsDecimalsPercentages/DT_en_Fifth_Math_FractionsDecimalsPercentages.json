@@ -1,0 +1,74 @@
+[
+  {
+    "TaskName": "Compare Fractions with Multiples",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/compare_fractions_with_multiples",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.CompareFractionsWithMultiples"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Mixed or Improper Switch",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/mixed_or_improper_switch",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.MixedOrImproperSwitch"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Add/Subtract with Linked Denominators",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/add_subtract_linked_denominators",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.AddSubtractWithLinkedDenominators"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Multiply Fraction by Whole Number",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/multiply_fraction_by_whole",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.MultiplyFractionByWholeNumber"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Fraction of an Amount",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/fraction_of_an_amount",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.FractionOfAnAmount"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Decimal Place Value to Thousandths",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/decimal_place_value_thousandths",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.DecimalPlaceValueToThousandths"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "Round Decimals",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/round_decimals",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.RoundDecimals"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Percent-Fraction-Decimal Match",
+    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/percent_fraction_decimal_match",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.PercentFractionDecimalMatch"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5th grade.Math.Fractions, Decimals, Percentages",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

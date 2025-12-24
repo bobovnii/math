@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Reading line/bar charts using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Read Line/Bar Charts</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const start = Math.floor(Math.random()*10)+5;
+    const change = Math.floor(Math.random()*10)+3;
+    const end = start + change;
+    const apples = Math.floor(Math.random()*10)+8;
+    const pears = Math.floor(Math.random()*8)+5;
+    const mode = Math.random()<0.5 ? 'line' : 'bar';
+    if(mode==='line'){
+      const options = [change, change+2, change-2, end, start, start+2].map(String).sort(() => Math.random()-0.5);
+      return { prompt:`Line graph rises from ${start} to ${end}. Change?`, instruction:'Subtract start from end.', options, correctIndex: options.indexOf(String(change)) };
+    }
+    const diff = apples - pears;
+    const options = [diff, diff+1, diff-1, apples, pears, apples+pears].map(String).sort(() => Math.random()-0.5);
+    return { prompt:`Bar chart: apples ${apples}, pears ${pears}. Difference?`, instruction:'Compare heights/values.', options, correctIndex: options.indexOf(String(diff)) };
+  }
+  window.QUIZ_CONFIG = { title:'Read Line/Bar Charts', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Read Line/Bar Charts</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the answer.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

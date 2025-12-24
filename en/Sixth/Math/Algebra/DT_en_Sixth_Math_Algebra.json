@@ -1,0 +1,6 @@
+[
+  {"TaskName":"Evaluate the Expression","TaskHTML":"en/Sixth/Math/Algebra/evaluate_expression","TaskTag":{"TagName":"Education.en.Sixth.Math.Algebra.EvaluateTheExpression"},"ChargesStatData":"/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"},
+  {"TaskName":"One-Step Equations","TaskHTML":"en/Sixth/Math/Algebra/one_step_equations","TaskTag":{"TagName":"Education.en.Sixth.Math.Algebra.OneStepEquations"},"ChargesStatData":"/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"},
+  {"TaskName":"Linear Sequences","TaskHTML":"en/Sixth/Math/Algebra/linear_sequences","TaskTag":{"TagName":"Education.en.Sixth.Math.Algebra.LinearSequences"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"theme","TaskHTML":"6th grade.Math.Algebra","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

@@ -1,0 +1,5 @@
+[
+  {"TaskName":"Speed = Distance ÷ Time","TaskHTML":"en/Seventh/Math/Measurement/speed_distance_time","TaskTag":{"TagName":"Education.en.Seventh.Math.Measurement.SpeedDistanceTime"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"Convert Units","TaskHTML":"en/Seventh/Math/Measurement/convert_units","TaskTag":{"TagName":"Education.en.Seventh.Math.Measurement.ConvertUnits"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
+  {"TaskName":"theme","TaskHTML":"7th grade.Math.Measurement","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

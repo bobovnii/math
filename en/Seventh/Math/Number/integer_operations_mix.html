@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Integer operations (positive answers) using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Integer Operations Mix</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count=8){
+    return Array.from({ length: count }, () => {
+      const type = ['add','sub','mul','div'][Math.floor(Math.random()*4)];
+      if(type==='add'){
+        const a = -(Math.floor(Math.random()*15)+5);
+        const b = Math.floor(Math.random()*20)+10;
+        const ans = a + b; // positive
+        return { prompt:`${a} + ${b} = ?`, instruction:'Combine integers; signs matter.', answer: ans.toString() };
+      }
+      if(type==='sub'){
+        const a = Math.floor(Math.random()*30)+10;
+        const b = Math.floor(Math.random()*15);
+        const ans = a - b;
+        return { prompt:`${a} - ${b} = ?`, instruction:'Subtract to get a non-negative result.', answer: ans.toString() };
+      }
+      if(type==='mul'){
+        const a = Math.floor(Math.random()*8)+2;
+        const b = Math.floor(Math.random()*8)+2;
+        const negate = Math.random()<0.5;
+        const signPair = negate ? [-a,-b] : [a,b];
+        const ans = signPair[0]*signPair[1]; // positive
+        return { prompt:`${signPair[0]} × ${signPair[1]} = ?`, instruction:'Same signs give a positive product.', answer: ans.toString() };
+      }
+      const divisor = Math.floor(Math.random()*8)+2;
+      const quotient = Math.floor(Math.random()*20)+2;
+      const dividend = divisor * quotient;
+      const flip = Math.random()<0.3;
+      const a = flip ? -dividend : dividend;
+      const b = flip ? -divisor : divisor;
+      const ans = quotient; // positive
+      return { prompt:`${a} ÷ ${b} = ?`, instruction:'Same signs give a positive quotient.', answer: ans.toString() };
+    });
+  }
+  window.QUIZ_CONFIG = { title:'Integer Operations Mix', keySymbols:["1","2","3","4","5","6","7","8","9","0",".","Clear"], maxInputLength:12, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Integer Operations Mix</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Enter the value and check.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

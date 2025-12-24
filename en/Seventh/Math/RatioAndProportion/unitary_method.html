@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Unitary method proportion problems using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Unitary Method</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const cost = Math.floor(Math.random()*8)+5; //5-12
+    const qty = Math.floor(Math.random()*4)+2; //2-5
+    const target = Math.floor(Math.random()*4)+6; //6-9
+    const unit = cost/qty;
+    const total = unit * target;
+    const options = [total, total+0.5, total-0.5, cost, unit, total+1].map(v=>v.toFixed(2)).sort(() => Math.random()-0.5);
+    return {
+      prompt: `${qty} items cost £${cost.toFixed(2)}. What do ${target} items cost?`,
+      instruction: 'Find cost of one, then multiply.',
+      options,
+      correctIndex: options.indexOf(total.toFixed(2))
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Unitary Method', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Unitary Method</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the cost.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

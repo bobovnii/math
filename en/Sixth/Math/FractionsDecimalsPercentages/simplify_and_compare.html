@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Simplify and compare fractions using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Simplify and Compare</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function gcd(a,b){ return b===0 ? a : gcd(b, a%b); }
+  function simplify(n,d){ const g=gcd(n,d); return [n/g,d/g]; }
+  function fractionString([n,d]){ return `${n}/${d}`; }
+  function buildQuestion(){
+    const a = simplify(Math.floor(Math.random()*8)+2, Math.floor(Math.random()*8)+3);
+    const b = simplify(Math.floor(Math.random()*8)+2, Math.floor(Math.random()*8)+3);
+    const valueA = a[0]/a[1];
+    const valueB = b[0]/b[1];
+    const compare = valueA === valueB ? '=' : valueA > valueB ? '>' : '<';
+    const options = [`${fractionString(a)} > ${fractionString(b)}` , `${fractionString(a)} < ${fractionString(b)}`, `${fractionString(a)} = ${fractionString(b)}` , `${fractionString(b)} > ${fractionString(a)}`, `${fractionString(b)} < ${fractionString(a)}`, `${fractionString(b)} = ${fractionString(a)}`];
+    const correct = `${fractionString(a)} ${compare} ${fractionString(b)}`;
+    const shuffled = options.sort(() => Math.random()-0.5);
+    return { prompt:'Compare the fractions.', instruction:'Simplify if needed, then choose <, >, or =.', options: shuffled, correctIndex: shuffled.indexOf(correct) };
+  }
+  window.QUIZ_CONFIG = { title:'Simplify and Compare', randomizeQuestions:true, randomizeOptions:false, questions: Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Simplify and Compare</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the correct comparison.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

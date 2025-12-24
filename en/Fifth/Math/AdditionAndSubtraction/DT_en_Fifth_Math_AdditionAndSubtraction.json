@@ -1,0 +1,42 @@
+[
+  {
+    "TaskName": "Column Add to a Million",
+    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_add_to_a_million",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnAddToAMillion"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Column Subtract to a Million",
+    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_subtract_to_a_million",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnSubtractToAMillion"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "Reasonable Estimate",
+    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/reasonable_estimate",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ReasonableEstimate"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Inverse Check",
+    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/inverse_check",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.InverseCheck"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5th grade.Math.Addition and Subtraction",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

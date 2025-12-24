@@ -1,0 +1,7 @@
+[
+  {"TaskName":"Parallel Line Angles","TaskHTML":"en/Seventh/Math/Geometry/parallel_line_angles","TaskTag":{"TagName":"Education.en.Seventh.Math.Geometry.ParallelLineAngles"},"ChargesStatData":"/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"},
+  {"TaskName":"Interior/Exterior Polygons","TaskHTML":"en/Seventh/Math/Geometry/interior_exterior_polygons","TaskTag":{"TagName":"Education.en.Seventh.Math.Geometry.InteriorExteriorPolygons"},"ChargesStatData":"/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"},
+  {"TaskName":"Area of Triangles/Parallelograms","TaskHTML":"en/Seventh/Math/Geometry/area_triangles_parallelograms","TaskTag":{"TagName":"Education.en.Seventh.Math.Geometry.AreaTrianglesParallelograms"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"Circles: Circumference and Area","TaskHTML":"en/Seventh/Math/Geometry/circles_circumference_area","TaskTag":{"TagName":"Education.en.Seventh.Math.Geometry.CirclesCircumferenceArea"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
+  {"TaskName":"theme","TaskHTML":"7th grade.Math.Geometry","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

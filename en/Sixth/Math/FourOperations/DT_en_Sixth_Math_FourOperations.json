@@ -1,0 +1,44 @@
+[
+  {
+    "TaskName": "Column Add 3-Digit",
+    "TaskHTML": "en/Sixth/Math/FourOperations/column_add_3digit",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.ColumnAdd3Digit"},
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Column Subtract 3-Digit",
+    "TaskHTML": "en/Sixth/Math/FourOperations/column_subtract_3digit",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.ColumnSubtract3Digit"},
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "Short Multiplication",
+    "TaskHTML": "en/Sixth/Math/FourOperations/short_multiplication",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.ShortMultiplication"},
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Long Multiplication",
+    "TaskHTML": "en/Sixth/Math/FourOperations/long_multiplication",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.LongMultiplication"},
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Short Division with Remainders",
+    "TaskHTML": "en/Sixth/Math/FourOperations/short_division_remainders",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.ShortDivisionWithRemainders"},
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Divide by 10/100/1000",
+    "TaskHTML": "en/Sixth/Math/FourOperations/divide_by_powers_of_ten",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.FourOperations.DivideByPowersOfTen"},
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "6th grade.Math.Four Operations",
+    "TaskTag": {"TagName": ""},
+    "ChargesStatData": ""
+  }
+]

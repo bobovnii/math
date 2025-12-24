@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Long multiplication 2-digit by 2- or 3-digit using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Long Multiplication</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('en-GB'); }
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*90) + 10; // 2-digit
+    const b = Math.random() < 0.5 ? (Math.floor(Math.random()*90)+10) : (Math.floor(Math.random()*900)+100);
+    const correct = a * b;
+    const options = new Set([correct]);
+    const estimate = Math.round(a/10)*10 * Math.round(b/10)*10;
+    options.add(estimate);
+    while(options.size < 6){
+      options.add(correct + (Math.floor(Math.random()*50) - 25)*Math.max(1,Math.floor(correct/20)));
+    }
+    const arr = Array.from(options).slice(0,6).map(formatNumber).sort(() => Math.random()-0.5);
+    return {
+      prompt: `What is ${formatNumber(a)} × ${formatNumber(b)}?`,
+      instruction: 'Use long multiplication or a quick estimate.',
+      options: arr,
+      correctIndex: arr.indexOf(formatNumber(correct))
+    };
+  }
+  window.QUIZ_CONFIG = {
+    title: 'Long Multiplication',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 8 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Long Multiplication</h1>
+      </header>
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Tap the correct product.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

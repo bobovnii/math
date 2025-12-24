@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Speed = distance / time using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Speed = Distance ÷ Time</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count=8){
+    return Array.from({ length: count }, () => {
+      const speedMode = Math.random()<0.5;
+      if(speedMode){
+        const dist = Math.floor(Math.random()*180)+60; //60-239
+        const time = Math.floor(Math.random()*4)+2; //2-5 h
+        const speed = dist / time;
+        return {
+          prompt: `Distance ${dist} km in ${time} h. Speed? (km/h)`,
+          instruction: 'Speed = distance ÷ time.',
+          answer: (Math.round(speed*100)/100).toString()
+        };
+      }
+      const speed = Math.floor(Math.random()*50)+20; //20-69 km/h
+      const time = Math.floor(Math.random()*3)+2; //2-4 h
+      const dist = speed * time;
+      return {
+        prompt: `Speed ${speed} km/h for ${time} h. Distance?`,
+        instruction: 'Distance = speed × time.',
+        answer: dist.toString()
+      };
+    });
+  }
+  window.QUIZ_CONFIG = { title:'Speed = Distance ÷ Time', keySymbols:["1","2","3","4","5","6","7","8","9","0",".","Clear"], maxInputLength:12, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Speed = Distance ÷ Time</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the value</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Units given in prompt.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

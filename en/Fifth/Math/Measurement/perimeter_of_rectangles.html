@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Perimeter of rectangles using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Perimeter of Rectangles</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const length = Math.floor(Math.random()*15)+5;
+      const width = Math.floor(Math.random()*10)+3;
+      const perimeter = 2 * (length + width);
+      return {
+        prompt: `Find the perimeter of a rectangle with length ${length} m and width ${width} m.`,
+        instruction: 'Add all sides or double length plus width.',
+        answer: String(perimeter)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Perimeter of Rectangles',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Clear"],
+    maxInputLength: 10,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Perimeter of Rectangles</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the perimeter</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Include the number only (units provided).</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

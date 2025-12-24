@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Recipe proportion using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Recipe Proportion</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const eggs = Math.floor(Math.random()*3)+2; //2-4
+    const flour = eggs * (Math.floor(Math.random()*80)+200); // grams
+    const scale = Math.floor(Math.random()*3)+2; //2-4
+    const newEggs = eggs * scale;
+    const newFlour = flour * scale;
+    const correct = `${newFlour} g`;
+    const options = new Set([correct, `${newFlour + 50} g`, `${newFlour - 50} g`, `${flour} g`, `${newFlour + 100} g`, `${Math.max(50,newFlour-100)} g`]);
+    const arr = Array.from(options).slice(0,6).sort(() => Math.random()-0.5);
+    return {
+      prompt: `Recipe uses ${eggs} eggs and ${flour} g flour. For ${newEggs} eggs, how much flour?`,
+      instruction: 'Use the same scale factor for all ingredients.',
+      options: arr,
+      correctIndex: arr.indexOf(correct)
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Recipe Proportion', randomizeQuestions:true, randomizeOptions:true, questions: Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Recipe Proportion</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Pick the scaled flour amount.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

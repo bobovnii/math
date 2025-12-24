@@ -1,0 +1,32 @@
+[
+  {
+    "TaskName": "Place Value to 10 Million",
+    "TaskHTML": "en/Sixth/Math/NumberAndPlaceValue/place_value_to_10_million",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.NumberAndPlaceValue.PlaceValueTo10Million"},
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Compare and Order Large Numbers",
+    "TaskHTML": "en/Sixth/Math/NumberAndPlaceValue/compare_and_order_large_numbers",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.NumberAndPlaceValue.CompareAndOrderLargeNumbers"},
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Round to Millions",
+    "TaskHTML": "en/Sixth/Math/NumberAndPlaceValue/round_to_millions",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.NumberAndPlaceValue.RoundToMillions"},
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Negative Steps",
+    "TaskHTML": "en/Sixth/Math/NumberAndPlaceValue/negative_steps",
+    "TaskTag": {"TagName": "Education.en.Sixth.Math.NumberAndPlaceValue.NegativeSteps"},
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "6th grade.Math.Number and Place Value",
+    "TaskTag": {"TagName": ""},
+    "ChargesStatData": ""
+  }
+]

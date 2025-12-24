@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Missing angle in triangles/lines using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Missing Angle</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const triangle = Math.random()<0.5;
+    if(triangle){
+      const a = Math.floor(Math.random()*90)+30;
+      const b = Math.floor(Math.random()*(150-a))+15;
+      const missing = 180 - a - b;
+      const options = [missing, missing+5, missing-5, a, b, 180-missing];
+      const shuffled = options.sort(() => Math.random()-0.5).map(String);
+      return {
+        prompt: `Triangle angles ${a}° and ${b}°. Missing angle?`,
+        instruction: 'Triangle sum is 180°.',
+        options: shuffled,
+        correctIndex: shuffled.indexOf(String(missing))
+      };
+    }
+    const given = Math.floor(Math.random()*140)+20;
+    const missing = 180 - given;
+    const options = [missing, missing+10, missing-10, given, 90, 120];
+    const shuffled = options.sort(() => Math.random()-0.5).map(String);
+    return {
+      prompt: `On a straight line, one angle is ${given}°. Missing angle?`,
+      instruction: 'Angles on a line sum to 180°.',
+      options: shuffled,
+      correctIndex: shuffled.indexOf(String(missing))
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Missing Angle', randomizeQuestions:true, randomizeOptions:true, questions: Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Missing Angle</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the missing angle.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Linear sequences using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Linear Sequences</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const step = Math.floor(Math.random()*5)+2; //2-6
+    const start = Math.floor(Math.random()*6)+1;
+    const n = Math.floor(Math.random()*4)+4; // term index 4-7
+    const sequence = [start, start+step, start+2*step, start+3*step];
+    const next = start + step*4;
+    const ruleValue = start + step*(n-1);
+    const mode = Math.random()<0.5 ? 'next' : 'nth';
+    if(mode==='next'){
+      const options = [next, next+step, next-step, start, step, next+2];
+      const shuffled = options.sort(() => Math.random()-0.5).map(String);
+      return {
+        prompt: `${sequence.join(', ')}, ... what comes next?`,
+        instruction: 'Find the constant step.',
+        options: shuffled,
+        correctIndex: shuffled.indexOf(String(next))
+      };
+    }
+    const options = [ruleValue, ruleValue+step, ruleValue-step, step, start, ruleValue+2];
+    const shuffled = options.sort(() => Math.random()-0.5).map(String);
+    return {
+      prompt: `Rule: add ${step} each time. What is term ${n}?`,
+      instruction: 'Use the term-to-term rule.',
+      options: shuffled,
+      correctIndex: shuffled.indexOf(String(ruleValue))
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Linear Sequences', randomizeQuestions:true, randomizeOptions:true, questions: Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Linear Sequences</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the correct term.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

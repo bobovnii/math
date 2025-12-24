@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Pie chart parts using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Pie Chart Parts</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    if(Math.random()<0.5){
+      const fraction = [[1,4],[1,5],[2,5],[3,8]][Math.floor(Math.random()*4)];
+      const angle = 360 * fraction[0] / fraction[1];
+      const options = [angle, angle+10, angle-10, 45, 60, 90].map(a=>a.toString());
+      const shuffled = options.sort(() => Math.random()-0.5);
+      return {
+        prompt: `How many degrees is ${fraction[0]}/${fraction[1]} of a pie chart?`,
+        instruction: 'Whole circle = 360°.',
+        options: shuffled,
+        correctIndex: shuffled.indexOf(angle.toString())
+      };
+    }
+    const angle = [72, 90, 120, 144][Math.floor(Math.random()*4)];
+    const fraction = `${angle}/360`;
+    const simplified = (()=>{ const num=angle; const den=360; const g=(a,b)=>b===0?a:g(b,a%b); const d=g(num,den); return `${num/d}/${den/d}`; })();
+    const options = [simplified, '1/2','1/3','1/4','2/5','3/8'].sort(() => Math.random()-0.5);
+    return {
+      prompt: `A sector is ${angle}°. What fraction of the circle is that?`,
+      instruction: 'Divide by 360 and simplify.',
+      options,
+      correctIndex: options.indexOf(simplified)
+    };
+  }
+  window.QUIZ_CONFIG = { title:'Pie Chart Parts', randomizeQuestions:true, randomizeOptions:true, questions: Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Pie Chart Parts</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Pick the correct value.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

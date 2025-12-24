@@ -1,0 +1,50 @@
+[
+  {
+    "TaskName": "Metric Conversion Sprint",
+    "TaskHTML": "en/Fifth/Math/Measurement/metric_conversion_sprint",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.Measurement.MetricConversionSprint"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Perimeter of Rectangles",
+    "TaskHTML": "en/Fifth/Math/Measurement/perimeter_of_rectangles",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.Measurement.PerimeterOfRectangles"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Area of Rectangles and Simple Compounds",
+    "TaskHTML": "en/Fifth/Math/Measurement/area_rectangles_and_compounds",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.Measurement.AreaRectanglesAndCompounds"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Estimate Volume and Capacity",
+    "TaskHTML": "en/Fifth/Math/Measurement/estimate_volume_and_capacity",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.Measurement.EstimateVolumeAndCapacity"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Timetable Solver",
+    "TaskHTML": "en/Fifth/Math/Measurement/timetable_solver",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.Measurement.TimetableSolver"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5th grade.Math.Measurement",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

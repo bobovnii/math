@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- Evaluate expressions with substitution using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Evaluate the Expression</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count=8){
+    const forms = [
+      (a,b)=>({expr:`2a + 3b`, val:2*a+3*b}),
+      (a,b)=>({expr:`4a - b`, val:4*a-b}),
+      (a,b)=>({expr:`3a + 2`, val:3*a+2}),
+      (a,b)=>({expr:`5b - a`, val:5*b-a})
+    ];
+    return Array.from({ length: count }, () => {
+      const a = Math.floor(Math.random()*6)+2;
+      const b = Math.floor(Math.random()*6)+1;
+      const f = forms[Math.floor(Math.random()*forms.length)];
+      const {expr,val} = f(a,b);
+      return {
+        prompt: `If a=${a}, b=${b}, find ${expr}.`,
+        instruction: 'Substitute then follow order of operations.',
+        answer: String(val)
+      };
+    });
+  }
+  window.QUIZ_CONFIG = { title:'Evaluate the Expression', keySymbols:["1","2","3","4","5","6","7","8","9","0","-","Clear"], maxInputLength:10, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Evaluate the Expression</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the value</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Enter the result and check.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

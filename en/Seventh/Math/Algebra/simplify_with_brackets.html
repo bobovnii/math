@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Simplify expressions with brackets using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Simplify with Brackets</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*4)+2; //2-5
+    const b = Math.floor(Math.random()*5)+1; //1-5
+    const c = Math.floor(Math.random()*6)-3; //-3..2
+    const sign = c>=0 ? '+' : '-';
+    const inner = `${b}x ${sign} ${Math.abs(c)}`;
+    const correct = `${a*b}x ${c>=0?'+':'-'} ${Math.abs(a*c)}`;
+    const options = [correct, `${a*b}x + ${Math.abs(c)}`, `${a*b}x - ${Math.abs(c)}`, `${b}x + ${a*c}`, `${a+b}x ${c>=0?'+':'-'} ${Math.abs(c)}`, `${a*b + c}x`];
+    const shuffled = options.sort(() => Math.random()-0.5);
+    return { prompt:`Simplify ${a}(${inner})`, instruction:'Distribute the multiplier across the bracket.', options:shuffled, correctIndex: shuffled.indexOf(correct) };
+  }
+  window.QUIZ_CONFIG = { title:'Simplify with Brackets', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Simplify with Brackets</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the simplified form.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

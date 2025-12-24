@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Decimal multiply/divide by whole number using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Decimal Multiply/Divide by Whole</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function clean(n){
+    // Round to 3 decimal places to avoid long repeats (e.g., 2 ÷ 3).
+    return (Math.round(n * 1000) / 1000).toString();
+  }
+  function buildQuestions(count=8){
+    return Array.from({ length: count }, () => {
+      const base = Math.round((Math.random()*90 + 5))/10; // one decimal
+      const whole = Math.floor(Math.random()*8)+2;
+      const op = Math.random()<0.5 ? '×' : '÷';
+      const answer = op==='×' ? base*whole : base/whole;
+      return {
+        prompt: `Calculate ${base} ${op} ${whole}.`,
+        instruction: 'Shift the decimal as needed; round to 3 decimal places if it repeats.',
+        answer: clean(answer)
+      };
+    });
+  }
+  window.QUIZ_CONFIG = { title:'Decimal Multiply/Divide by Whole', keySymbols:["1","2","3","4","5","6","7","8","9","0",".","Clear"], maxInputLength:12, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Decimal Multiply/Divide by Whole</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Enter the value and check.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

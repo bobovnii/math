@@ -1,0 +1,4 @@
+# Ignore hidden files in this repo
+.*
+!.gitignore
+!.gitkeep

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Ratio scale up/down using 12-button keypad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Ratio Scale Up/Down</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count=8){
+    return Array.from({ length: count }, () => {
+      const a = Math.floor(Math.random()*4)+2; //2-5
+      const b = Math.floor(Math.random()*4)+3; //3-6
+      const factor = Math.floor(Math.random()*4)+2; //2-5
+      const scaleUp = Math.random()<0.5;
+      const prompt = scaleUp ? `Scale ${a}:${b} by ${factor}.` : `Reduce ${a*factor}:${b*factor} by factor ${factor}.`;
+      const ansA = scaleUp ? a*factor : a;
+      const ansB = scaleUp ? b*factor : b;
+      return {
+        prompt,
+        instruction: 'Multiply or divide both parts by the same factor.',
+        answer: `${ansA}:${ansB}`
+      };
+    });
+  }
+  function normalizeAnswer(input){ return input.replace(/\s+/g,''); }
+  window.QUIZ_CONFIG = { title:'Ratio Scale Up/Down', keySymbols:["1","2","3","4","5","6","7","8","9","0",":","Clear"], maxInputLength:8, normalizeAnswer, buildQuestions };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Ratio Scale Up/Down</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p></div><div class="answer-body"><div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the ratio</div></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Format: a:b</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section class="keypad"><div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div></section></div></div></body>
+</html>

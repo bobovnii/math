@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Add or subtract fractions with linked denominators using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Add/Subtract with Linked Denominators</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function simplify(num, den){
+    const gcd = (a,b)=> b===0 ? a : gcd(b, a%b);
+    const g = gcd(num, den);
+    return [num/g, den/g];
+  }
+
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const baseDen = Math.floor(Math.random()*5)+2; //2-6
+      const multiple = Math.floor(Math.random()*2)+2; //2-3
+      const den2 = baseDen * multiple;
+      const den1 = Math.random() < 0.5 ? baseDen : den2;
+      const denAlt = den1 === baseDen ? den2 : baseDen;
+      let op = Math.random() < 0.5 ? '+' : '-';
+      const num1 = Math.floor(Math.random()*(den1-1))+1;
+      const num2 = Math.floor(Math.random()*(denAlt-1))+1;
+      const commonDen = den1 === den2 ? den1 : denAlt;
+      let scaledNum1 = den1 === commonDen ? num1 : num1 * multiple;
+      let scaledNum2 = denAlt === commonDen ? num2 : num2 * multiple;
+      let rawNum = scaledNum1 + scaledNum2;
+      if(op === '-') {
+        if(scaledNum1 < scaledNum2){
+          // swap to avoid negative answers
+          [scaledNum1, scaledNum2] = [scaledNum2, scaledNum1];
+        }
+        rawNum = scaledNum1 - scaledNum2;
+      }
+      const [finalNum, finalDen] = simplify(rawNum, commonDen);
+      return {
+        prompt: `Calculate ${num1}/${den1} ${op} ${num2}/${denAlt}.`,
+        instruction: 'Make denominators match, then simplify.',
+        answer: `${finalNum}/${finalDen}`
+      };
+    });
+  }
+
+  function normalizeAnswer(input){
+    return input.replace(/\s+/g,'').trim();
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Add/Subtract with Linked Denominators',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Clear"],
+    maxInputLength: 12,
+    normalizeAnswer,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Add/Subtract with Linked Denominators</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the fraction answer</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Simplify if possible.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

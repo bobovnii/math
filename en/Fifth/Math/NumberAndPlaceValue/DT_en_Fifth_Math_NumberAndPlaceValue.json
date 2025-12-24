@@ -1,0 +1,58 @@
+[
+  {
+    "TaskName": "Place Value Detective",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/place_value_detective",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.PlaceValueDetective"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Words and Numerals",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/words_and_numerals",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.WordsAndNumerals"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Order the Millions",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/order_the_millions",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.OrderTheMillions"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Round to the Target",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/round_to_the_target",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.RoundToTheTarget"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Roman Numeral Match",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/roman_numeral_match",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.RomanNumeralMatch"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Shift by 10/100/1000",
+    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/shift_by_powers_of_ten",
+    "TaskTag": {
+      "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.ShiftByPowersOfTen"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5th grade.Math.Number and Place Value",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

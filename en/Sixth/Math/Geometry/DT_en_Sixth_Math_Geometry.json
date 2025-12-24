@@ -1,0 +1,6 @@
+[
+  {"TaskName":"Missing Angle","TaskHTML":"en/Sixth/Math/Geometry/missing_angle","TaskTag":{"TagName":"Education.en.Sixth.Math.Geometry.MissingAngle"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"Regular Polygon Angles","TaskHTML":"en/Sixth/Math/Geometry/regular_polygon_angles","TaskTag":{"TagName":"Education.en.Sixth.Math.Geometry.RegularPolygonAngles"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
+  {"TaskName":"Four-Quadrant Coordinates","TaskHTML":"en/Sixth/Math/Geometry/four_quadrant_coordinates","TaskTag":{"TagName":"Education.en.Sixth.Math.Geometry.FourQuadrantCoordinates"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
+  {"TaskName":"theme","TaskHTML":"6th grade.Math.Geometry","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

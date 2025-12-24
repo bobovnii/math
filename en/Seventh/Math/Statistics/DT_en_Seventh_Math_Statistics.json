@@ -1,0 +1,5 @@
+[
+  {"TaskName":"Mean, Median, Mode","TaskHTML":"en/Seventh/Math/Statistics/mean_median_mode","TaskTag":{"TagName":"Education.en.Seventh.Math.Statistics.MeanMedianMode"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"Read Line/Bar Charts","TaskHTML":"en/Seventh/Math/Statistics/read_line_bar_charts","TaskTag":{"TagName":"Education.en.Seventh.Math.Statistics.ReadLineBarCharts"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
+  {"TaskName":"theme","TaskHTML":"7th grade.Math.Statistics","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

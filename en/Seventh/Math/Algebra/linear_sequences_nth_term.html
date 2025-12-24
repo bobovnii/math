@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Linear sequences and nth term using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Linear Sequences & nth Term</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const step = Math.floor(Math.random()*5)+2; //2-6
+    const first = Math.floor(Math.random()*8)+1;
+    const mode = Math.random()<0.5 ? 'nth' : 'next';
+    if(mode==='next'){
+      const seq = [first, first+step, first+2*step, first+3*step];
+      const next = first + 4*step;
+      const options = [next, next+step, next-step, first, step, next+2].map(String).sort(() => Math.random()-0.5);
+      return { prompt:`${seq.join(', ')}, ... next term?`, instruction:'Find the constant difference.', options, correctIndex: options.indexOf(String(next)) };
+    }
+    const n = Math.floor(Math.random()*4)+4; //4-7
+    const nth = first + (n-1)*step;
+    const options = [nth, nth+step, nth-step, step, first, nth+2].map(String).sort(() => Math.random()-0.5);
+    return { prompt:`First term ${first}, difference ${step}. What is term ${n}?`, instruction:'Use nth = first + (n-1)d.', options, correctIndex: options.indexOf(String(nth)) };
+  }
+  window.QUIZ_CONFIG = { title:'Linear Sequences & nth Term', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Linear Sequences & nth Term</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the correct term.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

@@ -27,6 +27,8 @@ Create and store all new exercise folders and files directly in the math repo at
   - 9-button formula builder: set `tokens`, `name`, `description`, `placeholder`, and `normalize` if needed.
 - Randomization: generate fresh numbers within grade-appropriate ranges; avoid negatives unless intended. Ensure distractors are plausible and always include the correct answer.
 - Keep prompts brief; instructions explain the action (add, round, compare, etc.).
+- Design for sub‑1‑minute completion per question: prefer 1–3 steps, keep numbers small/moderate (e.g., 2–4 digits for whole-number ops, denominators ≤10 for fractions, 1–2 decimal places), avoid long carry/borrow chains and multi-branch word problems; reduce question counts if needed.
+- Respect template button limits: do not add extra keys beyond the shared templates. Instead, adjust the exercise to fit the existing keypad/symbol set (e.g., avoid negative outputs if there is no `-` key, or constrain fraction subtraction so answers stay positive).
 
 ## 5) Quality checks
 - Open in browser with DevTools Console/Network to catch 404s for template files. If templates 404, adjust paths.
@@ -47,7 +49,7 @@ Create and store all new exercise folders and files directly in the math repo at
 - For every “final” topic folder that directly contains the exercise HTMLs, add one JSON file named `DT_<lang>_<grade>_<subject>_<topic>.json` (e.g., `DT_uk_Fifth_Math_NumberAndPlaceValue.json`).
 - Structure (array of entries) mirrors `example json.json`:
   - `TaskName`: the exercise name shown in README/HTML.
-  - `TaskHTML`: the exercise filename without `.html`.
+  - `TaskHTML`: the exercise filename without `.html`, prefixed by the language path (e.g., `en/Fifth/Math/AdditionAndSubtraction/column_add_to_a_million`).
   - `TaskTag.TagName`: fully qualified tag starting at `Education.<lang>.<grade>.<subject>.<topic>.<ExerciseCamelCase>` with a unique CamelCase tail per exercise.
   - `ChargesStatData`: choose one spell path from the known set and vary usage across exercises:
     - `/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C`
@@ -59,3 +61,14 @@ Create and store all new exercise folders and files directly in the math repo at
     - `/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C`
     - `/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C`
 - Include one JSON entry per exercise HTML in that folder.
+- Add one extra “theme” entry per JSON with:
+  - `TaskName`: `theme`
+  - `TaskHTML`: human-readable grade/subject/topic path for UI, e.g., `5th grade.Math.Addition and Subtraction` (adapt topic text to the folder’s language).
+  - `TaskTag.TagName`: empty string
+  - `ChargesStatData`: empty string
+
+## 9) Unwrap and mirror HTMLs to the HTML repo
+- Read `/Users/bobovnii/Documents/business/math/README.md` for the unwrap command. Use `math/templates/unwrap_templates.py` to inline shared templates and mirror the tree into `/Users/bobovnii/Documents/business/HTML`, keeping relative paths intact.
+- Match the language folder in the output root (e.g., input `.../math/en` → output root `/Users/bobovnii/Documents/business/HTML/en`) so files stay under the correct locale.
+- Do **not** add extra buttons/keys; adjust exercises to fit templates before unwrapping.
+- Ensure new files land in the matching subfolders under `/Users/bobovnii/Documents/business/HTML` after unwrapping.

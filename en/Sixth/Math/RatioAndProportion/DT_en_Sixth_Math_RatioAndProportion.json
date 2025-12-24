@@ -1,0 +1,5 @@
+[
+  {"TaskName":"Ratio Scale Up/Down","TaskHTML":"en/Sixth/Math/RatioAndProportion/ratio_scale_up_down","TaskTag":{"TagName":"Education.en.Sixth.Math.RatioAndProportion.RatioScaleUpDown"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
+  {"TaskName":"Recipe Proportion","TaskHTML":"en/Sixth/Math/RatioAndProportion/recipe_proportion","TaskTag":{"TagName":"Education.en.Sixth.Math.RatioAndProportion.RecipeProportion"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
+  {"TaskName":"theme","TaskHTML":"6th grade.Math.Ratio and Proportion","TaskTag":{"TagName":""},"ChargesStatData":""}
+]

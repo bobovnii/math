@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Squares, cubes, roots using 6-button multiple choice. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Squares, Cubes, Roots</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const mode = ['square','cube','root'][Math.floor(Math.random()*3)];
+    if(mode==='square'){
+      const n = Math.floor(Math.random()*11)+2; //2-12
+      const correct = n*n;
+      const options = [correct, correct+4, correct-4, n, n+2, correct+9].map(String).sort(() => Math.random()-0.5);
+      return { prompt:`What is ${n}²?`, instruction:'Square means multiply by itself.', options, correctIndex: options.indexOf(String(correct)) };
+    }
+    if(mode==='cube'){
+      const n = Math.floor(Math.random()*6)+2; //2-7
+      const correct = n*n*n;
+      const options = [correct, correct+8, correct-8, n, n+1, correct+16].map(String).sort(() => Math.random()-0.5);
+      return { prompt:`What is ${n}³?`, instruction:'Cube means multiply by itself three times.', options, correctIndex: options.indexOf(String(correct)) };
+    }
+    const roots = [36,49,64,81,100,121,144];
+    const val = roots[Math.floor(Math.random()*roots.length)];
+    const correct = Math.sqrt(val);
+    const options = [correct, correct+1, correct-1, val, val/10, correct+2].map(v=>v.toString()).sort(() => Math.random()-0.5);
+    return { prompt:`What is √${val}?`, instruction:'Square root undoes squaring.', options, correctIndex: options.indexOf(correct.toString()) };
+  }
+  window.QUIZ_CONFIG = { title:'Squares, Cubes, Roots', randomizeQuestions:true, randomizeOptions:true, questions:Array.from({ length:8 }, buildQuestion) };
+</script>
+<script src="../../../../templates/template_6buttons.js"></script>
+</head>
+<body><div id="scene"><div id="flash" class="flash"></div><div class="app"><header class="header"><h1 id="title" class="title">Squares, Cubes, Roots</h1></header><aside class="panel"><div class="question-header"><p id="questionPrompt" class="question-prompt"></p><p id="questionInstruction" class="question-instruction"></p><p id="selectedEcho" class="selected-echo placeholder">Selected answer will appear here.</p></div><div class="panel-footer"><div id="panelFoot" class="panel-foot-text">Tap the correct value.</div><button id="checkBtn" type="button" class="check-btn">Check</button></div></aside><section id="answers" class="answers"></section></div></div></body>
+</html>

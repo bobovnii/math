@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Fraction of an amount using 12-button keypad template. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Fraction of an Amount</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const den = Math.floor(Math.random()*5)+2; //2-6
+      const num = Math.floor(Math.random()*(den-1))+1;
+      const base = Math.floor(Math.random()*30)+5; // keep amounts small
+      const amount = den * base;
+      const answer = (amount / den) * num;
+      return {
+        prompt: `Find ${num}/${den} of ${amount}.`,
+        instruction: 'Divide by the denominator, then multiply by the numerator.',
+        answer: String(answer)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Fraction of an Amount',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Clear"],
+    maxInputLength: 12,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Fraction of an Amount</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Type the answer</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Give the exact amount.</div>
+          <button id="checkBtn" type="button" class="check-btn">Check</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Digit keypad"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
