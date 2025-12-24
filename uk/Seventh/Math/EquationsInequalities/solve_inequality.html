@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Solving simple linear inequalities (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Розв’яжи нерівність</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*5)+2;
+    const signFlip = Math.random() < 0.4;
+    const x = Math.floor(Math.random()*9)-4;
+    const b = Math.floor(Math.random()*6)+1;
+    const right = signFlip ? -(a*x + b) : (a*x + b);
+    const op = Math.random() < 0.5 ? '<' : '≥';
+    let solution = op === '<' ? `${x}` : `${x}`;
+    const options = [`x ${op} ${solution}`, `x ${op === '<' ? '>' : '≤'} ${solution}`, `x = ${solution}`, `x ${op} ${+solution+1}`, `x ${op} ${+solution-1}`, `x ${op === '<' ? '≤' : '≥'} ${solution}`];
+    const correctIndex = options.findIndex(o => o === `x ${op} ${solution}`);
+    return {
+      prompt: `Розв’яжіть нерівність: ${signFlip?'-':''}${a}x + ${signFlip?b:-b} ${op} ${right}.`,
+      instruction: 'Як у рівнянні; при множенні/діленні на від’ємне знак змінюється.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Розв’яжи нерівність',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Розв’яжи нерівність</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Пам’ятайте про зміну знака при множенні на від’ємне.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Triangle and parallelogram area (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Обчисли площу</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const triangle = Math.random() < 0.5;
+      if(triangle){
+        const b = Math.floor(Math.random()*14)+4;
+        const h = Math.floor(Math.random()*10)+3;
+        const s = (b*h/2).toFixed(1);
+        return {
+          prompt: `Площа трикутника: b = ${b} см, h = ${h} см.`,
+          instruction: 'S = (b × h) ÷ 2.',
+          answer: s
+        };
+      } else {
+        const a = Math.floor(Math.random()*12)+4;
+        const h = Math.floor(Math.random()*10)+3;
+        const s = a*h;
+        return {
+          prompt: `Площа паралелограма: a = ${a} см, h = ${h} см.`,
+          instruction: 'S = a × h.',
+          answer: String(s)
+        };
+      }
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Обчисли площу',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Стерти"],
+    maxInputLength: 10,
+    buildQuestions,
+    normalizeAnswer: (str) => str.replace(/\s+/g,'').replace(/,/g,'.')
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Обчисли площу</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть площу</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Одиниці вже вказані в умові.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

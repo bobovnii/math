@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Classifying angles (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Види кутів</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const measures = [30, 45, 60, 75, 90, 110, 135, 150, 180];
+    const deg = measures[Math.floor(Math.random()*measures.length)];
+    let type = '';
+    if(deg === 90) type = 'прямий';
+    else if(deg === 180) type = 'розгорнутий';
+    else if(deg < 90) type = 'гострий';
+    else type = 'тупий';
+    const options = ['гострий','прямий','тупий','розгорнутий','нульовий','повний'];
+    const correctIndex = options.indexOf(type);
+    return {
+      prompt: `Кут ${deg}° — це який кут?`,
+      instruction: 'Порівняй градусну міру з 90° і 180°.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Види кутів',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Види кутів</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть тип кута.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

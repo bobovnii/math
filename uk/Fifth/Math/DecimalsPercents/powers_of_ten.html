@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Multiplying or dividing by 10/100 (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Множимо/ділимо на 10, 100</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const base = (Math.floor(Math.random()*900)+10)/10; // 1 decimal
+    const op = Math.random() < 0.5 ? '×' : '÷';
+    const factor = Math.random() < 0.5 ? 10 : 100;
+    const result = op === '×' ? base * factor : base / factor;
+    const correct = result.toFixed(op === '×' ? 1 : 3).replace(/0+$/,'').replace(/\.$/,'');
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const tweak = correct.includes('.') ? parseFloat(correct.replace(',','.')) : parseFloat(correct);
+      const delta = (Math.floor(Math.random()*3)-1)/(factor === 10 ? 10 : 100);
+      const candidate = (tweak + delta).toFixed(3).replace(/0+$/,'').replace(/\.$/,'');
+      options.add(candidate);
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(correct);
+    return {
+      prompt: `Обчисліть ${base.toFixed(1)} ${op} ${factor}.`,
+      instruction: 'При множенні на 10/100 кома рухається вправо, при діленні — вліво.',
+      options: opts.map(o => o.replace('.', ',')),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Множимо/ділимо на 10, 100',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Множимо/ділимо на 10, 100</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Виберіть результат.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

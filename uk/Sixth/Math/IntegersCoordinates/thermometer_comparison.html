@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Comparing integers (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Термометр та підйом</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*20) - 10;
+    let b = Math.floor(Math.random()*20) - 10;
+    if (b === a) b += (Math.random()<0.5 ? -1 : 1);
+    const relation = a === b ? '=' : (a > b ? '>' : '<');
+    const options = [
+      `${a} ${relation} ${b}`,
+      `${a} > ${b}`,
+      `${a} < ${b}`,
+      `${a} = ${b}`,
+      `${b} > ${a}`,
+      `${b} < ${a}`
+    ];
+    const correctIndex = options.findIndex(o => o === `${a} ${relation} ${b}`);
+    return {
+      prompt: `Порівняйте числа ${a} і ${b}.`,
+      instruction: 'Від’ємні менші за додатні; при однакових знаках порівнюй модулі.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Термометр та підйом',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Термометр та підйом</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильний знак порівняння.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

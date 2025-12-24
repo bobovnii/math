@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Circle properties (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Властивості кола</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const scenario = Math.floor(Math.random()*2);
+    if(scenario === 0){
+      const d = Math.floor(Math.random()*10)+6;
+      const options = [`${d/2} см`,`${
+        d
+      } см`,`${
+        d/3
+      } см`,`${
+        d*2
+      } см`,`1 см`,`10 см`];
+      const correctIndex = 0;
+      return {
+        prompt: `Діаметр кола ${d} см. Радіус?`,
+        instruction: 'Радіус = половина діаметра.',
+        options,
+        correctIndex
+      };
+    } else {
+      const options = ['так, тільки діаметр','так, будь-яка хорда','ні, хорда завжди коротша','залежить від радіуса','неможливо визначити','так, але тільки якщо радіус 1'];
+      const correctIndex = 0;
+      return {
+        prompt: 'Чи може хорда дорівнювати діаметру?',
+        instruction: 'Діаметр — найдовша хорда.',
+        options,
+        correctIndex
+      };
+    }
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Властивості кола',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Властивості кола</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Пригадайте зв’язок радіуса, діаметра і хорди.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

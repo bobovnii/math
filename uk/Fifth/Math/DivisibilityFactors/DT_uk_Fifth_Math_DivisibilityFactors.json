@@ -1,0 +1,34 @@
+[
+  {
+    "TaskName": "Подільність швидко",
+    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/divisibility_quick",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.DivisibilityQuick"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "НСД невеликих чисел",
+    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/gcd_small_numbers",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.GcdSmallNumbers"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "НСК тренування",
+    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/lcm_practice",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.LcmPractice"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Дільники і кратні",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

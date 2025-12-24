@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Mean, mode, median, range (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Характеристики вибірки</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const values = Array.from({ length: 5 }, () => Math.floor(Math.random()*12)+1).sort((a,b)=>a-b);
+    const sum = values.reduce((s,n)=>s+n,0);
+    const mean = (sum/values.length).toFixed(1);
+    const median = values[2];
+    const mode = values.reduce((m,v,i,arr)=>{
+      const count = arr.filter(x=>x===v).length;
+      return count > m.count ? {v,count} : m;
+    }, {v: values[0], count: 0}).v;
+    const range = values[values.length-1] - values[0];
+    const ask = ['середнє','мода','медіана','діапазон'][Math.floor(Math.random()*4)];
+    let correct;
+    if(ask === 'середнє') correct = mean;
+    else if(ask === 'мода') correct = mode;
+    else if(ask === 'медіана') correct = median;
+    else correct = range;
+    const options = new Set([String(correct), String(values[0]), String(values[4]), mean, String(median), String(range+2)]);
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(String(correct));
+    return {
+      prompt: `Набір: ${values.join(', ')}. Знайдіть ${ask}.`,
+      instruction: 'Мода — найчастіше; медіана — серединне; середнє — сума/кількість; діапазон = max-min.',
+      options: opts,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Характеристики вибірки',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Характеристики вибірки</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Виберіть правильне значення.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

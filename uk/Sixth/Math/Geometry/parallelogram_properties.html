@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Properties of parallelogram (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Властивості паралелограма</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const scenarios = [
+      {
+        prompt: 'У паралелограма одна сторона 7 см. Яка довжина протилежної?',
+        options: ['7 см','14 см','3 см','8 см','5 см','9 см'],
+        correctIndex: 0
+      },
+      {
+        prompt: 'Сусідні кути паралелограма: 110° і …?',
+        options: ['70°','110°','90°','50°','30°','140°'],
+        correctIndex: 0
+      },
+      {
+        prompt: 'Протилежні кути паралелограма…',
+        options: ['рівні','доповнюють до 90°','не рівні','по 45°','один 0°','завжди прямі'],
+        correctIndex: 0
+      }
+    ];
+    const q = scenarios[Math.floor(Math.random()*scenarios.length)];
+    return {
+      prompt: q.prompt,
+      instruction: 'Пригадайте властивості паралелограма.',
+      options: q.options,
+      correctIndex: q.correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Властивості паралелограма',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Властивості паралелограма</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильне твердження.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

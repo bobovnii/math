@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Order of operations practice using 6-button multiple choice. -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Дужки спочатку</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const EXPRESSIONS = [
+    () => {
+      const a = Math.floor(Math.random()*6)+2;
+      const b = Math.floor(Math.random()*6)+2;
+      const c = Math.floor(Math.random()*6)+2;
+      const val = a + b * c;
+      return { text: `${a} + ${b} × ${c}`, value: val };
+    },
+    () => {
+      const a = Math.floor(Math.random()*20)+10;
+      const b = Math.floor(Math.random()*6)+2;
+      const c = Math.floor(Math.random()*6)+2;
+      const val = Math.floor(a / (b + c));
+      return { text: `${a} ÷ (${b} + ${c})`, value: val };
+    },
+    () => {
+      const a = Math.floor(Math.random()*9)+1;
+      const b = Math.floor(Math.random()*9)+1;
+      const c = Math.floor(Math.random()*9)+1;
+      const val = (a + b) * c;
+      return { text: `(${a} + ${b}) × ${c}`, value: val };
+    }
+  ];
+
+  function buildQuestion(){
+    const builder = EXPRESSIONS[Math.floor(Math.random()*EXPRESSIONS.length)];
+    const { text, value } = builder();
+    const options = new Set([value]);
+    while(options.size < 6){
+      const tweak = value + (Math.floor(Math.random()*7)-3);
+      options.add(Math.max(0, tweak));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(value);
+    return {
+      prompt: `Обчисліть вираз ${text}.`,
+      instruction: 'Спочатку дужки, потім множення/ділення, далі додавання/віднімання.',
+      options: opts.map(String),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Дужки спочатку',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Дужки спочатку</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Дій за пріоритетом дій.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

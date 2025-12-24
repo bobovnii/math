@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Increase or decrease a number by a percent (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Зміна на відсоток</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const base = (Math.floor(Math.random()*18)+2) * 10; // 20..200
+    const percent = [5, 8, 10, 12, 15][Math.floor(Math.random()*5)];
+    const increase = Math.random() < 0.5;
+    const delta = Math.round(base * percent / 100);
+    const result = increase ? base + delta : base - delta;
+    const options = new Set([result]);
+    while(options.size < 6){
+      const tweak = result + (Math.floor(Math.random()*21)-10);
+      options.add(Math.max(0, tweak));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(result);
+    const verb = increase ? 'збільшити' : 'зменшити';
+    return {
+      prompt: `Потрібно ${verb} ${base} на ${percent}%. Яким стане число?`,
+      instruction: 'Знайди % від числа, додай або відніми його.',
+      options: opts.map(String),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Зміна на відсоток',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Зміна на відсоток</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Обчисліть швидко, без довгих дій.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

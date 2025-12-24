@@ -1,0 +1,26 @@
+[
+  {
+    "TaskName": "Ознаки рівності трикутників",
+    "TaskHTML": "uk/Seventh/Math/Geometry/triangle_congruence",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.Geometry.TriangleCongruence" },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Кути при паралельних",
+    "TaskHTML": "uk/Seventh/Math/Geometry/parallel_angles",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.Geometry.ParallelAngles" },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Властивості кола",
+    "TaskHTML": "uk/Seventh/Math/Geometry/circle_properties",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.Geometry.CircleProperties" },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7 клас.Математика.Геометрія",
+    "TaskTag": { "TagName": "" },
+    "ChargesStatData": ""
+  }
+]

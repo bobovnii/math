@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Adding/subtracting unlike fractions (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Зведи та склади</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function lcm(a,b){ const g = (x,y)=>y===0?x:g(y,x%y); return Math.abs(a*b)/g(a,b); }
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, (_, i) => {
+      const d1 = Math.floor(Math.random()*6)+3;
+      const d2 = Math.floor(Math.random()*6)+3;
+      const n1 = Math.floor(Math.random()*(d1-1))+1;
+      const n2 = Math.floor(Math.random()*(d2-1))+1;
+      const op = i % 2 === 0 ? '+' : '-';
+      const common = lcm(d1,d2);
+      const m1 = common/d1, m2 = common/d2;
+      const resNum = op === '+' ? n1*m1 + n2*m2 : n1*m1 - n2*m2;
+      return {
+        prompt: `Обчисліть ${n1}/${d1} ${op} ${n2}/${d2}.`,
+        instruction: 'Зведи до спільного знаменника, працюй з чисельниками.',
+        answer: `${resNum}/${common}`
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Зведи та склади',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Стерти"],
+    maxInputLength: 12,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Зведи та склади</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть дріб a/b</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Спільний знаменник обов’язково.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

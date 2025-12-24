@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Rounding numbers to the nearest thousand (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Округлення до тисяч</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('uk-UA'); }
+
+  function buildQuestion(){
+    const number = Math.floor(Math.random()*90000)+1000; // 4-5 цифр
+    const rounded = Math.round(number / 1000) * 1000;
+    const options = new Set([rounded]);
+    const deltas = [ -2000, -1000, -500, 500, 1000, 2000 ];
+    deltas.forEach(d => options.add(Math.max(0, rounded + d)));
+    const opts = Array.from(options).filter(v => v>0).slice(0,6);
+    while(opts.length < 6) opts.push(Math.max(1000, rounded + (Math.floor(Math.random()*5)-2)*1000));
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(rounded);
+    return {
+      prompt: `Округліть ${formatNumber(number)} до тисяч.`,
+      instruction: 'Дивись на сотні: 0-499 — донизу, 500-999 — вгору.',
+      options: opts.map(formatNumber),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Округлення до тисяч',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Округлення до тисяч</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть результат округлення.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

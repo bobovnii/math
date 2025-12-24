@@ -1,0 +1,26 @@
+[
+  {
+    "TaskName": "Відкрий дужки",
+    "TaskHTML": "uk/Sixth/Math/ExpressionsEquations/distribute_parentheses",
+    "TaskTag": { "TagName": "Education.uk.Sixth.Math.ExpressionsEquations.DistributeParentheses" },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Рівняння з дужками",
+    "TaskHTML": "uk/Sixth/Math/ExpressionsEquations/linear_equations_brackets",
+    "TaskTag": { "TagName": "Education.uk.Sixth.Math.ExpressionsEquations.LinearEquationsBrackets" },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Знайди невідомий член",
+    "TaskHTML": "uk/Sixth/Math/ExpressionsEquations/proportion_missing_term",
+    "TaskTag": { "TagName": "Education.uk.Sixth.Math.ExpressionsEquations.ProportionMissingTerm" },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "6 клас.Математика.Вирази та рівняння",
+    "TaskTag": { "TagName": "" },
+    "ChargesStatData": ""
+  }
+]

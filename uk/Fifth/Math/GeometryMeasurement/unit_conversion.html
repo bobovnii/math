@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Unit conversions within metric system (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Переведення одиниць</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    const tasks = [
+      () => {
+        const m = (Math.floor(Math.random()*90)+10) / 10; // 1..10 м
+        return { prompt: `Переведіть ${m.toFixed(1)} м у сантиметри.`, answer: String(Math.round(m*100)) };
+      },
+      () => {
+        const g = Math.floor(Math.random()*9000)+500; // г
+        return { prompt: `Переведіть ${g} г у кілограми.`, answer: (g/1000).toFixed(3) };
+      },
+      () => {
+        const cm = Math.floor(Math.random()*900)+100;
+        return { prompt: `Переведіть ${cm} см у метри.`, answer: (cm/100).toFixed(2) };
+      }
+    ];
+    return Array.from({ length: count }, (_, i) => {
+      const task = tasks[i % tasks.length]();
+      return {
+        prompt: task.prompt,
+        instruction: 'Множ чи діли на 10, 100, 1000 залежно від переходу.',
+        answer: task.answer
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Переведення одиниць',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Стерти"],
+    maxInputLength: 12,
+    buildQuestions,
+    normalizeAnswer: (str) => str.replace(/\s+/g,'').replace(/,/g,'.')
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Переведення одиниць</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть лише число</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Кому можна замінити крапкою.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

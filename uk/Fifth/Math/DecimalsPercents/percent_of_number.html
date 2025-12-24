@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Finding percent of a number (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Відсоток від числа</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const percent = [5, 10, 12, 15, 20, 25][Math.floor(Math.random()*6)];
+      const base = (Math.floor(Math.random()*18)+3) * 10; // 30..200
+      const value = Math.round(base * percent / 100);
+      return {
+        prompt: `Знайдіть ${percent}% від ${base}.`,
+        instruction: '1% — це 1/100 числа. Можна поділити на 100 та помножити на %.',
+        answer: String(value)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Відсоток від числа',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Стерти"],
+    maxInputLength: 10,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Відсоток від числа</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть результат</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Відповідь вводьте числом.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

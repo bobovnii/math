@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Rounding decimals (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Округли десятковий</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const whole = Math.floor(Math.random()*80)+10;
+    const tenths = Math.floor(Math.random()*10);
+    const hundredths = Math.floor(Math.random()*10);
+    const number = parseFloat(`${whole}.${tenths}${hundredths}`);
+    const target = Math.random() < 0.5 ? 'tenths' : 'hundredths';
+    const factor = target === 'tenths' ? 10 : 100;
+    const rounded = Math.round(number * factor) / factor;
+    const options = new Set([rounded.toFixed(target === 'tenths' ? 1 : 2)]);
+    while(options.size < 6){
+      const delta = (Math.floor(Math.random()*3)-1) / factor;
+      options.add((rounded + delta).toFixed(target === 'tenths' ? 1 : 2));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(rounded.toFixed(target === 'tenths' ? 1 : 2));
+    const placeText = target === 'tenths' ? 'десятих' : 'сотих';
+    return {
+      prompt: `Округліть ${number.toFixed(2).replace('.', ',')} до ${placeText}.`,
+      instruction: 'Дивись на наступний розряд: 0-4 — залишай, 5-9 — збільшуй.',
+      options: opts.map(o => o.replace('.', ',')),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Округли десятковий',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Округли десятковий</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть результат округлення.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+[
+  {
+    "TaskName": "Частина смужки",
+    "TaskHTML": "uk/Fifth/Math/Fractions/part_of_strip",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.PartOfStrip"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Скорочуємо дріб",
+    "TaskHTML": "uk/Fifth/Math/Fractions/simplify_fraction",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.SimplifyFraction"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Порівняй дроби",
+    "TaskHTML": "uk/Fifth/Math/Fractions/compare_fractions",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.CompareFractions"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Додаємо однакові знаменники",
+    "TaskHTML": "uk/Fifth/Math/Fractions/add_same_denominator",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.AddSameDenominator"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Віднімаємо однакові знаменники",
+    "TaskHTML": "uk/Fifth/Math/Fractions/subtract_same_denominator",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.SubtractSameDenominator"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Змішане чи неправильне",
+    "TaskHTML": "uk/Fifth/Math/Fractions/mixed_or_improper",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.Fractions.MixedOrImproper"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Звичайні дроби",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

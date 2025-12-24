@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Comparing rational numbers (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Порівняємо дроби й десяткові</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const fraction = Math.random() < 0.5;
+    if(fraction){
+      const d = Math.floor(Math.random()*7)+3;
+      const n = Math.floor(Math.random()*(d-1))+1;
+      const dec = (Math.random()<0.5 ? n/d : (n+1)/d).toFixed(2);
+      const correct = n/d === parseFloat(dec) ? '=' : (n/d > dec ? '>' : '<');
+      const options = [`${n}/${d} ${correct} ${dec}`, `${n}/${d} > ${dec}`, `${n}/${d} < ${dec}`, `${n}/${d} = ${dec}`, `${dec} > ${n}/${d}`, `${dec} = ${n}/${d}`];
+      const correctIndex = options.findIndex(o => o === `${n}/${d} ${correct} ${dec}`);
+      return {
+        prompt: `Порівняй ${n}/${d} і ${dec.replace('.', ',')}.`,
+        instruction: 'Переведи до десяткових або спільного знаменника.',
+        options,
+        correctIndex
+      };
+    } else {
+      const a = (Math.floor(Math.random()*30)-15)/10;
+      let b = (Math.floor(Math.random()*30)-15)/10;
+      if(b === a) b += 0.1;
+      const relation = a === b ? '=' : (a > b ? '>' : '<');
+      const options = [`${a} ${relation} ${b}`, `${a} > ${b}`, `${a} < ${b}`, `${a} = ${b}`, `${b} > ${a}`, `${b} < ${a}`];
+      const correctIndex = options.findIndex(o => o === `${a} ${relation} ${b}`);
+      return {
+        prompt: `Порівняй ${a.toFixed(1).replace('.', ',')} і ${b.toFixed(1).replace('.', ',')}.`,
+        instruction: 'Пам’ятай про від’ємні та модулі.',
+        options,
+        correctIndex
+      };
+    }
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Порівняємо дроби й десяткові',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Порівняємо дроби й десяткові</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильний знак.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

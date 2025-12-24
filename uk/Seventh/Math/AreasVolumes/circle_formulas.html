@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Circle area and circumference formula builder (9-button). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Формули кола</title>
+<link rel="stylesheet" href="../../../../templates/template_9buttons.css" />
+<script>
+  window.QUIZ_CONFIG = {
+    title: 'Формули кола',
+    name: 'Площа і довжина',
+    description: 'Складіть S = πr² та C = 2πr (дві перевірки окремо).',
+    placeholder: 'Додавайте символи, щоб скласти формулу',
+    tokens: ["S","=","π","r","²","C","=","2","πr"],
+    normalize: (str) => str.replace(/\s+/g,'')
+  };
+</script>
+<script src="../../../../templates/template_9buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Формули кола</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="panel-heading">
+          <div id="formulaName" class="panel-topic"></div>
+          <p id="panelDescription" class="panel-description"></p>
+        </div>
+        <div class="panel-body">
+          <div id="formulaDisplay" class="formula-display empty" aria-live="polite">Розташуйте символи у правильному порядку</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Зберіть формулу, потім перевірте.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="symbols">
+        <div class="symbols-header">Натискайте символи, щоб скласти формулу.</div>
+        <div id="symbolGrid" class="symbols-grid" aria-label="Клавіатура символів"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

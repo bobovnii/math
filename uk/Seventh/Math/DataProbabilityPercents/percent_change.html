@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Percent increase/decrease (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Відсоткові зміни</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, () => {
+      const base = (Math.floor(Math.random()*25)+6)*10; // 60..300
+      const p = [5,10,12,15,20][Math.floor(Math.random()*5)];
+      const increase = Math.random()<0.5;
+      const delta = base * p / 100;
+      const result = increase ? base + delta : base - delta;
+      return {
+        prompt: `${increase ? 'Збільшити' : 'Зменшити'} ${base} на ${p}%.`,
+        instruction: 'Обчисліть % від числа і додайте/відніміть.',
+        answer: result.toFixed(2)
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Відсоткові зміни',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0",".","Стерти"],
+    maxInputLength: 12,
+    buildQuestions,
+    normalizeAnswer: (str) => str.replace(/\s+/g,'').replace(/,/g,'.')
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Відсоткові зміни</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть результат</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Вводьте лише число.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

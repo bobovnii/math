@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Proportional reasoning (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Пропорційні задачі</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    if(Math.random() < 0.5){
+      const price = (Math.floor(Math.random()*30)+10)*2; // even price
+      const qty = Math.floor(Math.random()*3)+2;
+      const target = Math.floor(Math.random()*3)+3;
+      const unit = price/qty;
+      const correct = unit * target;
+      const options = new Set([correct, unit*(target+1), unit*(target-1), price, correct+5, Math.max(0,correct-5)]);
+      const opts = Array.from(options).map(v => v.toFixed(2)).map(s => s.replace('.', ','));
+      const correctIndex = opts.indexOf(correct.toFixed(2).replace('.', ','));
+      return {
+        prompt: `${qty} зошити коштують ${price} грн. Скільки коштують ${target} зошитів?`,
+        instruction: 'Знайди ціну за одиницю, потім помнож.',
+        options: opts,
+        correctIndex
+      };
+    } else {
+      const speed = Math.floor(Math.random()*40)+30; // 30..70
+      const time = Math.floor(Math.random()*3)+2; // 2..4 год
+      const distance = speed * time;
+      const options = new Set([time, time+1, time-1, distance, speed, time+2]);
+      const opts = Array.from(options).filter(v=>v>0).map(String);
+      const correctIndex = opts.indexOf(String(time));
+      return {
+        prompt: `Шлях ${distance} км при швидкості ${speed} км/год. Час руху?`,
+        instruction: 't = s ÷ v.',
+        options: opts,
+        correctIndex
+      };
+    }
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Пропорційні задачі',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Пропорційні задачі</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Використовуйте правило пропорції.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

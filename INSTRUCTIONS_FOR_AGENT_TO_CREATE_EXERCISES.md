@@ -26,6 +26,7 @@ Create and store all new exercise folders and files directly in the math repo at
   - 12-button keypad: set `buildQuestions()` returning `{ prompt, instruction, answer }`; set `keySymbols` as needed (add `/` or `+` when fractions/mixed numbers), `maxInputLength`, and optionally `normalizeAnswer`.
   - 9-button formula builder: set `tokens`, `name`, `description`, `placeholder`, and `normalize` if needed.
 - Randomization: generate fresh numbers within grade-appropriate ranges; avoid negatives unless intended. Ensure distractors are plausible and always include the correct answer.
+- Time and size caps: keep each question solvable in under 30 seconds. For quick fluency, cap addition/subtraction operands to 3-digit numbers and multiplication to at most a 2-digit number by a 1-digit number unless the topic explicitly requires more.
 - Keep prompts brief; instructions explain the action (add, round, compare, etc.).
 - Design for sub‑1‑minute completion per question: prefer 1–3 steps, keep numbers small/moderate (e.g., 2–4 digits for whole-number ops, denominators ≤10 for fractions, 1–2 decimal places), avoid long carry/borrow chains and multi-branch word problems; reduce question counts if needed.
 - Respect template button limits: do not add extra keys beyond the shared templates. Instead, adjust the exercise to fit the existing keypad/symbol set (e.g., avoid negative outputs if there is no `-` key, or constrain fraction subtraction so answers stay positive).

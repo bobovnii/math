@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Triangle classification (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Класифікація трикутників</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const sides = [Math.floor(Math.random()*6)+3, Math.floor(Math.random()*6)+3, Math.floor(Math.random()*6)+3];
+    sides.sort((a,b)=>a-b);
+    const [a,b,c] = sides;
+    let type = 'різносторонній';
+    if(a === c) type = 'рівносторонній';
+    else if(a === b || b === c) type = 'рівнобедрений';
+    const right = (a*a + b*b === c*c);
+    const angleType = right ? 'прямокутний' : (c*c < a*a + b*b ? 'гострокутний' : 'тупокутний');
+    const options = [type, angleType, 'рівносторонній', 'рівнобедрений', 'різносторонній', 'прямокутний'];
+    const correctIndex = options.indexOf(type);
+    return {
+      prompt: `Який це трикутник зі сторонами ${a}, ${b}, ${c}?`,
+      instruction: 'Спершу за сторонами: всі рівні, дві рівні чи всі різні.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Класифікація трикутників',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Класифікація трикутників</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть тип трикутника.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

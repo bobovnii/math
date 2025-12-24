@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Quick checks on measuring angles (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Виміряй кут</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const scenarios = [
+      { prompt: 'Який інструмент вимірює кут?', correct: 'транспортир' },
+      { prompt: 'Кут відкритий на 0 до першої поділки 60°. Скільки градусів має кут?', correct: '60°' },
+      { prompt: 'Як позначити вершину кута?', correct: 'буквою в середині запису' },
+      { prompt: 'Скільки градусів у розгорнутому куті?', correct: '180°' }
+    ];
+    const base = scenarios[Math.floor(Math.random()*scenarios.length)];
+    const options = ['лінійка','циркуль','транспортир','360°','90°','60°'];
+    if(base.prompt.includes('вершину')){
+      options.splice(0, options.length, 'буквою в середині запису','будь-якою буквою','цифрою','крапкою без позначення','немає правил','двома літерами');
+    }
+    const correctIndex = options.indexOf(base.correct);
+    return {
+      prompt: base.prompt,
+      instruction: 'Згадай правила вимірювання кутів.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Виміряй кут',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 8 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Виміряй кут</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильну відповідь.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

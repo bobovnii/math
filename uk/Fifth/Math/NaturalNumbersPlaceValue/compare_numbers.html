@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Comparing two multi-digit numbers (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Хто більший?</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('uk-UA'); }
+
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*9000)+1000; // 4-цифрові для швидкої перевірки
+    let b = Math.floor(Math.random()*9000)+1000;
+    if(b === a) b += 1;
+    const bigger = a > b ? 'перший' : 'другий';
+    const relation = a === b ? 'рівні' : (a > b ? '>' : '<');
+    const options = [
+      `${formatNumber(a)} ${relation} ${formatNumber(b)}`,
+      `${formatNumber(b)} > ${formatNumber(a)}`,
+      `${formatNumber(b)} < ${formatNumber(a)}`,
+      `${formatNumber(a)} = ${formatNumber(b)}`,
+      `${formatNumber(a+100)} > ${formatNumber(b)}`,
+      `${formatNumber(b+100)} > ${formatNumber(a)}`
+    ];
+    const correctIndex = options.findIndex(text => text === `${formatNumber(a)} ${relation} ${formatNumber(b)}`);
+    return {
+      prompt: `Що більше: ${formatNumber(a)} чи ${formatNumber(b)}?`,
+      instruction: 'Оберіть правильний знак порівняння.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Хто більший?',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Хто більший?</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Порівняйте числа та оберіть знак.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

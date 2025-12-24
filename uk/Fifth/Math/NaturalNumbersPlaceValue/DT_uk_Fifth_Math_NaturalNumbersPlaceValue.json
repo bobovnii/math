@@ -1,0 +1,42 @@
+[
+  {
+    "TaskName": "Читаємо великі числа",
+    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/reading_large_numbers",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.ReadingLargeNumbers"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Розрядний склад",
+    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/place_value_breakdown",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.PlaceValueBreakdown"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "Хто більший?",
+    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/compare_numbers",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.CompareNumbers"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "Округлення до тисяч",
+    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/round_to_thousands",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.RoundToThousands"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Натуральні числа і розрядність",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

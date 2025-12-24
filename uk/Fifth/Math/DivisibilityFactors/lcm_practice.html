@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Least common multiple practice (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>НСК тренування</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function gcd(a,b){
+    while(b !== 0){ const t = b; b = a % b; a = t; }
+    return Math.abs(a);
+  }
+  function lcm(a,b){ return Math.abs(a*b)/gcd(a,b); }
+
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*10)+6; // 6-15
+    let b = Math.floor(Math.random()*10)+6;
+    if(a === b) b += 1;
+    const correct = lcm(a,b);
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const tweak = correct + (Math.floor(Math.random()*8)-3);
+      options.add(Math.max(1, tweak));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(correct);
+    return {
+      prompt: `Обчисліть НСК(${a}, ${b}).`,
+      instruction: 'НСК = (a × b) ÷ НСД(a, b).',
+      options: opts.map(String),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'НСК тренування',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">НСК тренування</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильне НСК.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

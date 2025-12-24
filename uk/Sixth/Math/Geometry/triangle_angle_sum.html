@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Triangle angle sum questions (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Сума кутів трикутника</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function buildQuestion(){
+    const a = Math.floor(Math.random()*60)+30; // 30..89
+    const b = Math.floor(Math.random()*60)+30;
+    let c = 180 - a - b;
+    if(c <= 10){
+      c = 180 - a - (b % 40 + 30);
+    }
+    const missing = 180 - a - b;
+    const options = new Set([missing, missing+5, missing-5, 90, 60, 75]);
+    const opts = Array.from(options).filter(v=>v>0);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(missing);
+    return {
+      prompt: `Кути трикутника: ${a}° і ${b}°. Знайдіть третій кут.`,
+      instruction: 'Сума внутрішніх кутів трикутника 180°.',
+      options: opts.map(v => `${v}°`),
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Сума кутів трикутника',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Сума кутів трикутника</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Сума кутів = 180°.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

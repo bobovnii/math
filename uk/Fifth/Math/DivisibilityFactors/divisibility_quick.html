@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Divisibility check for a single divisor (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Подільність швидко</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const OPTION_DIVISORS = [7, 8, 9, 11, 13, 5];
+
+  function buildQuestion(){
+    const divisor = OPTION_DIVISORS[Math.floor(Math.random()*OPTION_DIVISORS.length)];
+    let number = divisor * (Math.floor(Math.random()*8)+4);
+    // Ensure унікальна відповідь серед опцій
+    while(OPTION_DIVISORS.some(d => d !== divisor && number % d === 0)){
+      number = divisor * (Math.floor(Math.random()*8)+4);
+    }
+    const options = OPTION_DIVISORS.map(d => d.toString());
+    const correctIndex = options.indexOf(divisor.toString());
+    return {
+      prompt: `На яке з чисел без остачі ділиться ${number}?`,
+      instruction: 'Оберіть єдиний дільник із варіантів.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Подільність швидко',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Подільність швидко</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Використай ознаки подільності.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

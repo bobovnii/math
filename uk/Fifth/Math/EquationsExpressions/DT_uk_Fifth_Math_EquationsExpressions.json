@@ -1,0 +1,26 @@
+[
+  {
+    "TaskName": "Знайди x",
+    "TaskHTML": "uk/Fifth/Math/EquationsExpressions/solve_for_x",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.EquationsExpressions.SolveForX"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Порахуй вираз",
+    "TaskHTML": "uk/Fifth/Math/EquationsExpressions/evaluate_expression",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.EquationsExpressions.EvaluateExpression"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Рівняння та вирази",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "TaskName": "Обчисли степінь",
+    "TaskHTML": "uk/Seventh/Math/ExpressionsFormulas/power_calculator",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.ExpressionsFormulas.PowerCalculator" },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Відкрий дужки й зведи подібні",
+    "TaskHTML": "uk/Seventh/Math/ExpressionsFormulas/expand_and_collect",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.ExpressionsFormulas.ExpandAndCollect" },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Підстав і обчисли",
+    "TaskHTML": "uk/Seventh/Math/ExpressionsFormulas/substitute_formula",
+    "TaskTag": { "TagName": "Education.uk.Seventh.Math.ExpressionsFormulas.SubstituteFormula" },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7 клас.Математика.Вирази та формули",
+    "TaskTag": { "TagName": "" },
+    "ChargesStatData": ""
+  }
+]

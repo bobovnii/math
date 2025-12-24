@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Place value decomposition using 6-button multiple choice. -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Розрядний склад</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  function formatNumber(n){ return n.toLocaleString('uk-UA'); }
+
+  function buildQuestion(){
+    const number = Math.floor(Math.random()*90000) + 1000; // 4-5 цифр
+    const digits = String(number).padStart(5,'0').split('').map(Number);
+    const parts = [];
+    for(let i=0; i<digits.length; i++){
+      const place = 10**(digits.length - i -1);
+      if(digits[i]) parts.push(digits[i] * place);
+    }
+    const correct = parts.join(' + ');
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const tweak = number + (Math.random()<0.5 ? -1 : 1) * (10 ** Math.floor(Math.random()*3));
+      const d2 = Math.max(10, Math.min(99999, tweak));
+      const digits2 = String(d2).padStart(5,'0').split('').map(Number);
+      const parts2 = [];
+      for(let i=0; i<digits2.length; i++){
+        const place = 10**(digits2.length - i -1);
+        if(digits2[i]) parts2.push(digits2[i] * place);
+      }
+      options.add(parts2.join(' + '));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(correct);
+    return {
+      prompt: `Обери розрядний склад числа ${formatNumber(number)}.`,
+      instruction: 'Запис як сума розрядних доданків.',
+      options: opts,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Розрядний склад',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Розрядний склад</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Виберіть правильний запис.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

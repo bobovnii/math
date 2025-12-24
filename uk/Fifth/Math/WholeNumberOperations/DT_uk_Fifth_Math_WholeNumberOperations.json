@@ -1,0 +1,50 @@
+[
+  {
+    "TaskName": "Стовпчикове додавання",
+    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/column_add",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.ColumnAdd"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Віднімання з перевіркою",
+    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/column_subtract",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.ColumnSubtract"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Добуток на однозначне",
+    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/multiply_by_one_digit",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.MultiplyByOneDigit"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Ділення з остачею",
+    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/division_with_remainder",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.DivisionWithRemainder"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Дужки спочатку",
+    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/order_of_operations",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.OrderOfOperations"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Арифметичні дії з натуральними числами",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

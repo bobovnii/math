@@ -1,0 +1,66 @@
+[
+  {
+    "TaskName": "Види кутів",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/angle_types",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.AngleTypes"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Виміряй кут",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/measure_angle",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.MeasureAngle"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Формула периметра прямокутника",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/rectangle_perimeter_formula",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.RectanglePerimeterFormula"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "Площа прямокутника",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/rectangle_area",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.RectangleArea"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "Площа трикутника",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/triangle_area_formula",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.TriangleAreaFormula"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Переведення одиниць",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/unit_conversion",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.UnitConversion"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Швидкість-час-відстань",
+    "TaskHTML": "uk/Fifth/Math/GeometryMeasurement/speed_time_distance",
+    "TaskTag": {
+      "TagName": "Education.uk.Fifth.Math.GeometryMeasurement.SpeedTimeDistance"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "5 клас.Математика.Геометрія і вимірювання",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
+]

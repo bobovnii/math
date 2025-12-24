@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Reading multi-digit numbers in Ukrainian using 6-button multiple choice. -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Читаємо великі числа</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const ONES = ['', 'один', 'два', 'три', 'чотири', "п'ять", 'шість', 'сім', 'вісім', "дев'ять"];
+  const ONES_F = ['', 'одна', 'дві', 'три', 'чотири', "п'ять", 'шість', 'сім', 'вісім', "дев'ять"];
+  const TEENS = ['десять', "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять"];
+  const TENS = ['', '', 'двадцять', 'тридцять', 'сорок', "п'ятдесят", "шістдесят", "сімдесят", "вісімдесят", "дев'яносто"];
+  const HUNDS = ['', 'сто', 'двісті', 'триста', 'чотириста', "п'ятсот", "шістсот", "сімсот", "вісімсот", "дев'ятсот"];
+
+  function toWordsUnderThousand(n, female=false){
+    const ones = female ? ONES_F : ONES;
+    const h = Math.floor(n/100), t = Math.floor((n%100)/10), o = n%10;
+    const parts = [];
+    if(h) parts.push(HUNDS[h]);
+    if(t === 1){
+      parts.push(TEENS[o]);
+      return parts.join(' ');
+    }
+    if(t) parts.push(TENS[t]);
+    if(o) parts.push(ones[o]);
+    return parts.join(' ').trim() || 'нуль';
+  }
+
+  function numberToWords(n){
+    if(n === 0) return 'нуль';
+    const thousands = Math.floor(n/1000);
+    const rest = n%1000;
+    const parts = [];
+    if(thousands){
+      const tWords = toWordsUnderThousand(thousands, true);
+      const lastTwo = thousands % 100;
+      const last = thousands % 10;
+      let form = 'тисяч';
+      if(lastTwo < 10 || lastTwo > 20){
+        if(last === 1) form = 'тисяча';
+        else if(last >= 2 && last <= 4) form = 'тисячі';
+      }
+      parts.push(tWords + ' ' + form);
+    }
+    if(rest) parts.push(toWordsUnderThousand(rest));
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function formatNumber(n){ return n.toLocaleString('uk-UA'); }
+
+  function buildQuestion(){
+    const number = Math.floor(Math.random()*90000) + 1000; // 1 000 - 99 999 to keep quick
+    const correctText = numberToWords(number);
+    const variants = new Set([correctText]);
+    while(variants.size < 6){
+      const tweak = Math.max(1, Math.floor(Math.random()*90000)+1);
+      const candidate = numberToWords(Math.max(1, Math.min(99999, number + (Math.random()<0.5?-tweak:tweak))));
+      variants.add(candidate);
+    }
+    const options = Array.from(variants);
+    options.sort(() => Math.random()-0.5);
+    const correctIndex = options.indexOf(correctText);
+    return {
+      prompt: `Як читається число ${formatNumber(number)}?`,
+      instruction: 'Оберіть правильний запис словами.',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Читаємо великі числа',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Читаємо великі числа</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Натисніть на правильний варіант читання.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

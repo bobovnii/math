@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Mixed numbers addition/subtraction (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Мішані в діях</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function toImproper(whole, num, den){
+    return { num: whole*den + num, den };
+  }
+  function gcd(a,b){ return b===0?Math.abs(a):gcd(b,a%b); }
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, (_, i) => {
+      const den = Math.floor(Math.random()*6)+3;
+      const whole1 = Math.floor(Math.random()*2)+1;
+      const whole2 = Math.floor(Math.random()*2)+1;
+      const n1 = Math.floor(Math.random()*(den-1))+1;
+      const n2 = Math.floor(Math.random()*(den-1))+1;
+      const op = i % 2 === 0 ? '+' : '-';
+      const a = toImproper(whole1, n1, den);
+      const b = toImproper(whole2, n2, den);
+      let num = op === '+' ? a.num + b.num : a.num - b.num;
+      const g = gcd(num, den);
+      num /= g;
+      const denS = den / g;
+      if (num >= denS){
+        const whole = Math.floor(num/denS);
+        const rem = num % denS;
+        return {
+          prompt: `Обчисліть ${whole1} ${n1}/${den} ${op} ${whole2} ${n2}/${den}.`,
+          instruction: 'Переведіть у неправильні дроби, виконайте дію, виділіть цілу.',
+          answer: rem ? `${whole} ${rem}/${denS}` : `${whole}`
+        };
+      }
+      return {
+        prompt: `Обчисліть ${whole1} ${n1}/${den} ${op} ${whole2} ${n2}/${den}.`,
+        instruction: 'Переведіть у неправильні дроби, виконайте дію.',
+        answer: `${num}/${denS}`
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Мішані в діях',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","/","Стерти"],
+    maxInputLength: 14,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Мішані в діях</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть результат (наприклад 4 1/4 або 7/10)</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Якщо результат цілий — введіть лише число.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Substitution into simple formulas (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Підстав і обчисли</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, (_, i) => {
+      if(i % 2 === 0){
+        const a = Math.floor(Math.random()*4)+1;
+        const b = Math.floor(Math.random()*6)-3;
+        const val = 2*a*a - b;
+        return {
+          prompt: `При a=${a}, b=${b}: обчисліть 2a² - b.`,
+          instruction: 'Спершу степінь, потім множення, далі віднімання.',
+          answer: String(val)
+        };
+      } else {
+        const x = Math.floor(Math.random()*4)+1;
+        const y = Math.floor(Math.random()*5)+2;
+        const val = 3*x + 2*y*y;
+        return {
+          prompt: `При x=${x}, y=${y}: обчисліть 3x + 2y².`,
+          instruction: 'Степінь перед множенням, далі додавання.',
+          answer: String(val)
+        };
+      }
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Підстав і обчисли',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","-","Стерти"],
+    maxInputLength: 10,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Підстав і обчисли</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть значення</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Лише число.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

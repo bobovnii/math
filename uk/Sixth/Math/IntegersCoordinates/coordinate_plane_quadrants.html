@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Identifying points/quadrants on coordinate plane (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Де точка?</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const quadrants = ['I','II','III','IV'];
+  function buildQuestion(){
+    const x = Math.floor(Math.random()*9) - 4;
+    const y = Math.floor(Math.random()*9) - 4;
+    let prompt, correct;
+    if(x === 0 || y === 0){
+      prompt = `Координати точки (${x}, ${y}). Де вона розташована?`;
+      correct = x === 0 && y === 0 ? 'у початку координат' : (y === 0 ? 'на осі Ox' : 'на осі Oy');
+      const options = ['у початку координат','на осі Ox','на осі Oy','I','II','III'];
+      const correctIndex = options.indexOf(correct);
+      return {
+        prompt,
+        instruction: 'x перший, y другий; 0 означає розташування на осі.',
+        options,
+        correctIndex
+      };
+    }
+    const quadrant = (x>0 && y>0)?'I':(x<0 && y>0)?'II':(x<0 && y<0)?'III':'IV';
+    const options = quadrants.concat(['на осі Ox','на осі Oy']);
+    const correctIndex = options.indexOf(quadrant);
+    return {
+      prompt: `У якому квадранті точка (${x}, ${y})?`,
+      instruction: 'Пам’ятай: I (+,+), II (-,+), III (-,-), IV (+,-).',
+      options,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Де точка?',
+    randomizeQuestions: true,
+    randomizeOptions: true,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Де точка?</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Обрана відповідь з’явиться тут.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Визначте квадрант або вісь.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

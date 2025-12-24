@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Reading decimals in Ukrainian (6-button multiple choice). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Читаємо десяткові</title>
+<link rel="stylesheet" href="../../../../templates/template_6buttons.css" />
+<script>
+  const ONES = ['нуль','одна','дві','три','чотири',"п'ять",'шість','сім','вісім',"дев'ять"];
+  const TEENS = ['десять',"одинадцять","дванадцять","тринадцять","чотирнадцять","п\'ятнадцять","шістнадцять","сімнадцять","вісімнадцять","дев\'ятнадцять"];
+  const TENS = ['','', 'двадцять','тридцять','сорок',"п'ятдесят","шістдесят","сімдесят","вісімдесят","дев'яносто"];
+
+  function twoDigitWords(n){
+    if(n < 10) return ONES[n];
+    if(n < 20) return TEENS[n-10];
+    const t = Math.floor(n/10), o = n%10;
+    return TENS[t] + (o ? ' ' + ONES[o] : '');
+  }
+
+  function decimalToWords(str){
+    const [wholeStr, decStrRaw] = str.split('.');
+    const whole = parseInt(wholeStr, 10);
+    const decStr = decStrRaw || '0';
+    const dec = parseInt(decStr, 10);
+    const wholePart = whole === 0 ? 'нуль цілих' : `${twoDigitWords(whole)} ${whole === 1 ? 'ціла' : 'цілих'}`;
+    if(decStr.length === 1){
+      return `${wholePart} ${twoDigitWords(dec)} ${dec === 1 ? 'десята' : 'десятих'}`.trim();
+    }
+    return `${wholePart} ${twoDigitWords(dec)} ${dec === 1 ? 'сота' : 'сотих'}`.trim();
+  }
+
+  function buildQuestion(){
+    const whole = Math.floor(Math.random()*9)+1;
+    const decimals = Math.random()<0.5 ? (Math.floor(Math.random()*9)+1).toString() : (Math.floor(Math.random()*90)+10).toString();
+    const numStr = `${whole}.${decimals}`;
+    const correct = decimalToWords(numStr);
+    const options = new Set([correct]);
+    while(options.size < 6){
+      const altWhole = Math.max(0, whole + (Math.floor(Math.random()*3)-1));
+      const altDec = Math.random()<0.5 ? (Math.floor(Math.random()*9)+1).toString() : (Math.floor(Math.random()*90)+10).toString();
+      options.add(decimalToWords(`${altWhole}.${altDec}`));
+    }
+    const opts = Array.from(options);
+    opts.sort(() => Math.random()-0.5);
+    const correctIndex = opts.indexOf(correct);
+    return {
+      prompt: `Як читається число ${numStr.replace('.', ',')}?`,
+      instruction: 'Зверни увагу на кількість цифр після коми.',
+      options: opts,
+      correctIndex
+    };
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Читаємо десяткові',
+    randomizeQuestions: true,
+    randomizeOptions: false,
+    questions: Array.from({ length: 10 }, buildQuestion)
+  };
+</script>
+<script src="../../../../templates/template_6buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Читаємо десяткові</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+          <p id="selectedEcho" class="selected-echo placeholder">Тут з’явиться обрана відповідь.</p>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Оберіть правильний словесний запис.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section id="answers" class="answers"></section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Multiplying/dividing rational numbers (12-button keypad). -->
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>Помнож і поділи</title>
+<link rel="stylesheet" href="../../../../templates/template_12buttons.css" />
+<script>
+  function gcd(a,b){ return b===0?Math.abs(a):gcd(b,a%b); }
+  function buildQuestions(count = 8){
+    return Array.from({ length: count }, (_, i) => {
+      const d1 = Math.floor(Math.random()*6)+3;
+      const d2 = Math.floor(Math.random()*6)+3;
+      const n1 = (Math.random()<0.5?-1:1)*(Math.floor(Math.random()*(d1-1))+1);
+      const n2 = (Math.random()<0.5?-1:1)*(Math.floor(Math.random()*(d2-1))+1);
+      const op = i % 2 === 0 ? '×' : '÷';
+      let num, den;
+      if(op === '×'){
+        num = n1*n2; den = d1*d2;
+      } else {
+        num = n1*d2; den = d1*n2;
+      }
+      const g = gcd(num, den);
+      return {
+        prompt: `Обчисліть ${n1}/${d1} ${op} ${n2}/${d2}.`,
+        instruction: op === '×' ? 'Множ чисельники і знаменники.' : 'Множ на обернений дріб.',
+        answer: `${num/g}/${den/g}`
+      };
+    });
+  }
+
+  window.QUIZ_CONFIG = {
+    title: 'Помнож і поділи',
+    keySymbols: ["1","2","3","4","5","6","7","8","9","0","-","/","Стерти"],
+    maxInputLength: 14,
+    buildQuestions
+  };
+</script>
+<script src="../../../../templates/template_12buttons_uk.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="flash" class="flash"></div>
+    <div class="app">
+      <header class="header">
+        <h1 id="title" class="title">Помнож і поділи</h1>
+      </header>
+
+      <aside class="panel">
+        <div class="question-header">
+          <p id="questionPrompt" class="question-prompt"></p>
+          <p id="questionInstruction" class="question-instruction"></p>
+        </div>
+        <div class="answer-body">
+          <div id="answerDisplay" class="answer-display placeholder" aria-live="polite">Уведіть результат</div>
+        </div>
+        <div class="panel-footer">
+          <div id="panelFoot" class="panel-foot-text">Скорочуйте, якщо можна.</div>
+          <button id="checkBtn" type="button" class="check-btn">Перевірити</button>
+        </div>
+      </aside>
+
+      <section class="keypad">
+        <div id="keypadGrid" class="keypad-grid" aria-label="Цифрова клавіатура"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
