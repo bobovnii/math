@@ -1,6 +1,6 @@
 [
   {
-    "TaskName": "Column Add to a Million",
+    "TaskName": "Column Add 3-Digit",
     "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_add_to_a_million",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnAddToAMillion"
@@ -8,7 +8,7 @@
     "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
   },
   {
-    "TaskName": "Column Subtract to a Million",
+    "TaskName": "Column Subtract 3-Digit",
     "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_subtract_to_a_million",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnSubtractToAMillion"

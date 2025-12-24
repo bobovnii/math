@@ -31,14 +31,14 @@ Note: Topics align with typical Year 5 maths in England (National Curriculum); o
 
 ### Addition & Subtraction
 - Formal written methods and checking
-  - Column Add to a Million (12-button keypad)
+  - Column Add 3-Digit (12-button keypad)
     - Hint: Align place value columns and carry if the sum is 10 or more.
-    - Example 1: 456 789 + 98 765 = ? -> 555 554
-    - Example 2: 320 450 + ___ = 489 999 -> 169 549
-  - Column Subtract to a Million (12-button keypad)
+    - Example 1: 487 + 369 = ? -> 856
+    - Example 2: 725 + ___ = 804 -> 79
+  - Column Subtract 3-Digit (12-button keypad)
     - Hint: Borrow from the next column when the top digit is smaller.
-    - Example 1: 900 002 - 58 739 = ? -> 841 263
-    - Example 2: ___ - 74 185 = 502 610 -> 576 795
+    - Example 1: 912 - 487 = ? -> 425
+    - Example 2: ___ - 268 = 147 -> 415
 - Estimation and inverse checks
   - Reasonable Estimate (6-button multiple choice)
     - Hint: Round both numbers then add or subtract to judge if an answer is reasonable.
@@ -60,10 +60,10 @@ Note: Topics align with typical Year 5 maths in England (National Curriculum); o
     - Example 1: Smallest common multiple of 6 and 8? -> 24
     - Example 2: A number is a multiple of 9 and 5 under 100. Choose one -> 45
 - Written multiplication and division
-  - Long Multiplication 4-digit × 1- or 2-digit (12-button keypad)
-    - Hint: Multiply ones first, carry, then tens row; add partial products.
-    - Example 1: 3 748 × 6 = ? -> 22 488
-    - Example 2: 1 205 × 14 = ? -> 16 870
+  - Long Multiplication 3-digit × 1-digit (12-button keypad)
+    - Hint: Multiply ones first, carry, then add partial products.
+    - Example 1: 324 × 7 = ? -> 2 268
+    - Example 2: __ × 6 = 2 754 -> 459
   - Short Division with Remainder (12-button keypad)
     - Hint: Divide each place, bring down the next digit, record any remainder.
     - Example 1: 8 436 ÷ 7 = ? -> 1 205 R1

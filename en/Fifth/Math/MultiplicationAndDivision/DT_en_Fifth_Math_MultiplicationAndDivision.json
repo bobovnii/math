@@ -16,7 +16,7 @@
     "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
   },
   {
-    "TaskName": "Long Multiplication 4-digit",
+    "TaskName": "Long Multiplication 3-digit × 1-digit",
     "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/long_multiplication_4digit",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.LongMultiplication4Digit"
