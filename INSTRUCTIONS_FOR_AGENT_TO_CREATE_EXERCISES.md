@@ -73,3 +73,8 @@ Create and store all new exercise folders and files directly in the math repo at
 - Match the language folder in the output root (e.g., input `.../math/en` → output root `/Users/bobovnii/Documents/business/HTML/en`) so files stay under the correct locale.
 - Do **not** add extra buttons/keys; adjust exercises to fit templates before unwrapping.
 - Ensure new files land in the matching subfolders under `/Users/bobovnii/Documents/business/HTML` after unwrapping.
+
+## 10) Generate UE gameplay tag headers/sources for Math
+- For each locale/grade in `/Users/bobovnii/Documents/business/HTML/<lang>/<Grade>/Math`, add `<lang><Grade>YearMath.h` and `<lang><Grade>YearMath.cpp` (one pair per grade) mirroring `de/Fifth/Math/deFifthYearMath.*`.
+- Declare `Self` and one gameplay tag per exercise HTML: namespace chain `EpEducationTopics::<lang>::<Grade>::Math::<Topic>`, with `UE_DECLARE/DEFINE_GAMEPLAY_TAG` using CamelCase of the file stem (e.g., `fraction_compare.html` → `FractionCompare`) and tag strings `Education.<lang>.<Grade>.Math.<Topic>.<Exercise>`.
+- Place these files alongside the math folders in the HTML mirror.
