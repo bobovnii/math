@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Частина смужки",
-    "TaskHTML": "uk/Fifth/Math/Fractions/part_of_strip",
+    "TaskHTML": "part_of_strip",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.PartOfStrip"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Скорочуємо дріб",
-    "TaskHTML": "uk/Fifth/Math/Fractions/simplify_fraction",
+    "TaskHTML": "simplify_fraction",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.SimplifyFraction"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Порівняй дроби",
-    "TaskHTML": "uk/Fifth/Math/Fractions/compare_fractions",
+    "TaskHTML": "compare_fractions",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.CompareFractions"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Додаємо однакові знаменники",
-    "TaskHTML": "uk/Fifth/Math/Fractions/add_same_denominator",
+    "TaskHTML": "add_same_denominator",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.AddSameDenominator"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Віднімаємо однакові знаменники",
-    "TaskHTML": "uk/Fifth/Math/Fractions/subtract_same_denominator",
+    "TaskHTML": "subtract_same_denominator",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.SubtractSameDenominator"
     },
@@ -41,7 +41,7 @@
   },
   {
     "TaskName": "Змішане чи неправильне",
-    "TaskHTML": "uk/Fifth/Math/Fractions/mixed_or_improper",
+    "TaskHTML": "mixed_or_improper",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.Fractions.MixedOrImproper"
     },

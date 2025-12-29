@@ -50,7 +50,7 @@ Create and store all new exercise folders and files directly in the math repo at
 - For every “final” topic folder that directly contains the exercise HTMLs, add one JSON file named `DT_<lang>_<grade>_<subject>_<topic>.json` (e.g., `DT_uk_Fifth_Math_NumberAndPlaceValue.json`).
 - Structure (array of entries) mirrors `example json.json`:
   - `TaskName`: the exercise name shown in README/HTML.
-  - `TaskHTML`: the exercise filename without `.html`, prefixed by the language path (e.g., `en/Fifth/Math/AdditionAndSubtraction/column_add_to_a_million`).
+  - `TaskHTML`: **only the exercise filename stem without any path or extension** (e.g., `column_add_to_a_million`).
   - `TaskTag.TagName`: fully qualified tag starting at `Education.<lang>.<grade>.<subject>.<topic>.<ExerciseCamelCase>` with a unique CamelCase tail per exercise.
   - `ChargesStatData`: choose one spell path from the known set and vary usage across exercises:
     - `/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C`

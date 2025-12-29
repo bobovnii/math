@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Стовпчикове додавання",
-    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/column_add",
+    "TaskHTML": "column_add",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.ColumnAdd"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Віднімання з перевіркою",
-    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/column_subtract",
+    "TaskHTML": "column_subtract",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.ColumnSubtract"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Добуток на однозначне",
-    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/multiply_by_one_digit",
+    "TaskHTML": "multiply_by_one_digit",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.MultiplyByOneDigit"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Ділення з остачею",
-    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/division_with_remainder",
+    "TaskHTML": "division_with_remainder",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.DivisionWithRemainder"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Дужки спочатку",
-    "TaskHTML": "uk/Fifth/Math/WholeNumberOperations/order_of_operations",
+    "TaskHTML": "order_of_operations",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.WholeNumberOperations.OrderOfOperations"
     },

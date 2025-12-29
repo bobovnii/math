@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Обчисли площу",
-    "TaskHTML": "uk/Seventh/Math/AreasVolumes/area_calculator",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.AreasVolumes.AreaCalculator" },
+    "TaskHTML": "area_calculator",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.AreasVolumes.AreaCalculator"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
   },
   {
     "TaskName": "Формули кола",
-    "TaskHTML": "uk/Seventh/Math/AreasVolumes/circle_formulas",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.AreasVolumes.CircleFormulas" },
+    "TaskHTML": "circle_formulas",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.AreasVolumes.CircleFormulas"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "Об’єм фігур",
-    "TaskHTML": "uk/Seventh/Math/AreasVolumes/volume_solids",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.AreasVolumes.VolumeSolids" },
+    "TaskHTML": "volume_solids",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.AreasVolumes.VolumeSolids"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "7 клас.Математика.Площі та об’єми",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

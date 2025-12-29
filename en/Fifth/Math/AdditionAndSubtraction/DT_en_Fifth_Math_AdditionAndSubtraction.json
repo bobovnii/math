@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Column Add 3-Digit",
-    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_add_to_a_million",
+    "TaskHTML": "column_add_to_a_million",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnAddToAMillion"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Column Subtract 3-Digit",
-    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/column_subtract_to_a_million",
+    "TaskHTML": "column_subtract_to_a_million",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ColumnSubtractToAMillion"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Reasonable Estimate",
-    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/reasonable_estimate",
+    "TaskHTML": "reasonable_estimate",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.ReasonableEstimate"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Inverse Check",
-    "TaskHTML": "en/Fifth/Math/AdditionAndSubtraction/inverse_check",
+    "TaskHTML": "inverse_check",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.AdditionAndSubtraction.InverseCheck"
     },

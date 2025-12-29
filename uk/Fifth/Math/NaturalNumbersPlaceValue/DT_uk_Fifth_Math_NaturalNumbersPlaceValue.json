@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Читаємо великі числа",
-    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/reading_large_numbers",
+    "TaskHTML": "reading_large_numbers",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.ReadingLargeNumbers"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Розрядний склад",
-    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/place_value_breakdown",
+    "TaskHTML": "place_value_breakdown",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.PlaceValueBreakdown"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Хто більший?",
-    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/compare_numbers",
+    "TaskHTML": "compare_numbers",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.CompareNumbers"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Округлення до тисяч",
-    "TaskHTML": "uk/Fifth/Math/NaturalNumbersPlaceValue/round_to_thousands",
+    "TaskHTML": "round_to_thousands",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.NaturalNumbersPlaceValue.RoundToThousands"
     },

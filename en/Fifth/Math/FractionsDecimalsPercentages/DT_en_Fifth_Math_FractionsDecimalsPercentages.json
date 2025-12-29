@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Compare Fractions with Multiples",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/compare_fractions_with_multiples",
+    "TaskHTML": "compare_fractions_with_multiples",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.CompareFractionsWithMultiples"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Mixed or Improper Switch",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/mixed_or_improper_switch",
+    "TaskHTML": "mixed_or_improper_switch",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.MixedOrImproperSwitch"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Add/Subtract with Linked Denominators",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/add_subtract_linked_denominators",
+    "TaskHTML": "add_subtract_linked_denominators",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.AddSubtractWithLinkedDenominators"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Multiply Fraction by Whole Number",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/multiply_fraction_by_whole",
+    "TaskHTML": "multiply_fraction_by_whole",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.MultiplyFractionByWholeNumber"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Fraction of an Amount",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/fraction_of_an_amount",
+    "TaskHTML": "fraction_of_an_amount",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.FractionOfAnAmount"
     },
@@ -41,7 +41,7 @@
   },
   {
     "TaskName": "Decimal Place Value to Thousandths",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/decimal_place_value_thousandths",
+    "TaskHTML": "decimal_place_value_thousandths",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.DecimalPlaceValueToThousandths"
     },
@@ -49,7 +49,7 @@
   },
   {
     "TaskName": "Round Decimals",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/round_decimals",
+    "TaskHTML": "round_decimals",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.RoundDecimals"
     },
@@ -57,7 +57,7 @@
   },
   {
     "TaskName": "Percent-Fraction-Decimal Match",
-    "TaskHTML": "en/Fifth/Math/FractionsDecimalsPercentages/percent_fraction_decimal_match",
+    "TaskHTML": "percent_fraction_decimal_match",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.FractionsDecimalsPercentages.PercentFractionDecimalMatch"
     },

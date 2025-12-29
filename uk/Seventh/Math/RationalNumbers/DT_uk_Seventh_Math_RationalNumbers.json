@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Порівняємо дроби й десяткові",
-    "TaskHTML": "uk/Seventh/Math/RationalNumbers/compare_rationals",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.RationalNumbers.CompareRationals" },
+    "TaskHTML": "compare_rationals",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.RationalNumbers.CompareRationals"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
   },
   {
     "TaskName": "Раціональні на осі",
-    "TaskHTML": "uk/Seventh/Math/RationalNumbers/add_subtract_rationals",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.RationalNumbers.AddSubtractRationals" },
+    "TaskHTML": "add_subtract_rationals",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.RationalNumbers.AddSubtractRationals"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
   },
   {
     "TaskName": "Помнож і поділи",
-    "TaskHTML": "uk/Seventh/Math/RationalNumbers/multiply_divide_rationals",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.RationalNumbers.MultiplyDivideRationals" },
+    "TaskHTML": "multiply_divide_rationals",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.RationalNumbers.MultiplyDivideRationals"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "7 клас.Математика.Раціональні числа",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

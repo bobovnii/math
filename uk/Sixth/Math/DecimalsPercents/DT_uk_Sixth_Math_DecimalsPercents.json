@@ -1,32 +1,42 @@
 [
   {
     "TaskName": "Додаємо/віднімаємо десяткові",
-    "TaskHTML": "uk/Sixth/Math/DecimalsPercents/add_subtract_decimals",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.DecimalsPercents.AddSubtractDecimals" },
+    "TaskHTML": "add_subtract_decimals",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.DecimalsPercents.AddSubtractDecimals"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
   },
   {
     "TaskName": "Множимо/ділимо десяткові",
-    "TaskHTML": "uk/Sixth/Math/DecimalsPercents/multiply_divide_decimals",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.DecimalsPercents.MultiplyDivideDecimals" },
+    "TaskHTML": "multiply_divide_decimals",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.DecimalsPercents.MultiplyDivideDecimals"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
   },
   {
     "TaskName": "Відсоток від числа",
-    "TaskHTML": "uk/Sixth/Math/DecimalsPercents/percent_of_number",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.DecimalsPercents.PercentOfNumber" },
+    "TaskHTML": "percent_of_number",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.DecimalsPercents.PercentOfNumber"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
   },
   {
     "TaskName": "Пропорційні задачі",
-    "TaskHTML": "uk/Sixth/Math/DecimalsPercents/proportion_word_problems",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.DecimalsPercents.ProportionWordProblems" },
+    "TaskHTML": "proportion_word_problems",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.DecimalsPercents.ProportionWordProblems"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "6 клас.Математика.Десяткові дроби і відсотки",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

@@ -1,7 +1,42 @@
 [
-  {"TaskName":"Simplify with Brackets","TaskHTML":"en/Seventh/Math/Algebra/simplify_with_brackets","TaskTag":{"TagName":"Education.en.Seventh.Math.Algebra.SimplifyWithBrackets"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Substitute and Calculate","TaskHTML":"en/Seventh/Math/Algebra/substitute_and_calculate","TaskTag":{"TagName":"Education.en.Seventh.Math.Algebra.SubstituteAndCalculate"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"Two-Step Equations","TaskHTML":"en/Seventh/Math/Algebra/two_step_equations","TaskTag":{"TagName":"Education.en.Seventh.Math.Algebra.TwoStepEquations"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
-  {"TaskName":"Linear Sequences & nth Term","TaskHTML":"en/Seventh/Math/Algebra/linear_sequences_nth_term","TaskTag":{"TagName":"Education.en.Seventh.Math.Algebra.LinearSequencesNthTerm"},"ChargesStatData":"/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"},
-  {"TaskName":"theme","TaskHTML":"7th grade.Math.Algebra","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Simplify with Brackets",
+    "TaskHTML": "simplify_with_brackets",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Algebra.SimplifyWithBrackets"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Substitute and Calculate",
+    "TaskHTML": "substitute_and_calculate",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Algebra.SubstituteAndCalculate"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Two-Step Equations",
+    "TaskHTML": "two_step_equations",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Algebra.TwoStepEquations"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Linear Sequences & nth Term",
+    "TaskHTML": "linear_sequences_nth_term",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Algebra.LinearSequencesNthTerm"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7th grade.Math.Algebra",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

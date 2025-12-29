@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Характеристики вибірки",
-    "TaskHTML": "uk/Seventh/Math/DataProbabilityPercents/data_measures",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.DataMeasures" },
+    "TaskHTML": "data_measures",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.DataMeasures"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
   },
   {
     "TaskName": "Імовірність події",
-    "TaskHTML": "uk/Seventh/Math/DataProbabilityPercents/simple_probability",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.SimpleProbability" },
+    "TaskHTML": "simple_probability",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.SimpleProbability"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
   },
   {
     "TaskName": "Відсоткові зміни",
-    "TaskHTML": "uk/Seventh/Math/DataProbabilityPercents/percent_change",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.PercentChange" },
+    "TaskHTML": "percent_change",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.DataProbabilityPercents.PercentChange"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "7 клас.Математика.Дані, ймовірності, проценти",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

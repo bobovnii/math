@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Читаємо десяткові",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/reading_decimals",
+    "TaskHTML": "reading_decimals",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.ReadingDecimals"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Округли десятковий",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/round_decimals",
+    "TaskHTML": "round_decimals",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.RoundDecimals"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Додаємо десяткові",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/add_decimals",
+    "TaskHTML": "add_decimals",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.AddDecimals"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Множимо/ділимо на 10, 100",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/powers_of_ten",
+    "TaskHTML": "powers_of_ten",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.PowersOfTen"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Відсоток від числа",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/percent_of_number",
+    "TaskHTML": "percent_of_number",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.PercentOfNumber"
     },
@@ -41,7 +41,7 @@
   },
   {
     "TaskName": "Зміна на відсоток",
-    "TaskHTML": "uk/Fifth/Math/DecimalsPercents/percent_change",
+    "TaskHTML": "percent_change",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DecimalsPercents.PercentChange"
     },

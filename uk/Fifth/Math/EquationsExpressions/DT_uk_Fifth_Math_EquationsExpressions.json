@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Знайди x",
-    "TaskHTML": "uk/Fifth/Math/EquationsExpressions/solve_for_x",
+    "TaskHTML": "solve_for_x",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.EquationsExpressions.SolveForX"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Порахуй вираз",
-    "TaskHTML": "uk/Fifth/Math/EquationsExpressions/evaluate_expression",
+    "TaskHTML": "evaluate_expression",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.EquationsExpressions.EvaluateExpression"
     },

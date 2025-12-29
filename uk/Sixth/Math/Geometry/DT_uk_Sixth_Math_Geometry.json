@@ -1,32 +1,42 @@
 [
   {
     "TaskName": "Класифікація трикутників",
-    "TaskHTML": "uk/Sixth/Math/Geometry/triangle_classification",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.Geometry.TriangleClassification" },
+    "TaskHTML": "triangle_classification",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.Geometry.TriangleClassification"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "Сума кутів трикутника",
-    "TaskHTML": "uk/Sixth/Math/Geometry/triangle_angle_sum",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.Geometry.TriangleAngleSum" },
+    "TaskHTML": "triangle_angle_sum",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.Geometry.TriangleAngleSum"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
   },
   {
     "TaskName": "Властивості паралелограма",
-    "TaskHTML": "uk/Sixth/Math/Geometry/parallelogram_properties",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.Geometry.ParallelogramProperties" },
+    "TaskHTML": "parallelogram_properties",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.Geometry.ParallelogramProperties"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
   },
   {
     "TaskName": "Довжина кола і коло",
-    "TaskHTML": "uk/Sixth/Math/Geometry/circumference_calc",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.Geometry.CircumferenceCalc" },
+    "TaskHTML": "circumference_calc",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.Geometry.CircumferenceCalc"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "6 клас.Математика.Геометрія",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

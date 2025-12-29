@@ -1,9 +1,58 @@
 [
-  {"TaskName":"Simplify and Compare","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/simplify_and_compare","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.SimplifyAndCompare"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Add/Subtract Fractions","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/add_subtract_fractions","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.AddSubtractFractions"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"Multiply/Divide Fractions","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/multiply_divide_fractions","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.MultiplyDivideFractions"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
-  {"TaskName":"Fraction of an Amount","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/fraction_of_amount","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.FractionOfAmount"},"ChargesStatData":"/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"},
-  {"TaskName":"Decimal Multiply/Divide by Whole","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/decimal_multiply_divide_whole","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.DecimalMultiplyDivideByWhole"},"ChargesStatData":"/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"},
-  {"TaskName":"Percent-Decimal-Fraction","TaskHTML":"en/Sixth/Math/FractionsDecimalsPercentages/percent_decimal_fraction","TaskTag":{"TagName":"Education.en.Sixth.Math.FractionsDecimalsPercentages.PercentDecimalFraction"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"},
-  {"TaskName":"theme","TaskHTML":"6th grade.Math.Fractions, Decimals, Percentages","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Simplify and Compare",
+    "TaskHTML": "simplify_and_compare",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.SimplifyAndCompare"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Add/Subtract Fractions",
+    "TaskHTML": "add_subtract_fractions",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.AddSubtractFractions"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Multiply/Divide Fractions",
+    "TaskHTML": "multiply_divide_fractions",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.MultiplyDivideFractions"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Fraction of an Amount",
+    "TaskHTML": "fraction_of_amount",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.FractionOfAmount"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "Decimal Multiply/Divide by Whole",
+    "TaskHTML": "decimal_multiply_divide_whole",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.DecimalMultiplyDivideByWhole"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/4WallOfFire/BP_StatData_WallOfFireCharges.BP_StatData_WallOfFireCharges_C"
+  },
+  {
+    "TaskName": "Percent-Decimal-Fraction",
+    "TaskHTML": "percent_decimal_fraction",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.FractionsDecimalsPercentages.PercentDecimalFraction"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "6th grade.Math.Fractions, Decimals, Percentages",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

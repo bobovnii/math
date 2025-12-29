@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Площа паралелограма",
-    "TaskHTML": "uk/Sixth/Math/AreasVolumes/parallelogram_area",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.AreasVolumes.ParallelogramArea" },
+    "TaskHTML": "parallelogram_area",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.AreasVolumes.ParallelogramArea"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
   },
   {
     "TaskName": "Площа трикутника",
-    "TaskHTML": "uk/Sixth/Math/AreasVolumes/triangle_area_formula",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.AreasVolumes.TriangleAreaFormula" },
+    "TaskHTML": "triangle_area_formula",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.AreasVolumes.TriangleAreaFormula"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "Обчисли об’єм",
-    "TaskHTML": "uk/Sixth/Math/AreasVolumes/rectangular_prism_volume",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.AreasVolumes.RectangularPrismVolume" },
+    "TaskHTML": "rectangular_prism_volume",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.AreasVolumes.RectangularPrismVolume"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "6 клас.Математика.Площі та об’єми",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

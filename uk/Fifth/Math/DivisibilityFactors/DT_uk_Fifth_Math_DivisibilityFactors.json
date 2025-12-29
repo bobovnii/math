@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Подільність швидко",
-    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/divisibility_quick",
+    "TaskHTML": "divisibility_quick",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.DivisibilityQuick"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "НСД невеликих чисел",
-    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/gcd_small_numbers",
+    "TaskHTML": "gcd_small_numbers",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.GcdSmallNumbers"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "НСК тренування",
-    "TaskHTML": "uk/Fifth/Math/DivisibilityFactors/lcm_practice",
+    "TaskHTML": "lcm_practice",
     "TaskTag": {
       "TagName": "Education.uk.Fifth.Math.DivisibilityFactors.LcmPractice"
     },

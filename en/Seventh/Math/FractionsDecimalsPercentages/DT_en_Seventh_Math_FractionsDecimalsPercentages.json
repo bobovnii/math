@@ -1,7 +1,42 @@
 [
-  {"TaskName":"Fraction Add/Subtract","TaskHTML":"en/Seventh/Math/FractionsDecimalsPercentages/fraction_add_subtract","TaskTag":{"TagName":"Education.en.Seventh.Math.FractionsDecimalsPercentages.FractionAddSubtract"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Fraction Multiply/Divide","TaskHTML":"en/Seventh/Math/FractionsDecimalsPercentages/fraction_multiply_divide","TaskTag":{"TagName":"Education.en.Seventh.Math.FractionsDecimalsPercentages.FractionMultiplyDivide"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"Percentage Change","TaskHTML":"en/Seventh/Math/FractionsDecimalsPercentages/percentage_change","TaskTag":{"TagName":"Education.en.Seventh.Math.FractionsDecimalsPercentages.PercentageChange"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
-  {"TaskName":"Decimal Operations","TaskHTML":"en/Seventh/Math/FractionsDecimalsPercentages/decimal_operations","TaskTag":{"TagName":"Education.en.Seventh.Math.FractionsDecimalsPercentages.DecimalOperations"},"ChargesStatData":"/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"},
-  {"TaskName":"theme","TaskHTML":"7th grade.Math.Fractions, Decimals, Percentages","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Fraction Add/Subtract",
+    "TaskHTML": "fraction_add_subtract",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.FractionsDecimalsPercentages.FractionAddSubtract"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Fraction Multiply/Divide",
+    "TaskHTML": "fraction_multiply_divide",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.FractionsDecimalsPercentages.FractionMultiplyDivide"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Percentage Change",
+    "TaskHTML": "percentage_change",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.FractionsDecimalsPercentages.PercentageChange"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Decimal Operations",
+    "TaskHTML": "decimal_operations",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.FractionsDecimalsPercentages.DecimalOperations"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7th grade.Math.Fractions, Decimals, Percentages",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

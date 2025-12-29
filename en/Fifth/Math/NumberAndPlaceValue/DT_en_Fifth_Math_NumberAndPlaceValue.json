@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Place Value Detective",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/place_value_detective",
+    "TaskHTML": "place_value_detective",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.PlaceValueDetective"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Words and Numerals",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/words_and_numerals",
+    "TaskHTML": "words_and_numerals",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.WordsAndNumerals"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Order the Millions",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/order_the_millions",
+    "TaskHTML": "order_the_millions",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.OrderTheMillions"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Round to the Target",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/round_to_the_target",
+    "TaskHTML": "round_to_the_target",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.RoundToTheTarget"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Roman Numeral Match",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/roman_numeral_match",
+    "TaskHTML": "roman_numeral_match",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.RomanNumeralMatch"
     },
@@ -41,7 +41,7 @@
   },
   {
     "TaskName": "Shift by 10/100/1000",
-    "TaskHTML": "en/Fifth/Math/NumberAndPlaceValue/shift_by_powers_of_ten",
+    "TaskHTML": "shift_by_powers_of_ten",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.NumberAndPlaceValue.ShiftByPowersOfTen"
     },

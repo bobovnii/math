@@ -1,7 +1,42 @@
 [
-  {"TaskName":"Order Integers with Negatives","TaskHTML":"en/Seventh/Math/Number/order_integers_negatives","TaskTag":{"TagName":"Education.en.Seventh.Math.Number.OrderIntegersWithNegatives"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Factors & Multiples","TaskHTML":"en/Seventh/Math/Number/factors_multiples","TaskTag":{"TagName":"Education.en.Seventh.Math.Number.FactorsAndMultiples"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"Squares, Cubes, Roots","TaskHTML":"en/Seventh/Math/Number/squares_cubes_roots","TaskTag":{"TagName":"Education.en.Seventh.Math.Number.SquaresCubesRoots"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
-  {"TaskName":"Integer Operations Mix","TaskHTML":"en/Seventh/Math/Number/integer_operations_mix","TaskTag":{"TagName":"Education.en.Seventh.Math.Number.IntegerOperationsMix"},"ChargesStatData":"/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"},
-  {"TaskName":"theme","TaskHTML":"7th grade.Math.Number","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Order Integers with Negatives",
+    "TaskHTML": "order_integers_negatives",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Number.OrderIntegersWithNegatives"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Factors & Multiples",
+    "TaskHTML": "factors_multiples",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Number.FactorsAndMultiples"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Squares, Cubes, Roots",
+    "TaskHTML": "squares_cubes_roots",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Number.SquaresCubesRoots"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "Integer Operations Mix",
+    "TaskHTML": "integer_operations_mix",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Number.IntegerOperationsMix"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7th grade.Math.Number",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

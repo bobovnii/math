@@ -1,5 +1,26 @@
 [
-  {"TaskName":"Single-Event Probability","TaskHTML":"en/Seventh/Math/Probability/single_event_probability","TaskTag":{"TagName":"Education.en.Seventh.Math.Probability.SingleEventProbability"},"ChargesStatData":"/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"},
-  {"TaskName":"Experimental vs Theoretical","TaskHTML":"en/Seventh/Math/Probability/experimental_vs_theoretical","TaskTag":{"TagName":"Education.en.Seventh.Math.Probability.ExperimentalVsTheoretical"},"ChargesStatData":"/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"},
-  {"TaskName":"theme","TaskHTML":"7th grade.Math.Probability","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Single-Event Probability",
+    "TaskHTML": "single_event_probability",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Probability.SingleEventProbability"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/8SmallGolem/BP_StatData_SmallGolemCharges.BP_StatData_SmallGolemCharges_C"
+  },
+  {
+    "TaskName": "Experimental vs Theoretical",
+    "TaskHTML": "experimental_vs_theoretical",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.Probability.ExperimentalVsTheoretical"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7th grade.Math.Probability",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

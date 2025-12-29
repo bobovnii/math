@@ -1,5 +1,26 @@
 [
-  {"TaskName":"Ratio Simplify & Scale","TaskHTML":"en/Seventh/Math/RatioAndProportion/ratio_scale_up_down","TaskTag":{"TagName":"Education.en.Seventh.Math.RatioAndProportion.RatioSimplifyAndScale"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Unitary Method","TaskHTML":"en/Seventh/Math/RatioAndProportion/unitary_method","TaskTag":{"TagName":"Education.en.Seventh.Math.RatioAndProportion.UnitaryMethod"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"theme","TaskHTML":"7th grade.Math.Ratio and Proportion","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Ratio Simplify & Scale",
+    "TaskHTML": "unitary_method",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.RatioAndProportion.RatioSimplifyAndScale"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Unitary Method",
+    "TaskHTML": "unitary_method",
+    "TaskTag": {
+      "TagName": "Education.en.Seventh.Math.RatioAndProportion.UnitaryMethod"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "7th grade.Math.Ratio and Proportion",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

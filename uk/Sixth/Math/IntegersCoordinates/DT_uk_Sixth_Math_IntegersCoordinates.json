@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Термометр та підйом",
-    "TaskHTML": "uk/Sixth/Math/IntegersCoordinates/thermometer_comparison",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.ThermometerComparison" },
+    "TaskHTML": "thermometer_comparison",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.ThermometerComparison"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
   },
   {
     "TaskName": "Цілі на осі",
-    "TaskHTML": "uk/Sixth/Math/IntegersCoordinates/add_integers_line",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.AddIntegersLine" },
+    "TaskHTML": "add_integers_line",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.AddIntegersLine"
+    },
     "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_ShieldCharges.BP_StatData_ShieldCharges_C"
   },
   {
     "TaskName": "Де точка?",
-    "TaskHTML": "uk/Sixth/Math/IntegersCoordinates/coordinate_plane_quadrants",
-    "TaskTag": { "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.CoordinatePlaneQuadrants" },
+    "TaskHTML": "coordinate_plane_quadrants",
+    "TaskTag": {
+      "TagName": "Education.uk.Sixth.Math.IntegersCoordinates.CoordinatePlaneQuadrants"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "6 клас.Математика.Цілі числа і координати",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

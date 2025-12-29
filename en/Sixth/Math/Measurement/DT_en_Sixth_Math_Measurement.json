@@ -1,6 +1,34 @@
 [
-  {"TaskName":"Metric Conversion Mix","TaskHTML":"en/Sixth/Math/Measurement/metric_conversion_mix","TaskTag":{"TagName":"Education.en.Sixth.Math.Measurement.MetricConversionMix"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"},
-  {"TaskName":"Area of Parallelograms","TaskHTML":"en/Sixth/Math/Measurement/area_of_parallelograms","TaskTag":{"TagName":"Education.en.Sixth.Math.Measurement.AreaOfParallelograms"},"ChargesStatData":"/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"},
-  {"TaskName":"Volume of Cuboids","TaskHTML":"en/Sixth/Math/Measurement/volume_of_cuboids","TaskTag":{"TagName":"Education.en.Sixth.Math.Measurement.VolumeOfCuboids"},"ChargesStatData":"/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"},
-  {"TaskName":"theme","TaskHTML":"6th grade.Math.Measurement","TaskTag":{"TagName":""},"ChargesStatData":""}
+  {
+    "TaskName": "Metric Conversion Mix",
+    "TaskHTML": "metric_conversion_mix",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.Measurement.MetricConversionMix"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireStaffCharges.BP_StatData_FireStaffCharges_C"
+  },
+  {
+    "TaskName": "Area of Parallelograms",
+    "TaskHTML": "area_of_parallelograms",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.Measurement.AreaOfParallelograms"
+    },
+    "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
+  },
+  {
+    "TaskName": "Volume of Cuboids",
+    "TaskHTML": "volume_of_cuboids",
+    "TaskTag": {
+      "TagName": "Education.en.Sixth.Math.Measurement.VolumeOfCuboids"
+    },
+    "ChargesStatData": "/Game/Blueprints/Items/Weapon/BP_StatData_FireBallCharges.BP_StatData_FireBallCharges_C"
+  },
+  {
+    "TaskName": "theme",
+    "TaskHTML": "6th grade.Math.Measurement",
+    "TaskTag": {
+      "TagName": ""
+    },
+    "ChargesStatData": ""
+  }
 ]

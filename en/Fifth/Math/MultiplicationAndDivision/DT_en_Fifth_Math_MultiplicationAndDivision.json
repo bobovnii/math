@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Factor Finder",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/factor_finder",
+    "TaskHTML": "factor_finder",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.FactorFinder"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Common Multiple Match",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/common_multiple_match",
+    "TaskHTML": "common_multiple_match",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.CommonMultipleMatch"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Long Multiplication 3-digit × 1-digit",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/long_multiplication_4digit",
+    "TaskHTML": "long_multiplication_4digit",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.LongMultiplication4Digit"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Short Division with Remainder",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/short_division_with_remainder",
+    "TaskHTML": "short_division_with_remainder",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.ShortDivisionWithRemainder"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Divide by 10/100/1000",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/divide_by_powers_of_ten",
+    "TaskHTML": "divide_by_powers_of_ten",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.DivideByPowersOfTen"
     },
@@ -41,7 +41,7 @@
   },
   {
     "TaskName": "Operation Choice",
-    "TaskHTML": "en/Fifth/Math/MultiplicationAndDivision/operation_choice",
+    "TaskHTML": "operation_choice",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.MultiplicationAndDivision.OperationChoice"
     },

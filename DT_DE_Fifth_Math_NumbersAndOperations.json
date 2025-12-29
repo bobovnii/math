@@ -2,7 +2,7 @@
   {
     "Name": "0",
     "TaskName": "Illuha",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index",
+    "TaskHTML": "index",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.ArithmeticLaws"
     },
@@ -11,7 +11,7 @@
   {
     "Name": "1",
     "TaskName": "vse",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index1",
+    "TaskHTML": "index1",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.ArithmeticOperations"
     },
@@ -20,7 +20,7 @@
   {
     "Name": "2",
     "TaskName": "zaebis",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index2",
+    "TaskHTML": "index2",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.ComparisonAndPowers"
     },
@@ -29,7 +29,7 @@
   {
     "Name": "3",
     "TaskName": "rabotaet",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index3",
+    "TaskHTML": "index3",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.DivisibilityAndPrimes"
     },
@@ -38,7 +38,7 @@
   {
     "Name": "4",
     "TaskName": "olololo",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index4",
+    "TaskHTML": "index4",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.Expressions"
     },
@@ -47,7 +47,7 @@
   {
     "Name": "5",
     "TaskName": "Numerical Expressions",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index5",
+    "TaskHTML": "index5",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.InverseOperations"
     },
@@ -56,7 +56,7 @@
   {
     "Name": "6",
     "TaskName": "Arithmetic Laws",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index6",
+    "TaskHTML": "index6",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.NumberConcepts"
     },
@@ -65,7 +65,7 @@
   {
     "Name": "7",
     "TaskName": "Prime & Factors",
-    "TaskHTML": "de/Fifth/Math/NumbersAndOperations/index7",
+    "TaskHTML": "index7",
     "TaskTag": {
       "TagName": "Education.DE.Fifth.Math.NumbersAndOperations.NumberLine"
     },

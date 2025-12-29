@@ -1,26 +1,34 @@
 [
   {
     "TaskName": "Розв’яжи рівняння",
-    "TaskHTML": "uk/Seventh/Math/EquationsInequalities/solve_linear_equation",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.EquationsInequalities.SolveLinearEquation" },
+    "TaskHTML": "solve_linear_equation",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.EquationsInequalities.SolveLinearEquation"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/3FireTornado/BP_StatData_FireTornadoCharges.BP_StatData_FireTornadoCharges_C"
   },
   {
     "TaskName": "Розв’яжи нерівність",
-    "TaskHTML": "uk/Seventh/Math/EquationsInequalities/solve_inequality",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.EquationsInequalities.SolveInequality" },
+    "TaskHTML": "solve_inequality",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.EquationsInequalities.SolveInequality"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/1FireCircle/BP_StatData_FireCirclesCharges.BP_StatData_FireCirclesCharges_C"
   },
   {
     "TaskName": "Пряма і обернена пропорція",
-    "TaskHTML": "uk/Seventh/Math/EquationsInequalities/proportion_relations",
-    "TaskTag": { "TagName": "Education.uk.Seventh.Math.EquationsInequalities.ProportionRelations" },
+    "TaskHTML": "proportion_relations",
+    "TaskTag": {
+      "TagName": "Education.uk.Seventh.Math.EquationsInequalities.ProportionRelations"
+    },
     "ChargesStatData": "/Game/GeometicalSpells/5MagicalNet/BP_StatData_MagicalNetCharges.BP_StatData_MagicalNetCharges_C"
   },
   {
     "TaskName": "theme",
     "TaskHTML": "7 клас.Математика.Рівняння та нерівності",
-    "TaskTag": { "TagName": "" },
+    "TaskTag": {
+      "TagName": ""
+    },
     "ChargesStatData": ""
   }
 ]

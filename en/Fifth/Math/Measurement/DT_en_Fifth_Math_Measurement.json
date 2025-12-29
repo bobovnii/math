@@ -1,7 +1,7 @@
 [
   {
     "TaskName": "Metric Conversion Sprint",
-    "TaskHTML": "en/Fifth/Math/Measurement/metric_conversion_sprint",
+    "TaskHTML": "metric_conversion_sprint",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.Measurement.MetricConversionSprint"
     },
@@ -9,7 +9,7 @@
   },
   {
     "TaskName": "Perimeter of Rectangles",
-    "TaskHTML": "en/Fifth/Math/Measurement/perimeter_of_rectangles",
+    "TaskHTML": "perimeter_of_rectangles",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.Measurement.PerimeterOfRectangles"
     },
@@ -17,7 +17,7 @@
   },
   {
     "TaskName": "Area of Rectangles and Simple Compounds",
-    "TaskHTML": "en/Fifth/Math/Measurement/area_rectangles_and_compounds",
+    "TaskHTML": "area_rectangles_and_compounds",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.Measurement.AreaRectanglesAndCompounds"
     },
@@ -25,7 +25,7 @@
   },
   {
     "TaskName": "Estimate Volume and Capacity",
-    "TaskHTML": "en/Fifth/Math/Measurement/estimate_volume_and_capacity",
+    "TaskHTML": "estimate_volume_and_capacity",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.Measurement.EstimateVolumeAndCapacity"
     },
@@ -33,7 +33,7 @@
   },
   {
     "TaskName": "Timetable Solver",
-    "TaskHTML": "en/Fifth/Math/Measurement/timetable_solver",
+    "TaskHTML": "timetable_solver",
     "TaskTag": {
       "TagName": "Education.en.Fifth.Math.Measurement.TimetableSolver"
     },
